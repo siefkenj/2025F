@@ -20,7 +20,6 @@ jobs:
                   echo "Current directory: $(pwd)"
                   echo "Files in current directory:"
                   ls -la
-                  ls book/typst/
             - name: Compile Typst Files
               uses: siefkenj/compile-typst-action@main
               with:
@@ -49,7 +48,7 @@ jobs:
             - name: Checkout sources
               uses: actions/checkout@v4
 
-            - name: Download textbook PDFs
+            - name: Download PDFs
               uses: actions/download-artifact@v4
               with:
                   name: build-artifacts
