@@ -207,3 +207,52 @@
   + How can you write down all solutions to the system?
 
 ]
+#slide(title: [Bellah 1.28])[
+  Below are row reduced augmented matrices for systems of equations (A), (B), and (C):
+  #{
+    set align(center)
+    grid(
+      gutter: 3em,
+      columns: 3,
+      $
+        "rref"(A) = mat(1, 0, 1, 0; 0, 1, 1, 0; 0, 0, 0, 1; augment: #3)
+      $,
+      $
+        "rref"(B) = mat(1, 0, 2; 0, 1, 3; 0, 0, 0; augment: #2)
+      $,
+      $
+        "rref"(C) = mat(1, 2, -1, 0; 0, 0, 0, 1; augment: #3)
+      $,
+    )
+  }
+
+  + Identify what the solution set looks like for each of the original systems.
+  + Can you produce a list of rules for determining, based off an augmented matrix whether what the
+    solution set looks like?
+]
+
+#slide(title: [Bellah 1.27])[
+  #{
+    show: block.with(height: 10cm, breakable: false)
+    definition(title: [Rouché-Capelli Theorem])[
+      Let $A$ be the augmented matrix for a system of equations and let $C$ be its coefficient
+      matrix. Then,
+      - The system is _consistent_ if and only if $"rref"(A)$ does *not* have a pivot in the last
+        column.
+      - The system has a _unique solution_ if and only if and only if *every column* and *every row*
+        of $"rref"(C)$ has a pivot.
+      - The system has _infinitely many solutions_ if and only if it is consistent and at least one
+        column of $"rref"(C)$ does not have a pivot.
+
+    ]
+  }
+]
+
+#slide(title: [Bellah 1.7])[
+  Suppose that we’re given a set of $n$ data points that lie exactly on the graph of some unknown
+  cubic function.
+
+  + What’s the minimum number of points needed to guarantee there’s exactly one cubic function
+    passing through them?
+  + Use the Rouché-Capelli Theorem to justify your answer.
+]
