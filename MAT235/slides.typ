@@ -2,6 +2,7 @@
 #import "@preview/touying:0.6.1": *
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
+#import "@preview/lilaq:0.4.0" as lq
 
 #let slide(..args) = {
   let title = args.named().at("title", default: none)
@@ -20,7 +21,7 @@
   },
   config-info(
     title: [MAT235 Slides LEC0401],
-    subtitle: [Multivariable Calculus],
+    subtitle: [Jason Siefken],
     // author: [Jason Siefken],
     // date: datetime.today(),
     // institution: [University of Toronto],
@@ -52,158 +53,123 @@
 
 #title-slide()
 
-#slide(title: [Setting the Stage])[
-  Directions
+#slide(title: [Siefken 1])[
+  Multi-variable functions are functions from multiple inputs to multiple outputs.
 
-  For each of the questions that follow, I will ask you to:
+  When there is one input and one output we can visualize a function by graphing inputs on the
+  $x$-axis and outputs on the $y$-axis.
 
-  + *Think* about a possible answer on your own.
-  + *Discuss* your answers with the rest of your group.
-  + *Share* a summary of each group’s discussion.
+  + What are some ways we might visualize a function with two inputs and one output?
 
+    Come up with several ideas.
 ]
 
-#slide(title: [Setting the Stage])[
-  What are the goals of a university education?
-]
-#slide(title: [Setting the Stage])[
-  How does a person learn something new?
-]
-#slide(title: [Setting the Stage])[
-  What do you reasonably expect to remember from your courses in 20 years?
-]
 
-#slide(title: [Bellah 1.1 P1])[
-  Model the following with a system of equations:
+#slide(title: [Siefken 2])[
+  #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
 
-  Suppose you are planning a meal using three foods. Each unit of food contains a different
-  combination of protein, carbohydrates, and fat, as shown below:
+  The following table describes the elevation of various locations in a campground (in meters) at
+  various distances (in km) East and North of the campground entrance.
 
   #{
     set align(center)
     table(
-      columns: 4,
-      [Food], [Food A], [Food B], [Food C],
-      [Protein (g)], [2], [1], [4],
-      [Carbs (g)], [3], [1], [2],
-      [Fat (g)], [1], [2], [3],
+      columns: 5,
+      [N \\ E], [1], [2], [3], [4],
+      [1], [#F(1, 1)], [#F(1, 2)], [#F(1, 3)], [#F(1, 4)],
+      [2], [#F(2, 1)], [#F(2, 2)], [#F(2, 3)], [#F(2, 4)],
+      [3], [#F(3, 1)], [#F(3, 2)], [#F(3, 3)], [#F(3, 4)],
+      [4], [#F(4, 1)], [#F(4, 2)], [#F(4, 3)], [#F(4, 4)],
     )
   }
-  If you want your meal to contain exactly 30 grams of protein, 25 grams of carbs, and 20 grams of
-  fat, how many units of each food should you include in your meal?
+
+  + Make a sketch of elevation vs. position if you started hiking at $(1,1)$ and headed directly
+    East.
+  + Make a sketch of elevation vs. position if you started hiking at $(1,1)$ and headed directly
+    North.
+  + If you walked around the entire campground, where would you encounter the steepest slope?
+    Justify your answer.
+
 ]
 
-#slide(title: [Bellah 1.1 P2])[
-  Given a collection of data, it is often useful to find a mathematical model that fits the data
-  exactly. This process, called interpolation, allows us to estimate missing values and understand
-  the underlying pattern of our data.
+#slide(title: [Siefken 3])[
+  #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
 
-  Find a cubic function $f (x) = a x^3 +b x^2 +c x+d$ that passes through all of the following
-  points: $(0, −2)$, $(1, 1)$, $(2, 6)$, and $(3, 10)$.
-]
-
-#slide(title: [Bellah 1.1 P3])[
-  Three connected buildings are involved: ROB (Robarts Library), SS (Sidney Smith Hall), and BA
-  (Bahen Centre). Water is delivered between the buildings as follows:
-  - The city sends 120 liters of water per minute to ROB,
-  - ROB uses 35 liters of water per minute and sends the rest to SS,
-  - SS uses 40 liters of water per minute and sends the rest to BA, and
-  - BA uses 45 liters of water per minute and sends the rest to ROB.
-  Describe the rate at which water needs to flow between each of the buildings in order for the
-  system to be conserved (that is, no water is lost or stored)?
-]
-
-#slide(title: [Matrices and Equations])[
-  + Rewrite the augmented matrices as systems of equations.
-  + Which are easiest to solve? Why?
-  #{
-    set align(center)
-    grid(
-      gutter: 3em,
-      columns: 4,
-      $
-        A = mat(1, 2, 4; 3, 4, 5; augment: #2)
-      $,
-      $
-        B = mat(1, 1, 1, 1; 0, 1, -2, 1; 0, 0, 2, 2; augment: #3)
-      $,
-      $
-        C = mat(1, 0, 4; 0, 0, 5; augment: #2)
-      $,
-      $
-        D = mat(2, 2, 1, 2; 0, 0, 3, 6; augment: #3)
-      $,
-    )
-  }
-]
-
-#slide(title: [Bellah 1.13, 1.15, 1.16])[
-
-  #definition(title: [Pivot])[
-    The *pivot* of a row in a matrix is the first nonzero entry in that row (if it exists).
-  ]
-  #show: block.with(breakable: false)
-  #set text(size: .9em)
-
-  #definition(title: [Row Echelon Form])[
-    A matrix is in *row echelon form* if
-    + All nonzero rows are above any rows of all zeros; and
-    + The pivot of each nonzero row is to the right of the pivot of the previous row.
-  ]
-  #definition(title: [_Reduced_ Row Echelon Form])[
-    A matrix is in *reduced row echelon form* if
-    + It is in row echelon form; and
-    + The pivot of each nonzero row is the only nonzero entry in its column.
-  ]
-]
-
-#slide(title: [Bellah 1.3])[
-  Determine which of the following matrices are in row echelon form, reduced row echelon form, or
-  neither.
+  The following table describes the elevation of various locations in a campground (in meters) at
+  various distances (in km) East and North of the campground entrance.
 
   #{
     set align(center)
+    table(
+      columns: 5,
+      [N \\ E], [1], [2], [3], [4],
+      [1], [#F(1, 1)], [#F(1, 2)], [#F(1, 3)], [#F(1, 4)],
+      [2], [#F(2, 1)], [#F(2, 2)], [#F(2, 3)], [#F(2, 4)],
+      [3], [#F(3, 1)], [#F(3, 2)], [#F(3, 3)], [#F(3, 4)],
+      [4], [#F(4, 1)], [#F(4, 2)], [#F(4, 3)], [#F(4, 4)],
+    )
+  }
+
+  A _topographic map_ shows geographic features by including lines of constant elevation.
+
+  + Sketch a topographic map of the campground.
+
+]
+
+
+
+#slide(title: [Siefken 4])[
+  #{
+    let a = lq.diagram(
+      title: [Map A],
+      width: 4cm,
+      height: 4cm,
+      lq.contour(
+        lq.linspace(-5, 5, num: 20),
+        lq.linspace(-5, 5, num: 20),
+        (x, y) => x * y,
+        map: color.map.icefire,
+      ),
+    )
+    let b = lq.diagram(
+      title: [Map B],
+      width: 4cm,
+      height: 4cm,
+      lq.contour(
+        lq.linspace(-5, 5, num: 20),
+        lq.linspace(-5, 5, num: 20),
+        (x, y) => x - y,
+        map: color.map.icefire,
+      ),
+    )
+    let c = lq.diagram(
+      title: [Map C],
+      width: 4cm,
+      height: 4cm,
+      lq.contour(
+        lq.linspace(-5, 5, num: 20),
+        lq.linspace(-5, 5, num: 20),
+        (x, y) => (x) * (x - 5),
+        map: color.map.icefire,
+      ),
+    )
+    set align(center)
     grid(
-      gutter: 3em,
       columns: 3,
-      $
-        A = mat(1, 0, 0; 2, 0, 1; 3, 4, -1/2)
-      $,
-      $
-        B = mat(1, 0, 0; 0, 1, 0; 0, 0, 1)
-      $,
-      $
-        C = mat(0, -1, 0, 0; 0, 0, 2, 1)
-      $,
-
-      $
-        D = mat(0, 1, 0, 2; 0, 0, 1, 3; 0, 0, 0, 1)
-      $,
-      $
-        E = mat(0, 0, 1, 0; 0, 0, 0, 0; 0, 0, 0, 1)
-      $,
-      $
-        F = mat(0, 1, 2; 0, 0, 0)
-      $,
+      gutter: 2em,
+      a, b, c,
     )
   }
+
+  + Which of the contour maps above could represent a plane? (i.e., a flat surface)
+
+    Which ones could definitely _not_ represent a plane? Explain.
 ]
 
-#slide(title: [Bellah 1.5])[
-  Find $"rref"(A)$ where
-  $
-    A = mat(1, 1, 1, 7, -1; 0, 1, 1, 4, -1; -1, 2, 2, 5, -2)
-  $
-]
-#slide(title: [Bellah 1.6])[
-  $
-    A = mat(1, 1, 1, 7, -1; 0, 1, 1, 4, -1; -1, 2, 2, 5, -2)
-    wide "rref"(A) = mat(1, 0, 0, 3, 0; 0, 1, 1, 4, -1; 0, 0, 0, 0, 0)
-  $
-
-  Suppose $A$ is the augmented matrix for a system in the variables $x$, $y$, $z$, $w$.
-  + Which of these variables are free?
-  + Which of these variables are basic?
-  + How can you write down all solutions to the system?
-
+#slide(title: [Siefken 5])[
+  Draw a contour plot for a cone where:
+  + The tip is pointing straight up.
+  + The tip is pointing straight down.
+  + The tip is pointing directly along the $x$-axis.
+  + The tip is pointing in the direction of the line $y=x$ (in the $x y$-plane).
 ]
