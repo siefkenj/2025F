@@ -20,7 +20,7 @@
   },
   config-info(
     title: [MAT223 Slides LEC0101],
-    subtitle: [Linear Algebra I],
+    subtitle: [Jason Siefken],
     // author: [Jason Siefken],
     // date: datetime.today(),
     // institution: [University of Toronto],
