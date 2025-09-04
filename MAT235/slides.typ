@@ -273,7 +273,6 @@
     },
     [
 
-      The contours in the adjacent
 
       + Sketch the graphs of $z=f(x,1)$, $z=f(x,2)$, $z=f(x,3)$, and $z=f(x,4)$.
       + Where is the graph of $z=f(x,y)$ the "steepest"? In what direction is it steepest?
