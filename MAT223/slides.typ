@@ -4,10 +4,16 @@
 #import themes.metropolis: slide as slide-orig
 
 #let slide(..args) = {
-  let title = args.named().at("title", default: none)
+  let named = args.named()
+  let title = named.at("title", default: none)
+  let autoscale = named.at("autoscale", default: true)
   let positional = args.pos()
-  slide-orig(..args.named(), title: text(size: 18pt, title), ..positional.map(p => {
-    show: utils.fit-to-height.with(100%, grow: false)
+  slide-orig(title: text(size: 18pt, title), ..positional.map(p => {
+    show: if autoscale {
+      utils.fit-to-height.with(100%, grow: false)
+    } else {
+      it => it
+    }
     p
   }))
 }
@@ -239,8 +245,8 @@
       matrix. Then,
       - The system is _consistent_ if and only if $"rref"(A)$ does *not* have a pivot in the last
         column.
-      - The system has a _unique solution_ if and only if and only if *every column* and *every row*
-        of $"rref"(C)$ has a pivot.
+      - The system has a _unique solution_ if and only if *every column* and *every row* of
+        $"rref"(C)$ has a pivot.
       - The system has _infinitely many solutions_ if and only if it is consistent and at least one
         column of $"rref"(C)$ does not have a pivot.
 
@@ -255,4 +261,124 @@
   + What’s the minimum number of points needed to guarantee there’s exactly one cubic function
     passing through them?
   + Use the Rouché-Capelli Theorem to justify your answer.
+]
+
+
+#slide(title: [Bellah 2.2])[
+  #set text(size: .9em)
+  You are piloting an airplane equipped with two bi-directional fixed- direction thrusters.
+  - Running *Thruster A* forward for 1 second moves the plane 17 m East and 7 m North.
+  - Running *Thruster B* forward for 1 second moves the plane 5 m East and 18 m North.
+  - Running either thruster backward for 1 reverses the movement caused by running it forward.
+
+  There is a waypoint, $W$, located at 235 m East and 33 m North of your current position.
+
+  #set enum(numbering: n => [P#n.])
+  + By firing *exactly one* thruster, can you reach waypoint $W$? Justify.
+  + By firing *both* thrusters, can you reach waypoint $W$? Justify.
+  + Waypoint $C$ is located at an unknown location. The airport director asks: "are you confident
+    you can reach waypoint $C$ using both your thrusters? If so, I will tell you the coordinates."
+
+    What is your answer?
+]
+
+
+#slide(title: [Bellah 2.3])[
+  #set text(size: .9em)
+
+  For each vector equation, convert it into a system of equations and then find all solutions.
+
+  #set enum(numbering: n => [P#n.])
+  + $x mat(1; 2) + y mat(-1/2; 5)=mat(3; 4)$#v(1em)
+  + $x mat(1; 1; 1) + y mat(3 4; 1) = mat(2; 5; 1)$#v(1em)
+  + $x mat(2; 1) + y mat(5; 3) + z mat(-1; 0) = mat(4; 2)$
+]
+
+#slide(title: [Siefken 6])[
+  + Draw the following subsets of $RR^2$
+  #grid(
+    columns: 2,
+    gutter: 1em,
+    $V = {arrow(x) in RR^2 : arrow(x) = mat(0; t) " for some " t in RR}$,
+    $H = {arrow(x) in RR^2 : arrow(x) = mat(t; 0) " for some " t in RR}$,
+
+    $D = {arrow(x) in RR^2 : arrow(x) = t mat(1; 1) " for some " t in RR}$,
+    $N = {arrow(x) in RR^2 : arrow(x) = t mat(1; 1) " for all " t in RR}$,
+
+    $X = V union H$, $Y = V sect H$,
+  )
+
+  + Does $V union H = RR^2$?
+]
+
+#slide(title: [Siefken 15])[
+  + Define the term *linear combination*.
+  + Define the term *span*.
+
+    Let $arrow(v)_1 = mat(1; 1)$, $arrow(v)_2 = mat(1; -1)$, and $arrow(v)_3 = mat(2; 2)$.
+
+  + Draw $"span"{arrow(v)_1}$
+  + Draw $"span"{arrow(v)_2}$
+  + Draw $"span"{arrow(v)_1, arrow(v)_2}$
+  + Draw $"span"{arrow(v)_1, arrow(v)_3}$
+  + Draw $"span"{arrow(v)_1, arrow(v)_2, arrow(v)_3}$
+
+]
+
+#slide(autoscale: false)[
+  #definition(title: [Linearly Dependent (Geometric)])[
+    The vectors $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$ are *linearly dependent* if for at least
+    one $i in {1, ..., n}$ we have
+    $
+      arrow(v)_i in "span"{arrow(v)_1, ..., arrow(v)_(i-1), arrow(v)_(i+1), ..., arrow(v)_n}
+    $
+    // if there exist a
+    // non-trivial linear combination of $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$ that equals the zero
+    // vector.
+  ]
+  + Restate the definition of Linearly Dependent in terms of a systems of equations.
+  // + Can you restate the definition of Linearly Dependent using the idea of *span*?
+]
+
+#slide(title: [Bellah 2.11], autoscale: false)[
+  #set text(size: .8em)
+  #show: block.with(breakable: false, height: 8cm)
+  #definition(title: [Linearly Dependent (Algebraic)])[
+    The vectors $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$ are *linearly dependent* if there exist a
+    non-trivial linear combination of $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$ that equals the zero
+    vector; i.e., there is a linear combination of $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$ where
+    not all coefficients are zero that equals the zero vector.
+  ]
+  *Theorem 2.11* The algebraic and geometric definitions of _Linear Dependence_ are equivalent.
+
+  #columns(2, [
+
+    + Suppose that $arrow(v)_1, arrow(v)_2, arrow(v)_3$ are linearly dependent by the Geometric
+      definition. Show that they are linearly dependent by the Algebraic definition.
+      #v(2em)
+
+    + Suppose that $arrow(v)_1, arrow(v)_2, arrow(v)_3$ are linearly dependent by the Algebraic
+      definition. Show that they are linearly dependent by the Geometric definition.
+  ])
+]
+
+#slide(title: [Bellah 2.6])[
+  Use Theorem 2.11 to determine which sets of vectors are linearly independent/dependent.
+
+  #set enum(numbering: n => [P#n.])
+
+  + $S={mat(1; 2; -3), mat(-1; 4; 0), mat(-1; 0; 2)}$
+
+  + $T={mat(1; 1; 0), mat(3; 1; 1), mat(-1; 2; 0)}$
+  + $U={mat(1; 0; 0; 0), mat(1; 0; 1; 0), mat(0; 0; 1; 1), mat(1; -1; 0; 0)}$
+]
+
+#slide(title: [Bellah 2.12])[
+  *Proposition 2.12* The vectors $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$ are linearly independent
+  if and only if the matrix $mat(arrow(v)_1, arrow(v)_2, ..., arrow(v)_n)$ has a pivot in every
+  column.
+
+  + Prove Proposition 2.12.
+
+    _Hint: use Rouché-Capelli._
 ]
