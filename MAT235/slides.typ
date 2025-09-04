@@ -65,7 +65,7 @@
 ]
 
 
-#slide(title: [Siefken 2])[
+#slide(title: [Siefken 2.1])[
   #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
 
   The following table describes the elevation of various locations in a campground (in meters) at
@@ -92,7 +92,68 @@
 
 ]
 
+#slide(title: [Siefken 2.2])[
+  #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
+
+  Recall the campground elevation.
+
+  #{
+    set align(center)
+    table(
+      columns: 5,
+      [N \\ E], [1], [2], [3], [4],
+      [1], [#F(1, 1)], [#F(1, 2)], [#F(1, 3)], [#F(1, 4)],
+      [2], [#F(2, 1)], [#F(2, 2)], [#F(2, 3)], [#F(2, 4)],
+      [3], [#F(3, 1)], [#F(3, 2)], [#F(3, 3)], [#F(3, 4)],
+      [4], [#F(4, 1)], [#F(4, 2)], [#F(4, 3)], [#(F(4, 4) - 1)],
+    )
+  }
+
+  + Starting at (3,3) and walking East, at what _slope_ will you be walking?
+  + Starting at (3,3) and walking North, at what _slope_ will you be walking?
+  + Starting at (3,3) and walking directly North-East, at what _slope_ will you be walking?
+  + You start at (3,3) and walk to (4,4). What is your total distance _in 3d space_ from your
+    starting point?
+]
+
+#slide(title: [Siefken 2.3])[
+  #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
+
+  Recall the campground elevation.
+
+  #{
+    set align(center)
+    table(
+      columns: 5,
+      [N \\ E], [1], [2], [3], [4],
+      [1], [#F(1, 1)], [#F(1, 2)], [#F(1, 3)], [#F(1, 4)],
+      [2], [#F(2, 1)], [#F(2, 2)], [#F(2, 3)], [#F(2, 4)],
+      [3], [#F(3, 1)], [#F(3, 2)], [#F(3, 3)], [#F(3, 4)],
+      [4], [#F(4, 1)], [#F(4, 2)], [#F(4, 3)], [#(F(4, 4) - 1)],
+    )
+  }
+
+  + Make a sketch of elevation vs. position if you started hiking at $(1,1)$ and headed directly
+    East. Repeat for $(2,1)$, $(3,1)$, and $(4,1)$.
+  + Make a sketch of elevation vs. position if you started hiking at $(1,1)$ and headed directly
+    North. Repeat for $(1,2)$, $(1,3)$, and $(1,4)$.
+  + Let $h(x,y)$ be the elevation at position $(x "East",y "North")$ in the campground.
+
+    Combine your slices from the previous part to sketch a _perspective drawing_ of the graph of
+    $z=h(x,y)$.
+]
+
 #slide(title: [Siefken 3])[
+  Consider $f(x,y) = x^2 + y^2$.
+
+  + Is $f$ a function? If so, how many inputs and outputs does it have?
+  + Let $h(y) = f(0,y)$. Is $h$ a function? If so, how many inputs and outputs does it have?
+  + Graph $z=f(0,y)$, $z=f(1,y)$, and $z=f(2,y)$. Make sure to label your axes.
+  + Graph $z=f(x,0)$, $z=f(x,1)$, and $z=f(x,2)$.
+  + Make a perspective drawing of the graph of $z=f(x,y)$.
+]
+
+#slide(title: [Siefken 4])[
   #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
 
   The following table describes the elevation of various locations in a campground (in meters) at
@@ -110,9 +171,10 @@
     )
   }
 
-  A _topographic map_ shows geographic features by including lines of constant elevation.
+  A _topographic map_ (also called a _contour map_ or _contour plot_) shows geographic features by
+  including lines of constant elevation.
 
-  + Sketch a topographic map of the campground.
+  + Sketch a topographic map (contour map) of the campground.
 
 ]
 
@@ -172,4 +234,54 @@
   + The tip is pointing straight down.
   + The tip is pointing directly along the $x$-axis.
   + The tip is pointing in the direction of the line $y=x$ (in the $x y$-plane).
+]
+
+#slide(title: [Siefken 6])[
+  #grid(
+    columns: 2,
+    gutter: 2em,
+
+    {
+      let a = lq.diagram(
+        title: [$z=f(x,y)$],
+        width: 10cm,
+        height: 10cm,
+        lq.contour(
+          lq.linspace(-5, 5, num: 300),
+          lq.linspace(-5, 5, num: 300),
+          (x, y) => calc.pow(calc.abs(x * y), 1 / 2) / 100,
+          map: color.map.icefire,
+        ),
+        xlim: (-0, 4),
+        ylim: (-0, 4),
+        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        lq.place(3.6, 3.6, $1$),
+        lq.place(3.1, 3.1, $2$),
+        lq.place(2.6, 2.6, $3$),
+        lq.place(2.1, 2.1, $4$),
+        lq.place(1.6, 1.6, $5$),
+        lq.place(1.1, 1.1, $6$),
+        lq.place(.6, .6, $7$),
+      )
+      set align(center)
+      grid(
+        columns: 3,
+        gutter: 2em,
+        a,
+      )
+    },
+    [
+
+      The contours in the adjacent
+
+      + Sketch the graphs of $z=f(x,1)$, $z=f(x,2)$, $z=f(x,3)$, and $z=f(x,4)$.
+      + Where is the graph of $z=f(x,y)$ the "steepest"? In what direction is it steepest?
+      + Where is the graph of $z=f(x,y)$ the "flattest"? In what direction is it flattest?
+      + You have a very long and very straight ruler that you would like to place on the surface of
+        $z=f(x,y)$. Is there anywhere you could set your ruler down on the surface? Explain.
+    ],
+  )
+
+
 ]
