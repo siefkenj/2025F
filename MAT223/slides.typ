@@ -153,7 +153,7 @@
   #definition(title: [_Reduced_ Row Echelon Form])[
     A matrix is in *reduced row echelon form* if
     + It is in row echelon form; and
-    + The pivot of each nonzero row is the only nonzero entry in its column.
+    + The pivot of each nonzero row is equal to $1$ and is the only nonzero entry in its column.
   ]
 ]
 
@@ -221,7 +221,7 @@
         "rref"(B) = mat(1, 0, 2; 0, 1, 3; 0, 0, 0; augment: #2)
       $,
       $
-        "rref"(C) = mat(1, 2, -1, 0; 0, 0, 0, 1; augment: #3)
+        "rref"(C) = mat(1, 2, 0, 2; 0, 0, 1, 1; augment: #3)
       $,
     )
   }
