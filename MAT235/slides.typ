@@ -92,6 +92,34 @@
 
 ]
 
+#slide(title: [Siefken 2.3])[
+  #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
+
+  Recall the campground elevation.
+
+  #{
+    set align(center)
+    table(
+      columns: 5,
+      [N \\ E], [1], [2], [3], [4],
+      [1], [#F(1, 1)], [#F(1, 2)], [#F(1, 3)], [#F(1, 4)],
+      [2], [#F(2, 1)], [#F(2, 2)], [#F(2, 3)], [#F(2, 4)],
+      [3], [#F(3, 1)], [#F(3, 2)], [#F(3, 3)], [#F(3, 4)],
+      [4], [#F(4, 1)], [#F(4, 2)], [#F(4, 3)], [#(F(4, 4) - 1)],
+    )
+  }
+
+  + Make a sketch of elevation vs. position if you started hiking at $(1,1)$ and headed directly
+    East. Repeat for $(1,2)$, $(1,3)$, and $(1,4)$.
+  + Make a sketch of elevation vs. position if you started hiking at $(1,1)$ and headed directly
+    North. Repeat for $(2,1)$, $(3,1)$, and $(4,1)$.
+  + Let $h(x,y)$ be the elevation at position $(x "East",y "North")$ in the campground.
+
+    Combine your slices from the previous part to sketch a _perspective drawing_ of the graph of
+    $z=h(x,y)$.
+]
+
+
 #slide(title: [Siefken 2.2])[
   #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
 
@@ -114,33 +142,6 @@
   + Starting at (3,3) and walking directly North-East, at what _slope_ will you be walking?
   + You start at (3,3) and walk to (4,4). What is your total distance _in 3d space_ from your
     starting point?
-]
-
-#slide(title: [Siefken 2.3])[
-  #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
-
-  Recall the campground elevation.
-
-  #{
-    set align(center)
-    table(
-      columns: 5,
-      [N \\ E], [1], [2], [3], [4],
-      [1], [#F(1, 1)], [#F(1, 2)], [#F(1, 3)], [#F(1, 4)],
-      [2], [#F(2, 1)], [#F(2, 2)], [#F(2, 3)], [#F(2, 4)],
-      [3], [#F(3, 1)], [#F(3, 2)], [#F(3, 3)], [#F(3, 4)],
-      [4], [#F(4, 1)], [#F(4, 2)], [#F(4, 3)], [#(F(4, 4) - 1)],
-    )
-  }
-
-  + Make a sketch of elevation vs. position if you started hiking at $(1,1)$ and headed directly
-    East. Repeat for $(2,1)$, $(3,1)$, and $(4,1)$.
-  + Make a sketch of elevation vs. position if you started hiking at $(1,1)$ and headed directly
-    North. Repeat for $(1,2)$, $(1,3)$, and $(1,4)$.
-  + Let $h(x,y)$ be the elevation at position $(x "East",y "North")$ in the campground.
-
-    Combine your slices from the previous part to sketch a _perspective drawing_ of the graph of
-    $z=h(x,y)$.
 ]
 
 #slide(title: [Siefken 3])[
