@@ -92,6 +92,7 @@
 
 ]
 
+// Did on 9-5-2025
 #slide(title: [Siefken 2.2])[
   #let F(x, y) = calc.round(20 + (-(x - 1) * (x - 1) - y * y) / 5)
 
@@ -143,6 +144,7 @@
     $z=h(x,y)$.
 ]
 
+// Did on 9-8-2025
 #slide(title: [Siefken 3])[
   Consider $f(x,y) = x^2 + y^2$.
 
@@ -226,6 +228,9 @@
   + Which of the contour maps above could represent a plane? (i.e., a flat surface)
 
     Which ones could definitely _not_ represent a plane? Explain.
+
+  + For Map B, estimate the slope at $(0,0)$ moving (i) directly up, (ii) directly right, (iii)
+    along $y=x$ headed to the upper-right, and (iv) along $y=-x$ headed to the upper-left.
 ]
 
 #slide(title: [Siefken 5])[
@@ -283,4 +288,24 @@
   )
 
 
+]
+
+
+#slide(title: [Siefken 7])[
+  Consider the plane $cal(P)$ given by the formula $z=2x-y$.
+  + Is the point $(3,3,3)$ on $cal(P)$? What about the point $(3,2,1)$? How can you tell?
+  + Sketch the contour map of $cal(P)$.
+  + Starting from $(0,0,0)$, in what direction does $cal(P)$ have *a slope of zero*?
+  + Starting from $(0,0,0)$, in what direction does $cal(P)$ have the *steepest* slope?
+  + Find the equation of a plane parallel to $cal(P)$ that passes through the point $(3,2,1)$.
+]
+
+
+#slide(title: [Siefken 8])[
+  Let $A=(2,0,0)$, $B=(0,3,0)$, and $C=(0,0,5)$. Let $cal(Q)$ be the plane that passes through $A$,
+  $B$, and $C$.
+  + Find an equation for the *slice* of $cal(Q)$ obtained when $y=0$.
+  + Find an equation for the *slice* of $cal(Q)$ obtained when $x=0$.
+  + Find an equation for $cal(Q)$.
+  + Find a function $f$ so that $cal(Q)$ is the graph of $z=f(x,y)$.
 ]
