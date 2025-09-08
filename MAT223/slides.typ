@@ -290,7 +290,7 @@
 
   #set enum(numbering: n => [P#n.])
   + $x mat(1; 2) + y mat(-1/2; 5)=mat(3; 4)$#v(1em)
-  + $x mat(1; 1; 1) + y mat(3 4; 1) = mat(2; 5; 1)$#v(1em)
+  + $x mat(1; 1; 1) + y mat(3; 4; 1) = mat(2; 5; 1)$#v(1em)
   + $x mat(2; 1) + y mat(5; 3) + z mat(-1; 0) = mat(4; 2)$
 ]
 
