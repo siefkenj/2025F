@@ -336,7 +336,7 @@
     // non-trivial linear combination of $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$ that equals the zero
     // vector.
   ]
-  + Restate the definition of Linearly Dependent in terms of a systems of equations.
+  + Restate the definition of Linearly Dependent in terms of an equation/systems of equations.
   // + Can you restate the definition of Linearly Dependent using the idea of *span*?
 ]
 
