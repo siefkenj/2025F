@@ -310,3 +310,65 @@
   + Find an equation for $cal(Q)$.
   + Find a function $f$ so that $cal(Q)$ is the graph of $z=f(x,y)$.
 ]
+
+
+#slide(title: [Siefken 10])[
+  Suppose the earth is centered at $(0,0,0)$. The temperature of inside the earth at position
+  $(x,y,z)$ (in units of thousands of km) is approximately given by
+  $
+    T(x,y,z) = -2(sqrt(x^2 + y^2 + z^2) - 3)^(1/3)+2
+  $
+  in units of thousands of degrees Celsius.
+
+  + Is $T$ a function? How many inputs and outputs does it have?
+  + What do "regions of constant temperature" look like according to $T$? Can you make a "contour
+    map" for temperature?
+  + The radius of Earth is approximately 6.3 thousand km. According to $T$, where is Earth hottest?
+    Where is it coldest?
+  + Use https://www.desmos.com/3d to plot regions of constant temperature. Based on your plots, when
+    does the temperature change the fastest? The slowest?
+]
+
+
+#slide(title: [Siefken 11])[
+  We say a graph is *extruded* when it is continued in the same way along a particular axis.
+
+  + Sketch the graph of $z=x^2$ in $RR^2$.
+  + Sketch a perspective drawing of the graph of $z=x^2$ *extruded* along the $y$-axis in $RR^3$.
+  + Make a contour map of the graph of $z=x^2$ *extruded* along the $y$-axis in $RR^3$.
+]
+
+#slide(title: [Siefken 11])[
+  + Draw three different graphs of discontinuous functions *in $RR^2$*.
+  + For each of your graphs, sketch a contour map of the graph extruded along the $y$-axis in
+    $RR^3$.
+  + What's one way you can tell if a function in $RR^3$ is discontinuous when looking at its contour
+    map?
+]
+
+#slide(title: [Siefken 5])[
+  #{
+    let a = lq.diagram(
+      title: [Map A],
+      width: 4cm,
+      height: 4cm,
+      lq.contour(
+        lq.linspace(-5, 5, num: 50),
+        lq.linspace(-5, 5, num: 50),
+        (x, y) => x * x / (x * x + y * y),
+        map: color.map.icefire,
+      ),
+    )
+    set align(center)
+    grid(
+      columns: 3,
+      gutter: 2em,
+      a,
+    )
+  }
+
+  + Is there any way to label the contours on Map A so that they correspond to a *continuous*
+    function? Explain.
+
+  + Map A came from graphing $f(x,y)= x^2/(x^2 + y^2)$. Is $f$ a continuous function? Explain.
+]
