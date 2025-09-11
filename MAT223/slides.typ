@@ -305,7 +305,7 @@
     $D = {arrow(x) in RR^2 : arrow(x) = t mat(1; 1) " for some " t in RR}$,
     $N = {arrow(x) in RR^2 : arrow(x) = t mat(1; 1) " for all " t in RR}$,
 
-    $X = V union H$, $Y = V sect H$,
+    $X = V union H$, $Y = V inter H$,
   )
 
   + Does $V union H = RR^2$?
@@ -376,7 +376,7 @@
 #slide(title: [Bellah 2.12])[
   *Proposition 2.12* The vectors $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$ are linearly independent
   if and only if the matrix $mat(arrow(v)_1, arrow(v)_2, ..., arrow(v)_n)$ has a pivot in every
-  column.
+  column of its reduced row echelon form.
 
   + Prove Proposition 2.12.
 
