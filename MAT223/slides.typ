@@ -382,3 +382,116 @@
 
     _Hint: use Rouché-Capelli._
 ]
+
+#slide(title: [Bellah 3.1])[
+  #definition(title: [Subspace])[
+    A subset $V subset.eq RR^n$ is a *subspace* if
+    - $V$ is non-empty;
+    - $V$ is closed under vector addition; and
+    - $V$ is closed under scalar multiplication.
+  ]
+
+  + Give a precise statement of what it mean for a set to be *closed under vector addition*?
+  + Give a precise statement of what it mean for a set to be *closed under scalar multiplication*?
+]
+
+#slide(title: [Siefken 34], autoscale: false)[
+  For each set, draw it and explain whether or not it is a subspace of $RR^2$.
+
+  #show: columns.with(2)
+  #set text(size: .85em)
+
+  + $A = {arrow(x) in RR^2 : arrow(x) = mat(a; 0) "for some " a in ZZ}$#v(.5em)
+  + $B = {arrow(x) in RR^2 : arrow(x) != mat(0; 0)$#v(.5em)
+  + $C = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "for some " t in RR}$#v(.5em)
+  + $D = {arrow(x) in RR^2 : arrow(x) = mat(0; t) + mat(1; 1) "for some " t in RR}$#v(.5em)
+  + $E = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "or" arrow(x)=mat(t; 0) "for some " t in RR}$#v(
+      .5em,
+    )
+  + $F = {arrow(x) in RR^2 : arrow(x) = t mat(2; 3) "for some " t in RR}$#v(.5em)
+  + $G = "span"{mat(1; 1)}$#v(.5em)
+  + $H = "span"{arrow(u), arrow(v)}$ where $arrow(u)$ and $arrow(v)$ are unknown vectors in $RR^2$.
+]
+
+#slide(title: [Bellah 3.2], autoscale: false)[
+  #definition(title: [Proposition 3.2])[
+    Let $arrow(v)_1, ...arrow(v)_n in RR^k$. Then $V="span"{arrow(v)_1, ..., arrow(v)_n}$ is a
+    subspace.
+  ]
+  + List the three things you need to show about $V$ for it to be a subspace.
+  + Show $V$ is non-empty.
+  + Show $V$ is a subspace.
+  + Is $"span"{}$ (i.e., the span of the empty set) a subspace? Why or why not?
+]
+
+#slide(title: [Bellah 3.2], autoscale: false)[
+  #set text(size: .9em)
+  #definition(title: [Spanning Set])[
+    $X={arrow(v)_1, ..., arrow(v)_n}$ is a *spanning set* (or *generating set*) for a subspace $V$
+    if $V="span"(X)$.
+  ]
+
+
+  Find *two different* spanning sets for each of the following subspaces.
+
+  #set enum(numbering: n => [P#n.])
+  + $V = {mat(2x; 0) : x in RR}$#v(.7em)
+  + $W = {mat(x-y; x+y+2z; y+z) : x,y,z in RR}$
+]
+
+#slide(autoscale: false)[
+  #set text(size: .9em)
+  Recall $V = {mat(2x; 0) : x in RR}$ and $W = {mat(x-y; x+y+2z; y+z) : x,y,z in RR}$.
+
+  + Let $A$ be a spanning set for a subspace $X$. Define what it means for $A$ to be a *basis* for
+    $X$.
+  + Find a spanning set for $V$ that is a *basis* and another spanning set for $V$ that *is not* a
+    basis.
+  + Find a spanning set for $W$ that is a *basis* and another spanning set for $W$ that *is not* a
+    basis.
+]
+
+#slide(title: [Bellah 3.5], autoscale: false)[
+  #set text(size: .9em)
+  Recall $V = {mat(2x; 0) : x in RR}$ and $W = {mat(x-y; x+y+2z; y+z) : x,y,z in RR}$.
+
+  + Let $X$ be a subspace. Define the term "the *dimension* of $X$".
+  + Find the dimension of $V$. Justify your answer.
+  + Find the dimension of $W$. Justify your answer.
+]
+
+#slide(autoscale: false)[
+  #set text(size: .8em)
+  Consider the vectors $arrow(v)_1 = mat(-1; -2; 1)$, $arrow(v)_2 = mat(0; -1; 1)$,
+  $arrow(v)_3 = mat(1; 1; 0)$, $arrow(v)_4 = mat(-1; -3; 2)$. You may use the fact that
+  $
+    "rref"mat(
+      -1, 0, 1, -1;
+      -2, -1, 1, -3;
+      1, 1, 0, 2;
+    )
+    =
+    mat(
+      1, 0, -1, 1;
+      0, 1, 1, 1;
+      0, 0, 0, 0;
+    )
+  $
+
+  + Is ${arrow(v)_1, arrow(v)_2, arrow(v)_3, arrow(v)_4}$ linearly independent or dependent?
+    Justify.
+  + Find a basis for $"span"{arrow(v)_1, arrow(v)_2, arrow(v)_3, arrow(v)_4}$.
+  + Find a different basis for $"span"{arrow(v)_1, arrow(v)_2, arrow(v)_3, arrow(v)_4}$.
+  + What is the dimension of $"span"{arrow(v)_1, arrow(v)_2, arrow(v)_3, arrow(v)_4}$?
+]
+
+#slide(title: [Bellah 3.10], autoscale: false)[
+  #set text(size: .9em)
+  #definition(title: [Lemma 3.10])[
+    Let $A$ be an $m times n$ matrix of the form $A=mat(arrow(v)_1, arrow(v)_2, ..., arrow(v)_n)$.
+    If the $n$th column of $"rref"(A)$ does not have a pivot, then
+    $arrow(v)_n in "span"{arrow(v)_1, arrow(v)_2, ..., arrow(v)_(n-1)}$.
+  ]
+
+  + Prove Lemma 3.10.
+]
