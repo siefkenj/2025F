@@ -385,6 +385,7 @@
 
 #slide(title: [Bellah 3.1])[
   #definition(title: [Subspace])[
+    #v(.1em)
     A subset $V subset.eq RR^n$ is a *subspace* if
     - $V$ is non-empty;
     - $V$ is closed under vector addition; and
@@ -405,9 +406,9 @@
   + $B = {arrow(x) in RR^2 : arrow(x) != mat(0; 0)$#v(.5em)
   + $C = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "for some " t in RR}$#v(.5em)
   + $D = {arrow(x) in RR^2 : arrow(x) = mat(0; t) + mat(1; 1) "for some " t in RR}$#v(.5em)
-  + $E = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "or" arrow(x)=mat(t; 0) "for some " t in RR}$#v(
-      .5em,
-    )
+  + #text(size: .9em)[$E = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "or" arrow(x)=mat(t; 0) "for some " t in RR}$#v(
+        .5em,
+      )]
   + $F = {arrow(x) in RR^2 : arrow(x) = t mat(2; 3) "for some " t in RR}$#v(.5em)
   + $G = "span"{mat(1; 1)}$#v(.5em)
   + $H = "span"{arrow(u), arrow(v)}$ where $arrow(u)$ and $arrow(v)$ are unknown vectors in $RR^2$.
