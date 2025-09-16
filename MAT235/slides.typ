@@ -242,6 +242,7 @@
   + The tip is pointing in the direction of the line $y=x$ (in the $x y$-plane).
 ]
 
+// Week 3
 #slide(title: [Siefken 7])[
   #grid(
     columns: 2,

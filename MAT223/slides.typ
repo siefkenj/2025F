@@ -403,7 +403,7 @@
   #set text(size: .85em)
 
   + $A = {arrow(x) in RR^2 : arrow(x) = mat(a; 0) "for some " a in ZZ}$#v(.5em)
-  + $B = {arrow(x) in RR^2 : arrow(x) != mat(0; 0)$#v(.5em)
+  + $B = {arrow(x) in RR^2 : arrow(x) != mat(0; 0)}$#v(.5em)
   + $C = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "for some " t in RR}$#v(.5em)
   + $D = {arrow(x) in RR^2 : arrow(x) = mat(0; t) + mat(1; 1) "for some " t in RR}$#v(.5em)
   + #text(size: .9em)[$E = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "or" arrow(x)=mat(t; 0) "for some " t in RR}$#v(
