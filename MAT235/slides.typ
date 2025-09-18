@@ -242,6 +242,7 @@
   + The tip is pointing in the direction of the line $y=x$ (in the $x y$-plane).
 ]
 
+// Week 3
 #slide(title: [Siefken 7])[
   #grid(
     columns: 2,
@@ -338,7 +339,7 @@
   + Make a contour map of the graph of $z=x^2$ *extruded* along the $y$-axis in $RR^3$.
 ]
 
-#slide(title: [Siefken 11])[
+#slide(title: [Siefken 12])[
   + Draw three different graphs of discontinuous functions *in $RR^2$*.
   + For each of your graphs, sketch a contour map of the graph extruded along the $y$-axis in
     $RR^3$.
@@ -346,7 +347,7 @@
     map?
 ]
 
-#slide(title: [Siefken 5])[
+#slide(title: [Siefken 13])[
   #{
     let a = lq.diagram(
       title: [Map A],
