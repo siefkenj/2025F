@@ -559,61 +559,61 @@
   + Find a matrix $A$ that can be used to obtain the italicized $N$ on the right.
 ]
 
-#slide(title: [Bellah 4.1], autoscale: false)[
+#slide(title: [Bellah 4.4], autoscale: false)[
   #set text(size: .9em)
-  Let
-  $
-    A=mat(1, 2; 0, 1; -1, 1)
-    wide
-    B=mat(3, -1, 1; 2, 0, 1)
-    wide
-    arrow(x)=mat(2; 1)
-    wide
-    arrow(y)=mat(1; 2; 3)
-  $
-
-  + Compute $A arrow(x)$, $A arrow(y)$, $B arrow(x)$, and $B arrow(y)$, if the product exists.
-    Otherwise explain why it doesn't exist.
-  + Suppose $arrow(q)$ is an unknown vector but that $A arrow(q)$ is defined. How many coordinates
-    does $A arrow(q)$ have?
-  + Suppose $arrow(r)$ is an unknown vector but that $B arrow(r)$ is defined. How many coordinates
-    does $B arrow(r)$ have?
+  + Let $T: RR^n -> RR^m$. Define what it means for $T$ to be a *linear transformation*.
+  + What's the difference between a linear *transformation*, a linear *function*, and a linear
+    *map*?
+  + What's the difference between a linear *transformation* and a *matrix*?
 ]
 
-
-#slide(title: [IOLA: Italicizing N], autoscale: false)[
+#slide(title: [Bellah 4.3], autoscale: false)[
   #set text(size: .9em)
-  #show: columns
-  #{
-    import cetz: *
-    canvas({
-      let gg = {
-        for x in range(4) {
-          draw.line((x, -.5), (x, 4.5), stroke: (dash: "dashed", paint: gray))
-        }
-        for y in range(5) {
-          draw.line((-.5, y), (3.5, y), stroke: (dash: "dashed", paint: gray))
-        }
-      }
+  Which of the following are linear transformations? Prove your answer.
 
-      draw.group({
-        gg
-        draw.line((0, 0), (0, 3), (2, 0), (2, 3), stroke: 2pt)
-      })
-      draw.translate(x: 4.5)
-      draw.group({
-        gg
-        draw.line((0, 0), (1, 4), (2, 0), (3, 4), stroke: 2pt)
-      })
-    })
-  }
+  #set enum(numbering: n => [P#n.])
 
-  #colbreak()
+  + $F: RR^2 -> RR^2$ defined by $F mat(x; y) = mat(x^2; y^2)$#v(1em)
+  + $G: RR^2 -> RR^2$ defined by $G mat(x; y) = mat(x+y; x)$#v(1em)
+  + $T_A: RR^2 -> RR^2$ defined by $T_A mat(x; y) = A mat(x; y)$ where $A$ is an unknown $2 times 2$
+    matrix#v(1em)
+]
 
-  You are working at a font foundry and are working on figuring out a process to automatically
-  _italicize_ letters. You start with N and some linear algebra knowledge!
+#slide(title: [Bellah 4.4], autoscale: false)[
+  #set text(size: .9em)
+  $F:RR^2 -> RR^2$ is a linear transformation and satisfies
+  $
+    F mat(1; 0) =mat(1; -1) wide "and" wide F mat(0; 1) = mat(1; 2)
+  $
 
-  The N on the left is written in a regular 12 point font.
+  #set enum(numbering: n => [P#n.])
 
-  + Find a matrix $A$ that can be used to obtain the italicized $N$ on the right.
+  + Find $F mat(1; 1)$ and $F mat(2; 3)$.#v(1em)
+  + Find a formula for $F mat(x; y)$.
+  + Find a matrix $M$ such that $F arrow(x) = M arrow(x)$ for all $arrow(x) in RR^2$.
+]
+
+#slide(title: [Bellah 4.9], autoscale: false)[
+  + Let $T$ be a linear transformation. Write a definition of the expression: *$M$ is the defining
+      matrix for $T$*
+  + If $T: RR^a -> RR^b$ is a linear transformation, what shape will its defining be?
+  + Does every matrix define a linear transformation?
+  + Does every linear transformation have a defining matrix?
+]
+
+#slide(title: [Bellah 4.13 & 4.14], autoscale: false)[
+  + Define what it means for a function $f$ to be *one-to-one* (i.e. *injective*).
+  + Define what it means for a function $f$ to be *onto* (i.e. *surjective*).
+  + give examples of a function from calculus that are (a) one-to-one but not onto, (b) onto but not
+    one-to-one, and (c) both one-to-one and onto.
+]
+
+#slide(title: [Bellah 4.8], autoscale: false)[
+  #set text(size: .9em)
+  For each function, determine whether it is one-to-one, onto, both, or neither.
+  #set enum(numbering: n => [P#n.])
+
+  + $F: RR^2 -> RR^2$ defined by $F mat(x; y) = mat(x; y; 0)$#v(1em)
+  + $G: RR^3 -> RR^3$ defined by $G mat(x; y; z) = mat(x-y; y+z; x+z)$#v(1em)
+  + $H: RR^3 -> RR^3$ defined by $H mat(x; y; z) = mat(x-y; y+z; z)$#v(1em)
 ]
