@@ -5,10 +5,16 @@
 #import "@preview/lilaq:0.4.0" as lq
 
 #let slide(..args) = {
-  let title = args.named().at("title", default: none)
+  let named = args.named()
+  let title = named.at("title", default: none)
+  let autoscale = named.at("autoscale", default: true)
   let positional = args.pos()
-  slide-orig(..args.named(), title: text(size: 18pt, title), ..positional.map(p => {
-    show: utils.fit-to-height.with(100%, grow: false)
+  slide-orig(title: text(size: 18pt, title), ..positional.map(p => {
+    show: if autoscale {
+      utils.fit-to-height.with(100%, grow: false)
+    } else {
+      it => it
+    }
     p
   }))
 }
@@ -54,12 +60,76 @@
 #title-slide()
 
 #slide(title: [Siefken 1])[
-  Multi-variable functions are functions from multiple inputs to multiple outputs.
+  Vectors represent *displacement*.
 
-  When there is one input and one output we can visualize a function by graphing inputs on the
-  $x$-axis and outputs on the $y$-axis.
+  You are on the prairies, where it is very flat. The vector $arrow(v)$ represents a displacement
+  East by 2km. The vector $arrow(c)$ represents a displacement due North-East by 3km.
 
-  + What are some ways we might visualize a function with two inputs and one output?
-
-    Come up with several ideas.
+  + Draw a diagram for the following situation: You walk by following $arrow(v)$ twice and then
+    $arrow(c)$ once.
+  + Write an algebraic expression that describes "You walk by following $arrow(v)$ twice and then
+    $arrow(c)$ once."
+  + If you start at East-North coordinates of $(0,0)$, what are the coordinates of your final
+    position?
+  + What is your *distance* from $(0,0)$ after you walk?
 ]
+
+#slide(title: [Siefken 2], autoscale: false)[
+  #set text(size: .8em)
+  The *standard basis vectors* (in MAT235) are called
+  $
+    arrow(i) wide arrow(j) wide arrow(k)
+  $
+  They are vectors of length 1 pointing in the directions of the (positive) $x$, $y$, and $z$-axes.
+
+  + Describe the displacement between the points $(1,2,3)$ and $(-2, 4,3)$ using the standard basis
+    vectors.
+  + The vector $a arrow(i) + b arrow(j) + c arrow(k)$ is written in *column vector* form as
+    $mat(a; b; c)$ or $mat(delim: "[", a; b; c)$. Express your answer to the previous question as a
+    column vector.
+  + Let $arrow(d) = arrow(i) + 3 arrow(j) - 3 arrow(k)$. Suppose you start at $(0,0,0)$ and displace
+    by $arrow(d)$. What are your coordinates?
+]
+
+#slide(title: [Siefken 3], autoscale: false)[
+  The context for this question is $RR^2$.
+  + Consider the point $(a,b)$ and the vector $mat(a; b)$. What's the difference between the two?
+    How can you convert from one to the other?
+  + Find a vector pointing in the direction of the line $y=1/2x$ in $RR^2$.
+  + Find a *unit* vector (i.e., a vector of length 1) in the direction of the line $y=1/2x$ in
+    $RR^2$.
+]
+
+#slide(title: [Siefken 4], autoscale: false)[
+  #set text(size: .79em)
+  The context for this question is $RR^2$.
+
+  You are moving counter-clockwise around a circle X, which has a radius of 2 and is centered at the
+  origin. You make one revolution around the circle X every 360 seconds, and you start at the
+  right-most point.
+
+  + What is your location after 90 seconds?
+  + What is your displacement from your starting point after 90 seconds? Give your answer as a
+    column vector.
+  + You are now traveling around circle Y. Circle Y has a radius of 2 and is centered at (4,1). You
+    make one trip around circle Y every 360 seconds, and you start at the right-most point of circle
+    Y.
+
+    What is your location after 90 seconds?
+  + What is your displacement from your starting point after 90 seconds? Give your answer as a
+    column vector.
+]
+
+#slide(title: [Siefken 8 (Ch 12)])[
+  Recall the plane $cal(P)$ given by the formula $z=2x-y$.
+  + Sketch the contour map of $cal(P)$.
+  + Starting from $(0,0,0)$, in what direction does $cal(P)$ have *a slope of zero*? Give your
+    answer as a vector.
+  + Starting from $(0,0,0)$, in what direction does $cal(P)$ have the *steepest* slope? Give your
+    answer as a vector.
+  + The vector $arrow(c)$ has the following property: if you start at $(0,0,0)$ and displace by
+    $arrow(c)$ you are guaranteed to be on the plane $cal(P)$.
+
+    Give _three_ different examples of possible vectors $arrow(c)$.
+]
+
