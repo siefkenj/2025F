@@ -1,5 +1,6 @@
 #import "@preview/colorful-boxes:1.4.3" as cb
 #import "@preview/touying:0.6.1": *
+#import "@preview/cetz:0.4.2"
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
 
@@ -406,7 +407,9 @@
   + $B = {arrow(x) in RR^2 : arrow(x) != mat(0; 0)}$#v(.5em)
   + $C = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "for some " t in RR}$#v(.5em)
   + $D = {arrow(x) in RR^2 : arrow(x) = mat(0; t) + mat(1; 1) "for some " t in RR}$#v(.5em)
-  + #text(size: .9em)[$E = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "or" arrow(x)=mat(t; 0) "for some " t in RR}$#v(
+  + #text(
+      size: .9em,
+    )[$E = {arrow(x) in RR^2 : arrow(x) = mat(0; t) "or" arrow(x)=mat(t; 0) "for some " t in RR}$#v(
         .5em,
       )]
   + $F = {arrow(x) in RR^2 : arrow(x) = t mat(2; 3) "for some " t in RR}$#v(.5em)
@@ -495,4 +498,63 @@
   ]
 
   + Prove Lemma 3.10.
+]
+
+#slide(title: [Bellah 4.1], autoscale: false)[
+  #set text(size: .9em)
+  Let
+  $
+    A=mat(1, 2; 0, 1; -1, 1)
+    wide
+    B=mat(3, -1, 1; 2, 0, 1)
+    wide
+    arrow(x)=mat(2; 1)
+    wide
+    arrow(y)=mat(1; 2; 3)
+  $
+
+  + Compute $A arrow(x)$, $A arrow(y)$, $B arrow(x)$, and $B arrow(y)$, if the product exists.
+    Otherwise explain why it doesn't exist.
+  + Suppose $arrow(q)$ is an unknown vector but that $A arrow(q)$ is defined. How many coordinates
+    does $A arrow(q)$ have?
+  + Suppose $arrow(r)$ is an unknown vector but that $B arrow(r)$ is defined. How many coordinates
+    does $B arrow(r)$ have?
+]
+
+
+#slide(title: [IOLA: Italicizing N], autoscale: false)[
+  #set text(size: .9em)
+  #show: columns
+  #{
+    import cetz: *
+    canvas({
+      let gg = {
+        for x in range(4) {
+          draw.line((x, -.5), (x, 4.5), stroke: (dash: "dashed", paint: gray))
+        }
+        for y in range(5) {
+          draw.line((-.5, y), (3.5, y), stroke: (dash: "dashed", paint: gray))
+        }
+      }
+
+      draw.group({
+        gg
+        draw.line((0, 0), (0, 3), (2, 0), (2, 3), stroke: 2pt)
+      })
+      draw.translate(x: 4.5)
+      draw.group({
+        gg
+        draw.line((0, 0), (1, 4), (2, 0), (3, 4), stroke: 2pt)
+      })
+    })
+  }
+
+  #colbreak()
+
+  You are working at a font foundry and are working on figuring out a process to automatically
+  _italicize_ letters. You start with N and some linear algebra knowledge!
+
+  The N on the left is written in a regular 12 point font.
+
+  + Find a matrix $A$ that can be used to obtain the italicized $N$ on the right.
 ]
