@@ -23,8 +23,8 @@ jobs:
             - name: Compile Typst Files
               uses: siefkenj/compile-typst-action@main
               with:
-                  source_paths: "MAT223/slides.typ MAT235/slides.typ"
-                  output_paths: "MAT223/slides.pdf MAT235/slides.pdf"
+                  source_paths: "MAT223/slides.typ MAT235/slides-12.typ MAT235/slides-13.typ MAT235/slides-14.typ MAT235/slides-15.typ"
+                  output_paths: "MAT223/slides.pdf MAT235/slides-12.pdf MAT235/slides-13.pdf MAT235/slides-14.pdf MAT235/slides-15.pdf"
                   fonts_path: "./"
 
             # upload all the built PDFs as an artifact.
