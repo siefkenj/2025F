@@ -617,3 +617,138 @@
   + $G: RR^3 -> RR^3$ defined by $G mat(x; y; z) = mat(x-y; y+z; x+z)$#v(1em)
   + $H: RR^3 -> RR^3$ defined by $H mat(x; y; z) = mat(x-y; y+z; z)$#v(1em)
 ]
+
+#slide(title: [Bellah 4.18 & 4.19], autoscale: false)[
+  #set text(size: .85em)
+  + #text(weight: "bold", "(4.18)") For a function $f:X -> Y$, define what it means for $f$ to be a
+    *bijection*.
+  + #text(weight: "bold", "(4.19)") Define what it means for two sets to be *isomorphic*.
+
+  #[
+    Let $X=RR^2$ and let $Y="span"{mat(1; 0; 0), mat(0; 1; 0)}$
+
+    #columns(2)[
+      + Does $X=Y$? Why or why not?
+      + Compute $"dim"(X)$ and $"dim"(Y)$.
+      + Are $X$ and $Y$ isomorphic?
+      + Find a bijection between $X$ and $Y$.
+
+      + If $U$ and $V$ are subspaces with $"dim"(U)=4$ and $"dim"(V)=5$, could $U$ and $V$ be
+        isomorphic? Explain.
+
+    ]
+  ]
+
+]
+
+
+#slide(title: [Bellah 5.1], autoscale: false)[
+  #set text(size: .8em)
+  + Define the *kernel* (or *null space*) of a linear transformation $T$.
+  + Define the *image* (or *range*) of a linear transformation $T$.
+
+  #[
+    Let $F: RR^2 -> RR^2$ be defined by $F(arrow(v)) = mat(1, 1; 1, 1)arrow(v)$.
+    #set enum(numbering: n => [P#(n - 1).])
+
+    #columns(2)[
+      + Draw three random vectors $arrow(a)$, $arrow(b)$, and $arrow(c)$ in $RR^2$. On the same
+        picture, draw $F arrow(a)$, $F arrow(b)$, and $F arrow(c)$.
+
+        What does the image of $F$ look like? Can you tell what the kernel of $F$ looks like?
+
+      + Find a vector in the kernel of $F$.
+      + Find a vector in the image of $F$.
+      + Find a basis for the kernel of $F$.
+      + Find a basis for the image of $F$.
+    ]
+  ]
+
+]
+
+#slide(title: [Bellah 5.1+], autoscale: false)[
+  #set text(size: 1em)
+  #columns(2)[
+    + Define the *rank* of a linear transformation $T$.
+    + Define the *nullity* of a linear transformation $T$.
+
+      Let $F: RR^2 -> RR^2$ be defined by
+      $
+        F(arrow(v)) = mat(1, 1; 1, 1)arrow(v)
+      $
+
+    #colbreak()
+
+    + Find the rank of $F$ and the nullity of $F$.
+
+    + Define the *rank* of a matrix $A$.
+    + Define the *nullity* of a matrix $A$.
+
+    + Find the rank and nullity of $mat(1, 1; 1, 1)$.
+  ]
+]
+
+#slide(title: [], autoscale: false)[
+  #set text(size: 1em)
+  #columns(2)[
+    + Define the *column space* of a matrix $A$.
+
+      Let $arrow(u), arrow(v), arrow(w) in RR^3$ and suppose $2 arrow(u) + arrow(v) = arrow(w)$ and
+      that ${arrow(u), arrow(v)}$ is a linearly independent set.
+
+      Define $A=mat(arrow(u), arrow(v), arrow(w))$.
+
+    + Find a basis for the column space of $A$.
+    + Could ${arrow(u), arrow(w)}$ be a basis for $"col"(A)$? Explain.
+
+    + What is $"rank"(A)$?
+    + Find a vector in $"null"(A)$.
+    + What is $"nullity"(A)$?
+  ]
+]
+
+#slide(title: [Bellah 5.4], autoscale: false)[
+  Let $A$ and $B$ be $m times 3$ matrices.
+
+  #[
+    #set enum(numbering: n => [P#(n).])
+
+    #columns(2)[
+      + Suppose $"rref"(A)$ has *exactly two* pivot columns at positions $1$ and $3$. Is this enough
+        to conclude that $"rank"(A)=2$? What can you conclude about $"nullity"(A)$?
+
+      + Suppose $"rref"(B)$ has *exactly one* pivot column at position $1$. Is this enough to
+        conclude that $"rank"(B)=1$? What can you conclude about $"nullity"(B)$?
+    ]
+  ]
+]
+
+
+#slide(title: [], autoscale: true)[
+  Let $M$ be a $3 times 5$ matrix.
+
+  + List *all* possibilities for the number of pivot columns in $"rref"(M)$.
+  + For each possibility, list the corresponding number of free variable columns.
+  + What are *all* possible ranks for $M$?
+  + For each possible rank, list the corresponding nullity.
+  + Compute $"rank"(M) + "nullity"(M)$ for every possibility you came up with. What do you notice?
+  + State the *Rank-Nullity Theorem*.
+
+]
+
+#slide(title: [Bellah 5.5], autoscale: false)[
+  Consider the system (A) $cases(x+2y+4z=0\ x+y - z=0\ y+5z=0)$ and let $cal(S)$ represent the
+  solution set.
+
+  #[
+    #set enum(numbering: n => [P#(n - 1).])
+    #columns(2)[
+      + By hand, or with a computer, solve system (A)
+      + Find a matrix $C$ so that $cal(S)="null"(C)$.
+      + Calculate $"nullity"(C)$.
+      + Each equation in system (A) represents a plane. Describe the intersection of the three
+        planes represented in equation (A)
+    ]
+  ]
+
+]
