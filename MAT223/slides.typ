@@ -596,7 +596,7 @@
 #slide(title: [Bellah 4.9], autoscale: false)[
   + Let $T$ be a linear transformation. Write a definition of the expression: *$M$ is the defining
       matrix for $T$*
-  + If $T: RR^a -> RR^b$ is a linear transformation, what shape will its defining be?
+  + If $T: RR^a -> RR^b$ is a linear transformation, what shape will its defining matrix be?
   + Does every matrix define a linear transformation?
   + Does every linear transformation have a defining matrix?
 ]
@@ -750,5 +750,92 @@
         planes represented in equation (A)
     ]
   ]
+]
+
+#slide(title: [Bellah 6.1], autoscale: false)[
+  Consider the system (A) $cases(x+2y+4z=0\ x+y - z=0\ y+5z=0)$ and let $cal(S)$ represent the
+  solution set.
+
+  #[
+    #set enum(numbering: n => [P#(n - 1).])
+    #columns(2)[
+      + Let $f(t)=sin(t)$ and $g(t)=t^2$. Define $h_1 = f+g$ and $h_2 = f compose g$. Write down
+        formulas for $h_1(t)$ and $h_2(t)$.
+
+        Let $F: RR^n -> RR^m$ and $G: RR^n -> RR^m$ be linear transformations.
+      + Show that $H=F+G$ is a linear transformation.
+
+      + Suppose $F$ has defining matrix $A=mat(1, 2; 3, 4)$ and $G$ has defining matrix
+        $B=mat(-1, 3; 1, 2)$. Find the defining matrix for $H$.
+    ]
+  ]
+]
+
+#slide(title: [Bellah 6.3#sym.star ], autoscale: false)[
+  Let $F$ and $G$ be linear transformations with defining matrices
+  $
+    A = mat(1, 2; 3, 4) wide "and" wide B = mat(-1, 3; 1, 2)
+  $
+  #columns[
+    + Find $F mat(a; b)$ and $G mat(x; y)$.
+    + Let $H=F compose G$. Find $H mat(x; y)$.
+    + Find a defining matrix for $H$.
+    + Compute the matrix product $A B$. What do you notice?
+    + Is $B A$ a defining matrix for $H$? Why or why not?
+  ]
+]
+
+
+#slide(title: [IOLA: Un-Italicizing N], autoscale: false)[
+  #set text(size: .82em)
+  #show: columns
+
+  "We've made a terrible mistake!" your boss says. "We must unitalicize the N!"
+  #{
+    import cetz: *
+    canvas({
+      let gg = {
+        for x in range(4) {
+          draw.line((x, -.5), (x, 4.5), stroke: (dash: "dashed", paint: gray))
+        }
+        for y in range(5) {
+          draw.line((-.5, y), (3.5, y), stroke: (dash: "dashed", paint: gray))
+        }
+      }
+
+      draw.group({
+        gg
+        draw.line((0, 0), (0, 3), (2, 0), (2, 3), stroke: 2pt)
+      })
+      draw.translate(x: 4.5)
+      draw.group({
+        gg
+        draw.line((0, 0), (1, 4), (2, 0), (3, 4), stroke: 2pt)
+      })
+    })
+  }
+
+  #colbreak()
+
+  Pat and Jamie had the following approach to the Italicizing N task:
+  #text(fill: blue)["In order to find the matrix $A$, we are going to find a matrix that makes the N
+    taller, find a matrix that leans the taller N, and then combine those matrices to get $A$."]
+
+  You are now tasked with finding a matrix $C$ that *unitalicizes* the N.
+
+  + Use any method you like to find $C$.
+  + Use a method similar to Pat and Jamie's to find $C$.
+]
+
+#slide(title: [Bellah 6.7], autoscale: false)[
+  #set text(size: .82em)
+  #show: columns
+
+  Let $A=mat(1,2,3;4,5,6;7,8,9)$
+  #set enum(numbering: n => [P#(n).])
+
+  + Apply the row operation $"row"_1 <-> "row"_3$ to $I_3$ and call the result $E_1$. Find $E_1$ and $E_1 A$. What do you notice?
+  + Apply the row operation $"row"_2 |-> 5 " row"_2$ to $I_3$ and call the result $E_2$. Find $E_2$ and $E_2 A$. What do you notice?
+  + Apply the row operation $"row"_1 |-> "row"_1 + 2 " row"_2$ to $I_3$ and call the result $E_3$. Find $E_3$ and $E_3 A$. What do you notice?
 
 ]

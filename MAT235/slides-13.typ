@@ -121,6 +121,7 @@
     column vector.
 ]
 
+// XXX: Needs to be reworked. Unclear whether looking for vector in R^2 or R^3.
 #slide(title: [Siefken 8 (Ch 12)])[
   Recall the plane $cal(P)$ given by the formula $z=2x-y$.
   + Sketch the contour map of $cal(P)$.
