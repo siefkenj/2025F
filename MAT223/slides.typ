@@ -831,11 +831,42 @@
   #set text(size: .82em)
   #show: columns
 
-  Let $A=mat(1,2,3;4,5,6;7,8,9)$
+  Let $A=mat(1, 2, 3; 4, 5, 6; 7, 8, 9)$
   #set enum(numbering: n => [P#(n).])
 
-  + Apply the row operation $"row"_1 <-> "row"_3$ to $I_3$ and call the result $E_1$. Find $E_1$ and $E_1 A$. What do you notice?
-  + Apply the row operation $"row"_2 |-> 5 " row"_2$ to $I_3$ and call the result $E_2$. Find $E_2$ and $E_2 A$. What do you notice?
-  + Apply the row operation $"row"_1 |-> "row"_1 + 2 " row"_2$ to $I_3$ and call the result $E_3$. Find $E_3$ and $E_3 A$. What do you notice?
+  + Apply the row operation $"row"_1 <-> "row"_3$ to $I_3$ and call the result $E_1$. Find $E_1$ and
+    $E_1 A$. What do you notice?
+  + Apply the row operation $"row"_2 |-> 5 " row"_2$ to $I_3$ and call the result $E_2$. Find $E_2$
+    and $E_2 A$. What do you notice?
+  + Apply the row operation $"row"_1 |-> "row"_1 + 2 " row"_2$ to $I_3$ and call the result $E_3$.
+    Find $E_3$ and $E_3 A$. What do you notice?
+
+]
+
+#slide(title: [Siefken 66], autoscale: false)[
+  // #set text(size: .82em)
+  #show: columns
+
+  Let $B=mat(1, 4; 0, 2)$
+
+  + Use *two* row operation so t reduce $B$ to $I_2$ and write an elementary matrix $E_1$
+    corresponding to the first operation and $E_2$ corresponding to the second.
+  + What is $E_2 E_1 B$?
+  + Find $B^(-1)$.
+  + Can you outline a procedure for finding the inverse of a matrix using elementary matrices?
+
+]
+
+#slide(title: [Siefken 67], autoscale: false)[
+  // #set text(size: .82em)
+  $
+    A=mat(1, 2, -1; 2, 2, 4; 1, 3, -3) wide arrow(b)=mat(1; 2; 3) wide C=[A | arrow(b)] wide A^(-1) = mat(9, -3/2, -5; -5, 1, 3; -2, 1/2, 1)
+  $
+  #show: columns
+
+  + What is $A^(-1)A$?
+  + What is $"rref"(A)$?
+  + What is $"rref"(C)$? (Hint: there is no need to actually do row reduction!)
+  + Solve the system $A arrow(x) = arrow(b)$
 
 ]
