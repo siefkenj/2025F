@@ -94,19 +94,7 @@
   + Find $f_x$ and $f_y$ at $(2,2)$.
 ]
 
-#slide(title: [Siefken 4])[
-  Consider the function $f(x,y) = x^2-x y+1+y^2$.
-
-  The *partial derivative* of $f$ with respect to $y$ is notated by
-  $display((partial)/(partial y)f(x,y))$ or by $f_y (x,y)$ and is the instantaneous rate of change
-  of $f$ as $y$ changes while $x$ is held constant.
-
-  + Find $partial/(partial y) f(2,y)$.#v(1em)
-  + Find $partial/(partial x) f(x,2)$.#v(1em)
-  + Find $f_x$ and $f_y$ at $(2,2)$.
-]
-
-#slide(title: [Siefken 5], autoscale: false)[
+#slide(title: [Siefken 4], autoscale: false)[
   #set text(size: .85em)
 
   #columns(2)[
@@ -145,7 +133,7 @@
   ]
 ]
 
-#slide(title: [Siefken 6], autoscale: false)[
+#slide(title: [Siefken 5], autoscale: false)[
   #set text(size: .85em)
 
   #columns(2)[
@@ -154,6 +142,7 @@
     #h(1em)Let $f: RR -> RR$
 
     + If $f'(2)=K$ and $f(2)=J$ then $f(2+Delta) approx space.thin ??$ (fill in the $??$)
+      #v(.5em)
 
       Let $g:RR^2 -> RR$.
     + If $g_x (2,2)=K$ and $g(2,2)=J$ then
@@ -165,11 +154,11 @@
       information do you need?
     + Suppose $g_y (2,2)=L$.
 
-    Approximate $g(2-Delta, 2+Delta)$
+      Approximate $g(2-Delta, 2+Delta)$
   ]
 ]
 
-#slide(title: [Siefken 7], autoscale: false)[
+#slide(title: [Siefken 6], autoscale: false)[
   #set text(size: .85em)
 
   #columns(2)[
@@ -177,6 +166,7 @@
 
     + Find $partial/(partial x) f(x,y)$.#v(1em)
     + Find $partial/(partial y) f(x,y)$.
+      #v(1fr)
 
       #colbreak()
       Suppose the graph of $z=g(x,y)$ is a plane and $partial /(partial x) g (x,y)=4$ and
