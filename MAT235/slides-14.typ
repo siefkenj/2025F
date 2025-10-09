@@ -219,3 +219,189 @@
 
   ]
 ]
+
+#slide(title: [Siefken 8], autoscale: false)[
+  #set text(size: .75em)
+
+  #columns(2)[
+    #{
+      let a = lq.diagram(
+        title: [$z=f(x,y)$],
+        width: 6cm,
+        height: 6cm,
+        lq.contour(
+          levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          lq.linspace(-2, 5, num: 40),
+          lq.linspace(-2, 5, num: 40),
+          (x, y) => x * x + y * y,
+          map: color.map.icefire,
+        ),
+        xlim: (-0, 4),
+        ylim: (-0, 4),
+        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        // lq.place(3.5, 3.5, $5$),
+        lq.place(2.9, 2.9, $16$),
+        lq.place(2.1, 2.1, $8$),
+        lq.place(2., 2.9, $12$),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+      )
+      set align(center)
+      a
+    }
+    #colbreak()
+    To the left is a contour plot of $f(x,y)=x^2+y^2$.
+
+    + Add a contour line for height $14$ to the diagram. Should it lie exactly half way between the
+      lines of height $12$ and $16$? Explain.
+    + Draw a zoomed in version of the contour plot in the region $2 <= x <= 3$ and $2 <= y <= 3$.
+      Include contours of height $8$, $9$, ..., $16$.
+    + If you drew a contour plot zoomed into the region $2 <= x <= 2.1$ and $2 <= y <= 2.1$, what
+      would it look like?
+  ]
+]
+
+#slide(title: [Siefken 9], autoscale: false)[
+  #set text(size: 1em)
+
+  #columns(2)[
+    #{
+      let a = lq.diagram(
+        title: [$z=f(x,y)$],
+        width: 6cm,
+        height: 6cm,
+        lq.contour(
+          levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          lq.linspace(-2, 5, num: 40),
+          lq.linspace(-2, 5, num: 40),
+          (x, y) => x * x + y * y,
+          map: color.map.icefire,
+        ),
+        xlim: (-0, 4),
+        ylim: (-0, 4),
+        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        // lq.place(3.5, 3.5, $5$),
+        lq.place(2.9, 2.9, $16$),
+        lq.place(2.1, 2.1, $8$),
+        lq.place(2., 2.9, $12$),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+      )
+      set align(center)
+      a
+    }
+    #colbreak()
+    To the left is a contour plot of $f(x,y)=x^2+y^2$. Let $cal(P)$ be the *tangent plane* to
+    $z=f(x,y)$ at the point $(2,2,8)$.
+
+    + What is the slope of $cal(P)$ in the $arrow(i)$ direction?
+    + What is the slope of $cal(P)$ in the $arrow(j)$ direction?
+    + Add contour lines for $cal(P)$ to the diagram.
+    + Find an equation for $cal(P)$.
+  ]
+]
+
+#slide(title: [Siefken 10], autoscale: false)[
+  #set text(size: 1em)
+
+  #columns(2)[
+    Consider the plane $cal(P)$ with formula
+    $
+      z=f(x,y)=2x+3y+4.
+    $
+    + Find the change in height ($Delta z$) if you start at $(0,0,4)$ and move $alpha$ units in the
+      $arrow(i)$ direction.
+    + Find $Delta z$ if you start at $(0,0,4)$ and move $beta$ units in the $arrow(j)$ direction.
+    + Find $Delta z$ if you start at $(0,0,4)$ and move $gamma$ units in the $mat(1; 1)$ direction.
+    + What is the _slope_ of $f$ in the $mat(1; 1)$ direction? Is it the same as your answer to the
+      previous question?
+  ]
+]
+
+#slide(title: [Siefken 11], autoscale: false)[
+  #set text(size: 1em)
+
+  #show: columns.with(2)
+  The *directional derivative* of a function $f: RR^2 ->RR$ at the point $arrow(p)$ *in the
+    direction* $arrow(v)$ is
+  $
+    f_(arrow(v))(arrow(p)) = lim_(h -> 0) (f(arrow(p) + h arrow(v)) - f(arrow(p))) / h .
+  $
+
+  Let $f(x,y) = 2x + 3y + 4$.
+
+  + Find $f_(arrow(i))(1,2)$ and $f_(arrow(j))(1,2)$.
+  + Let $arrow(v)=mat(-2; 5)$. Find $f_(arrow(v))(1,2)$.
+  + Suppose $g(x,y) = a x + b y +c$ represents a plane.
+
+    Let $arrow(p)=mat(p_1; p_2)$ be a point and let $arrow(v)=mat(v_1; v_2)$ be a vector.
+
+    Find a formula for $g_(arrow(v))(arrow(p))$.
+  // is a *linear
+  //   function* $D:RR^2 -> RR$ such that
+  // $
+  //   f(arrow(p) + arrow(v)) approx f(arrow(p)) + D(arrow(v))
+  // $
+  // whenever $||arrow(v)||$ is small.
+]
+
+#slide(title: [Siefken 12], autoscale: false)[
+  #set text(size: 1em)
+
+  #show: columns.with(2)
+  A function $f: RR^2 ->RR$ is *differentiable* at the point $arrow(p)$ if there exists a tangent
+  plane $z=T(x,y)$ so that the directional derivatives of $f$ match the directional derivatives of
+  $T$ (at $arrow(p)$).
+
+  Let $f(x,y) = x^2 + y^2 + 3$. $f$ is differentiable.
+
+  + Find the tangent plane to $f$ at $(1,2)$.
+
+  + Find $f_(arrow(i))(1,2)$ and $f_(arrow(j))(1,2)$.
+  + Let $arrow(v)=mat(-2; 5)$. Find $f_(arrow(v))(1,2)$.
+  + Let $arrow(v)=mat(v_1; v_2)$ be a vector.
+
+    Find a formula for $f_(arrow(v))(1,2)$.
+]
+
+#slide(title: [Siefken 13], autoscale: false)[
+  #set text(size: 1em)
+
+  For a function $f: RR^n -> RR$, the *gradient* of $f$ (written $nabla f$ or $"grad" f$) is the
+  vector
+  $
+    nabla f =(partial/(partial x_1) f,space partial/(partial y) f,space ...).
+  $
+  #show: columns.with(2)
+  Let $T(x,y) = 2x+3y+4$
+
+  + Find $T_(arrow(v)) (1,2)$ where $arrow(v)=mat(v_1; v_2)$ is an arbitrary vector.
+
+  + Find $nabla T$.
+  + Compute $nabla T dot arrow(v)$ where $arrow(v)=mat(v_1; v_2)$ is an arbitrary vector. What do
+    you notice?
+]
+
+#slide(title: [Siefken 14], autoscale: false)[
+  #set text(size: 1em)
+
+  #show: columns.with(2)
+  Let $arrow(v)=mat(v_1; v_2)$. Recall, for $f(x,y) = x^2 + y^2 + 3$ that
+  $
+    f_(arrow(v))(1,2) = 2 v_1 + 4 v_2
+  $
+
+
+  + Compute $nabla f(1,2)$.
+  + Rewrite $f_(arrow(v))(1,2)$ using $nabla f(1,2)$.
+
+  + Let $arrow(p)=(p_1,p_2)$. Find an expression for $f_(arrow(v))(arrow(p))$.
+
+  + If $g: RR -> RR$ is a differentiable function, from single variable calculus, we know
+    $
+      g(p+ Delta x) approx g(p) + g'(p) Delta x.
+    $
+    Find a similar expression for $f(arrow(p) + Delta arrow(v))$.
+]
