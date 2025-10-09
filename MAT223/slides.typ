@@ -753,9 +753,6 @@
 ]
 
 #slide(title: [Bellah 6.1], autoscale: false)[
-  Consider the system (A) $cases(x+2y+4z=0\ x+y - z=0\ y+5z=0)$ and let $cal(S)$ represent the
-  solution set.
-
   #[
     #set enum(numbering: n => [P#(n - 1).])
     #columns(2)[
@@ -869,4 +866,160 @@
   + What is $"rref"(C)$? (Hint: there is no need to actually do row reduction!)
   + Solve the system $A arrow(x) = arrow(b)$
 
+]
+
+#slide(title: [Bellah 7.1], autoscale: false)[
+  // #set text(size: .82em)
+  // #show: columns
+
+  Let $F:RR^2 -> RR^2$ be a linear transformation defined by $F(arrow(e)_1)=3 arrow(e)_1$ and
+  $F(arrow(e)_2)=2 arrow(e)_2$. Let $S$ be the (filled in) *unit square* in $RR^2$.
+
+  #set enum(numbering: n => [P#(n).])
+
+  + Sketch a picture of $S$.
+  + Sketch the image of $S$ under $F$ (i.e. $F(S)={arrow(v): arrow(v) = F(arrow(x))
+      "for some" arrow(x) in S}$).
+  + Sketch the "standard coordinate grid" for $RR^2$ transformed by $F$.
+
+]
+
+#slide(title: [Bellah 7.2], autoscale: false)[
+  // #set text(size: .82em)
+  // #show: columns
+
+  Let $G:RR^2 -> RR^2$ be a linear transformation defined by $G(arrow(e)_1)=arrow(e)_1 + arrow(e)_2$
+  and $G(arrow(e)_2)=2 arrow(e)_2$. Let $S$ be the (filled in) *unit square* in $RR^2$.
+
+  #set enum(numbering: n => [P#(n).])
+
+  + Sketch a picture of $G(S)$.
+  + Sketch the "standard coordinate grid" for $RR^2$ transformed by $G$.
+]
+
+#slide(title: [Bellah 7.3], autoscale: false)[
+  #set text(size: .98em)
+  // #show: columns
+
+
+  #set enum(numbering: n => [P#(n - 1).])
+
+  + What's the difference between an *ordered basis* for $RR^2$ and a *basis* for $RR^2$?
+
+    Find the orientation of the following *ordered* bases
+  + $cal(B)={arrow(b)_1, arrow(b)_2}$ where
+    #v(-1em)
+    $
+      arrow(b)_1=mat(2; 0) wide
+      "and" wide arrow(b)_2=mat(2; 1)
+    $
+  + $cal(C)={arrow(c)_1, arrow(c)_2}$ where
+    #v(-1em)
+    $
+      arrow(c)_1= mat(1; 1) wide "and" wide arrow(c)_2=mat(1; -1)
+    $
+]
+
+#slide(title: [], autoscale: false)[
+  #set text(size: .9em)
+  #show: columns
+
+
+  // #set enum(numbering: n => [P#(n - 1).])
+  + Define the *determinant* of a linear transformation $T$
+
+  + Recall $F:RR^2 -> RR^2$ defined by $F(arrow(e)_1)=3 arrow(e)_1$ and
+    $F(arrow(e)_2)=2 arrow(e)_2$.
+
+    Compute $det(F)$ _directly from the definition_.
+
+
+  + Recall $G:RR^2 -> RR^2$ be a linear transformation defined by
+    $G(arrow(e)_1)=arrow(e)_1 + arrow(e)_2$ and $G(arrow(e)_2)=2 arrow(e)_2$.
+
+    Compute $det(G)$ _directly from the definition_.
+
+  + Let $F: RR^2 -> RR^2$ be defined by $F(arrow(e)_1) = arrow(e)_2$ and
+    $F(arrow(e)_2) = arrow(e)_1$.
+
+    Compute $det(F)$ _directly from the definition_.
+]
+
+
+#slide(title: [], autoscale: false)[
+  #set text(size: .9em)
+  #show: columns
+
+  Let $T:RR^2 -> RR^2$ and $S: RR^2 -> RR^2$ be linear transformations.
+
+  You know that:
+  - $T$ increases the area of the unit square by a factor of $2$ and preserves its orientation.
+  - $S$ increases the area of the unit square by a factor of $3$ and reverses its orientation.
+
+  // #set enum(numbering: n => [P#(n - 1).])
+  + Find $det(T)$ and $det(S)$.
+
+  + Do you have enough information to find $det(S compose T)$? What about $det(T compose S)$? If so,
+    find them.
+
+  + The matrix $A$ has determinant $5$, the matrix $B$ has determinant $-3$, and the matrix $C$ has
+    determinant $1/4$.
+
+    Find $det(A B C)$.
+]
+
+#slide(title: [Siefken 78], autoscale: false)[
+  #show: columns
+  - $E_f$ is $I_(3×3)$ with the first two rows swapped.
+  - $E_m$ is $I_(3×3)$ with the third row multiplied by 6.
+  - $E_a$ is $I_(3×3)$ with $R_1 |-> R_1 + 2R_2$ applied.
+
+  + What is $det(E_f)$?
+  + What is $det(E_m)$?
+  + What is $det(E_a)$?
+  + What is $det(E_f E_m)$?
+  + What is $det(4_(3×3))$?
+  + What is $det(W)$ where $W = E_f E_a E_f E_m E_m$?
+  + Explain how to use elementary matrices to find the determinant of a matrix.
+
+]
+
+#slide(title: [], autoscale: false)[
+  #show: columns
+
+  The following row operations can be used to reduce a matrix $A$ to $I_(3×3)$:
+  - $R_1 <-> R_3$
+  - $R_2 |-> 6 R_2$
+  - $R_1 |-> R_1 + 2 R_2$
+
+  + Find $A$.
+  + Find $det(A)$.
+
+]
+
+#slide(title: [Siefken 79], autoscale: false)[
+  #show: columns
+
+  Let $U=mat(1, 2, 1, 2; 0, 3, -2, 4; 0, 0, -1, 0; 0, 0, 0, 4)$ and let $V$ be an unknown square
+  matrix.
+
+  + Find $det(U)$.
+  + Suppose $"rref"(V)$ has a row of zeros. What is $det(V)$?
+]
+
+#slide(title: [], autoscale: false)[
+  #show: columns
+
+  $X: RR^2 -> RR^2$ is a linear transformation.
+
+  + If $det(X)=0$, could $X$ be one-to-one? Explain.
+  + If $det(X)=0$, could $X$ be onto? Explain.
+  + If $det(X)!=0$, could $X$ be one-to-one? Explain.
+  + If $det(X)!=0$, could $X$ be onto? Explain.
+  + What does the determinant of $X$ tell you about the invertibility of $X$?
+  + If $det(X)=4$, what is $det(X^(-1))$?
+]
+
+#slide(title: [Bellah 7.11], autoscale: false)[
+  Let $A=mat(1, 0, 3, 0; 1, 0, 2, 0; 4, 0, 0, 1; 1, 2, 3, 0)$. Find $det(A)$.
 ]
