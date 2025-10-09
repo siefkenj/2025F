@@ -176,3 +176,46 @@
     + Find a normal vector for the plane.
   ]
 ]
+
+#slide(title: [Hughes-Hallett et al. Ex. 4], autoscale: false)[
+  #set text(size: .85em)
+
+  #columns(2)[
+    A guitar string is vibrating.
+    #{
+      set align(center)
+      image("images/guitar-neck.jpg")
+    }
+    Let $L$ be the distance down the down the fret board and let $W$ be distance across the neck.
+
+    The displacement of a guitar string at time t (seconds) is given by
+    $
+      W(t) = 0.003 sin(pi L) sin(2765 t)
+    $
+
+    + Find $f_L (0.3,1)$ and $f_t (0.3, 1)$ (you can use a calculator).
+    + What does $f_L (0.3,1)$ and $f_t (0.3,1)$ mean in practical terms?
+  ]
+]
+
+
+#slide(title: [Siefken 7], autoscale: false)[
+  #set text(size: .9em)
+
+  #columns(2)[
+    Recall that the temperature inside the earth at position $(x,y,z)$ is (approximately) given by
+    $
+      T(x,y,z) = -2(sqrt(x^2 + y^2 + z^2) - 3)^(1/3)+2
+    $
+    In this model, $(0,0,6.3)$ represents the North Pole and $(0,0,-6.3)$ represents the South Pole.
+
+    + What do the level surfaces of $T$ look like?
+    + If you are at position $(0,0,6)$ inside the earth, what do you expect to be largest:
+      $(partial T)/(partial x)$, $(partial T)/(partial y)$, or $(partial T)/(partial z)$? (Hint: you
+      can do this without computing.)
+    + The point $(a,b,c)$ inside the earth lies on a level curve of $T$. Is it true that at
+      $(a,b,c)$, at least one of $(partial T)/(partial x)$, $(partial T)/(partial y)$, or
+      $(partial T)/(partial z)$ is zero? Explain.
+
+  ]
+]
