@@ -351,9 +351,9 @@
   #set text(size: 1em)
 
   #show: columns.with(2)
-  A function $f: RR^2 ->RR$ is *differentiable* at the point $arrow(p)$ if there exists a tangent
-  plane $z=T(x,y)$ so that the directional derivatives of $f$ match the directional derivatives of
-  $T$ (at $arrow(p)$).
+  If function $f: RR^2 ->RR$ is *differentiable* at the point $arrow(p)$ directional derivatives of
+  $f$ at $arrow(p)$ match the directional derivatives of the tangent plane to $z=f(x,y)$ at
+  $arrow(p)$.
 
   Let $f(x,y) = x^2 + y^2 + 3$. $f$ is differentiable.
 
