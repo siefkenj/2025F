@@ -1,6 +1,8 @@
 #import "@preview/colorful-boxes:1.4.3" as cb
 #import "@preview/touying:0.6.1": *
 #import "@preview/cetz:0.4.2"
+#import "@preview/lilaq:0.5.0" as lq
+#import "@preview/tiptoe:0.3.1"
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
 
@@ -1022,4 +1024,92 @@
 
 #slide(title: [Bellah 7.11], autoscale: false)[
   Let $A=mat(1, 0, 3, 0; 1, 0, 2, 0; 4, 0, 0, 1; 1, 2, 3, 0)$. Find $det(A)$.
+]
+
+
+#slide(title: [Siefken 83], autoscale: false)[
+  #set text(size: .9em)
+  #show: columns
+
+  $T: RR^2 -> RR^2$ is the linear map shown below.
+
+  #{
+    let a = lq.diagram(
+      width: 2in,
+      height: 2in,
+      xlim: (-.1, 2),
+      ylim: (-.1, 2),
+      xaxis: (tick-distance: .5),
+      yaxis: (tick-distance: .5),
+      lq.path((0, 0), (1, 0), (1, 1), (0, 1), fill: blue.lighten(80%)),
+      lq.line((0, 0), (1, 0), tip: tiptoe.stealth, stroke: (
+        paint: purple,
+        dash: "dashed",
+        thickness: 2pt,
+      )),
+      lq.line((0, 0), (0, 1), tip: tiptoe.stealth, stroke: 2pt + blue),
+    )
+    let b = lq.diagram(
+      width: 2in,
+      height: 2in,
+      xlim: (-.1, 2),
+      ylim: (-.1, 2),
+      xaxis: (tick-distance: .5),
+      yaxis: (tick-distance: .5),
+      lq.path((0, 0), (1, 1 / 2), (3 / 2, 3 / 2), (1 / 2, 1), fill: blue.lighten(80%)),
+      lq.line((0, 0), (1, 1 / 2), tip: tiptoe.stealth, stroke: (
+        paint: purple,
+        dash: "dashed",
+        thickness: 2pt,
+      )),
+      lq.line((0, 0), (1 / 2, 1), tip: tiptoe.stealth, stroke: 2pt + blue),
+    )
+
+    stack(dir: ltr, spacing: 1em, a, b)
+  }
+
+  #colbreak()
+
+  + Write down the definition of what it means for a vector $arrow(v)$ to be an *eigenvector* of
+    $T$.
+
+  + Give an eigenvector for $T$. What is its eigenvalue?
+  + Can you find another?
+
+]
+
+#slide(title: [Bellah 8.1], autoscale: false)[
+  #show: columns
+
+  For each matrix/vector pair determine whether the vector is an eigenvector for the matrix. If so,
+  find its eigenvalue.
+
+  #set enum(numbering: n => [P#(n - 0).])
+
+  + $A=mat(3, 2; 3, 8)$ and $arrow(v)=mat(-2; 1)$#v(1em)
+  + $A=mat(3, 2; 3, 8)$ and $arrow(v)=mat(1; 1)$#v(1em)
+  + $A=mat(1, 2; 2, 4)$ and $arrow(v)=mat(-2; 1)$#v(1em)
+
+]
+
+#slide(title: [Siefken 84], autoscale: false)[
+  #show: columns
+  For an unknown matrix $A$, you know that $A mat(3; 3; 1)=mat(2; 2; 2/3)$. Define $B=A-2/3 I$.
+
+  + What is the size of $A$?
+  + Give an eigenvector and eigenvalue for $A$.
+  + What is $B mat(3; 3; 1)$?
+  + What can you say about $dim("null"(B))$?
+  + What is $det(B)$?
+]
+
+#slide(title: [Siefken 85], autoscale: false)[
+  #show: columns
+
+  Let $C=mat(-1, 2; 1, 0)$ and define $E_lambda = C - lambda I$.
+
+  + For what values of $lambda$ does $E_lambda$ have a nontrivial null space?
+  + What are the eigenvalues of $C$?
+  + Find the eigenvectors of $C$.
+  + Prove _Proposition 8.2_.
 ]
