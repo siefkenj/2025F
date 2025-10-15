@@ -371,5 +371,7 @@
   + Is there any way to label the contours on Map A so that they correspond to a *continuous*
     function? Explain.
 
-  + Map A came from graphing $f(x,y)= x^2/(x^2 + y^2)$. Is $f$ a continuous function? Explain.
+  + Map A came from graphing
+    $f(x,y)= cases(display(x^2/(x^2 + y^2)&" if " (x,y)!=(0,0)), display(1 &" otherwise"))$. Is $f$
+    a continuous function? Explain.
 ]

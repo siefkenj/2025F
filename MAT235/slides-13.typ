@@ -316,7 +316,7 @@
   ]
 ]
 
-#slide(title: [Siefken 8], autoscale: false)[
+#slide(title: [Siefken 10], autoscale: false)[
   #set text(size: .85em)
 
   The *cross product* obeys the following rules:
@@ -331,7 +331,7 @@
   + Compute $arrow(i) times arrow(i)$ and $(arrow(i) + arrow(j)) times (arrow(i) + arrow(j))$.
 ]
 
-#slide(title: [Siefken 8], autoscale: false)[
+#slide(title: [Siefken 11], autoscale: false)[
   #set text(size: .85em)
 
   The cross product has the following properties:

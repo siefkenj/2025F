@@ -978,7 +978,7 @@
   + What is $det(E_m)$?
   + What is $det(E_a)$?
   + What is $det(E_f E_m)$?
-  + What is $det(4_(3×3))$?
+  + What is $det(4 I_(3×3))$?
   + What is $det(W)$ where $W = E_f E_a E_f E_m E_m$?
   + Explain how to use elementary matrices to find the determinant of a matrix.
 
