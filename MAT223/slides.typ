@@ -1113,3 +1113,11 @@
   + Find the eigenvectors of $C$.
   + Prove _Proposition 8.2_.
 ]
+
+#slide(title: [Bellah 8.6 & 8.3], autoscale: false)[
+  + Define the *characteristic polynomial* of a square matrix $A$.
+
+  + Let $A=mat(1, 1; 1, 1)$, $B=mat(1, 0, 1; 0, 1, 1; 0, 0, 2)$, and $C=mat(1, -1; 1, 1)$.
+
+    Find the characteristic polynomial and the eigenvalues of each matrix.
+]
