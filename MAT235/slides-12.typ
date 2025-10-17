@@ -375,3 +375,15 @@
     $f(x,y)= cases(display(x^2/(x^2 + y^2)&" if " (x,y)!=(0,0)), display(1 &" otherwise"))$. Is $f$
     a continuous function? Explain.
 ]
+
+#slide(title: [Hughes-Hallet 12.6 \#26])[
+  Let
+  $
+    f(x,y) = cases(
+      (x y(x^2-y^2))/(x^2+y^2) & " if " (x,y)!=(0,0),
+      c & " otherwise"
+    )
+  $
+
+  + If possible, find a value of $c$ so that $f$ is continuous. Prove your answer.
+]

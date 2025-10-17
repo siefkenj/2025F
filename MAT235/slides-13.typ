@@ -349,3 +349,22 @@
       this information, find $||arrow(a) times arrow(b)||$.
   ]
 ]
+
+#slide(title: [Siefken 12], autoscale: false)[
+  // #set text(size: .85em)
+
+  #columns(2)[
+  You are fixing up an old tree-house. Unfortunately, the floor of the tree-house is missing, but it has two intact walls!
+
+  The walls, $W_1$ and $W_2$ have equations:
+  $
+    2x+y=0 quad "and" quad x - 2y - z =1
+  $
+  You'd like to construct a floor for the tree-house that is orthogonal to both walls and passes through the point $(1,1,1)$.
+
+    + Find a normal vector the floor.
+    + Find an equation for the floor.
+    + Is the floor level with the ground? Explain.
+  ]
+
+]
