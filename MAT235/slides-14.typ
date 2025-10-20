@@ -253,8 +253,8 @@
     #colbreak()
     To the left is a contour plot of $f(x,y)=x^2+y^2$.
 
-    + Add a contour line for height $14$ to the diagram. Should it lie exactly half way between the
-      lines of height $12$ and $16$? Explain.
+    + Add a contour line for height $10$ to the diagram. Should it lie exactly half way between the
+      lines of height $8$ and $12$? Explain.
     + Draw a zoomed in version of the contour plot in the region $2 <= x <= 3$ and $2 <= y <= 3$.
       Include contours of height $8$, $9$, ..., $16$.
     + If you drew a contour plot zoomed into the region $2 <= x <= 2.1$ and $2 <= y <= 2.1$, what
@@ -325,7 +325,7 @@
 
   #show: columns.with(2)
   The *directional derivative* of a function $f: RR^2 ->RR$ at the point $arrow(p)$ *in the
-    direction* $arrow(v)$ is
+    direction $arrow(v)$* is
   $
     f_(arrow(v))(arrow(p)) = lim_(h -> 0) (f(arrow(p) + h arrow(v)) - f(arrow(p))) / h .
   $
