@@ -314,14 +314,15 @@
     + Find the change in height ($Delta z$) if you start at $(0,0,4)$ and move $alpha$ units in the
       $arrow(i)$ direction.
     + Find $Delta z$ if you start at $(0,0,4)$ and move $beta$ units in the $arrow(j)$ direction.
-    + Find $Delta z$ if you start at $(0,0,4)$ and move $gamma$ units in the $mat(1; 1)$ direction.
+    + Find $Delta z$ if you start at $(0,0,4)$ and move a multiple $gamma$ along the vector
+      $mat(1; 1)$.#v(1em)
     + What is the _slope_ of $f$ in the $mat(1; 1)$ direction? Is it the same as your answer to the
       previous question?
   ]
 ]
 
 #slide(title: [Siefken 11], autoscale: false)[
-  #set text(size: 1em)
+  #set text(size: .9em)
 
   #show: columns.with(2)
   The *directional derivative* of a function $f: RR^2 ->RR$ at the point $arrow(p)$ *in the
@@ -332,7 +333,7 @@
 
   Let $f(x,y) = 2x + 3y + 4$.
 
-  + Find $f_(arrow(i))(1,2)$ and $f_(arrow(j))(1,2)$.
+  + Find $f_(arrow(i))(1,2)$ and $f_(arrow(j))(1,2)$ _from the limit definition_.
   + Let $arrow(v)=mat(-2; 5)$. Find $f_(arrow(v))(1,2)$.
   + Suppose $g(x,y) = a x + b y +c$ represents a plane.
 
@@ -351,9 +352,9 @@
   #set text(size: 1em)
 
   #show: columns.with(2)
-  If function $f: RR^2 ->RR$ is *differentiable* at the point $arrow(p)$ directional derivatives of
-  $f$ at $arrow(p)$ match the directional derivatives of the tangent plane to $z=f(x,y)$ at
-  $arrow(p)$.
+  #text(weight: "bold", [Theorem]): If function $f: RR^2 ->RR$ is *differentiable* at the point
+  $arrow(p)$, the directional derivatives of $f$ at $arrow(p)$ match the directional derivatives of
+  the tangent plane to $z=f(x,y)$ at $arrow(p)$.
 
   Let $f(x,y) = x^2 + y^2 + 3$. $f$ is differentiable.
 
@@ -372,7 +373,7 @@
   For a function $f: RR^n -> RR$, the *gradient* of $f$ (written $nabla f$ or $"grad" f$) is the
   vector
   $
-    nabla f =(partial/(partial x_1) f,space partial/(partial y) f,space ...).
+    nabla f =(partial/(partial x) f,space partial/(partial y) f,space ...).
   $
   #show: columns.with(2)
   Let $T(x,y) = 2x+3y+4$
