@@ -1041,7 +1041,7 @@
       ylim: (-.1, 2),
       xaxis: (tick-distance: .5),
       yaxis: (tick-distance: .5),
-      lq.path((0, 0), (1, 0), (1, 1), (0, 1), fill: blue.lighten(80%)),
+      lq.path((0, 0), (1, 0), (1, 1), (0, 1), fill: blue.lighten(80%), stroke: black),
       lq.line((0, 0), (1, 0), tip: tiptoe.stealth, stroke: (
         paint: purple,
         dash: "dashed",
@@ -1056,7 +1056,14 @@
       ylim: (-.1, 2),
       xaxis: (tick-distance: .5),
       yaxis: (tick-distance: .5),
-      lq.path((0, 0), (1, 1 / 2), (3 / 2, 3 / 2), (1 / 2, 1), fill: blue.lighten(80%)),
+      lq.path(
+        (0, 0),
+        (1, 1 / 2),
+        (3 / 2, 3 / 2),
+        (1 / 2, 1),
+        fill: blue.lighten(80%),
+        stroke: black,
+      ),
       lq.line((0, 0), (1, 1 / 2), tip: tiptoe.stealth, stroke: (
         paint: purple,
         dash: "dashed",

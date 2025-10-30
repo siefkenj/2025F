@@ -406,3 +406,222 @@
     $
     Find a similar expression for $f(arrow(p) + Delta arrow(v))$.
 ]
+
+#slide(title: [Siefken 15], autoscale: false)[
+  #set text(size: .9em)
+
+  #columns(2)[
+    #{
+      let a = lq.diagram(
+        title: [$z=f(x,y)$],
+        width: 6cm,
+        height: 6cm,
+        lq.contour(
+          levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          lq.linspace(-2, 5, num: 40),
+          lq.linspace(-2, 5, num: 40),
+          (x, y) => x * x + y * y,
+          map: color.map.icefire,
+        ),
+        xlim: (-0, 4),
+        ylim: (-0, 4),
+        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        // lq.place(3.5, 3.5, $5$),
+        lq.place(1.5, 3.6, $16$),
+        lq.place(.5, 2.6, $8$),
+        lq.place(1, 3.2, $12$),
+        lq.place(2, 2, lq.mark(stroke: 5pt + black)),
+        lq.place(2.15, 2, $arrow(p)$, align: left),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+      )
+      set align(center)
+      a
+    }
+    #colbreak()
+    To the left is a contour plot of $f(x,y)$.
+
+    + In what direction(s) is $f_(arrow(u))(arrow(p))$ positive? Negative?
+    + In what direction(s) is $f_(arrow(u))(arrow(p))$ largest? Smallest?
+    + In what direction(s) is $f_(arrow(u))(arrow(p))$ zero?
+    + Estimate the largest possible value of $f_(arrow(u))(arrow(p))$ when $arrow(u)$ is a unit
+      vector.
+  ]
+]
+
+#slide(title: [Siefken 16], autoscale: false)[
+  #set text(size: .85em)
+
+  #columns(2)[
+    #{
+      let a = lq.diagram(
+        title: [$z=f(x,y)$],
+        width: 6cm,
+        height: 6cm,
+        lq.contour(
+          levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          lq.linspace(-2, 5, num: 40),
+          lq.linspace(-2, 5, num: 40),
+          (x, y) => x * x + y * y,
+          map: color.map.icefire,
+        ),
+        xlim: (-0, 4),
+        ylim: (-0, 4),
+        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
+        // lq.place(3.5, 3.5, $5$),
+        lq.place(1.5, 3.6, $16$),
+        lq.place(.5, 2.6, $8$),
+        lq.place(1, 3.2, $12$),
+        lq.place(2, 2, lq.mark(stroke: 5pt + black)),
+        lq.place(2.15, 2, $arrow(p)$, align: left),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+      )
+      set align(center)
+      a
+    }
+    #colbreak()
+    To the left is a contour plot of $f(x,y)$.
+
+    + How does $nabla f(arrow(p))$ relate to a directional derivative of $f$. Explain.#v(1em)
+    + What is $nabla f(arrow(p)) dot mat(1; -1)$? How do you know?
+
+    + Draw $nabla f(arrow(p))$ on the contour plot.
+
+    + Estimate $a$ and $b$ in the following expression $nabla f(arrow(p)) = (a,b)$.
+  ]
+]
+
+#slide(title: [Siefken 17], autoscale: false)[
+  #set text(size: .9em)
+
+  #columns(2)[
+    You are walking on a hill. The height at position $(x,y)$ is given by
+    $
+      h(x,y) = 1000 - inline(1/5)x^2 - inline(2/5)y^2 .
+    $
+
+    You are currently standing at position $(1,3)$.
+
+    + Is there a direction you can walk so that your elevation doesn't change? What is that
+      direction?
+    + You want a challenge: you'd like to walk up the hill the steepest way possible. What direction
+      should you walk?
+
+    + Baldwin St, NZ is the steepest street in the world with a slope of 0.35. You'd like to
+      experience the steepness of Baldwin St. What direction should you walk up the hill? (You can
+      use Desmos to help)
+
+  ]
+]
+
+#slide(title: [Siefken 18], autoscale: false)[
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $f(x,y)=??$ be an unknown function and define $g(x,y)=f(2x,y)$.
+
+    + Describe in words what each of the following quantities are: $f_(arrow(i))(x,y)$ and
+      $g_(arrow(i))(x,y)$ and $f_(arrow(i))(2x,y)$. Are any of them equal?
+
+      #v(1em)
+      Suppose $f(3,4)=10$ and $f_(arrow(i)) (3,4) = 5$.
+    + Complete the formula: $f(3+Delta, 4) approx ...$
+    + Based on the information you have, which of the following can you compute _exactly_? $g(3,4)$,
+      $g(3/2,4)$, $g(6,4)$.
+    + Fill in the $??$ so that you have a valid approximation:
+      $
+        g(?? + Delta, 4) approx space.thin g(??,4) + space.thin ?? Delta
+      $
+
+  ]
+]
+
+#slide(title: [Siefken 20], autoscale: false)[
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $f(x,y)=??$ be an unknown function and define $g(x,y)=f(2x,y)$.
+
+    + Find an approximation for $g(x + Delta, y)$ in terms of partial derivative(s) of $f$.
+    + Find an approximation for $g(x + Delta, y)$ in terms of partial derivative(s) of $g$.
+    + Find a formula for $(partial g)/(partial x)(x,y)$ in terms of $(partial f)/(partial x)$.
+
+
+  ]
+]
+
+#slide(title: [Siefken 21], autoscale: false)[
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $f(x,y)=??$ be an unknown function and define $g(x,y)=f(h(x),y)$ for an unknown but
+    differentiable function $h$.
+
+    + Find a formula for $(partial g)/(partial x)(x,y)$ in terms of $(partial f)/(partial x)$ and
+      $(dif h)/(dif x)$.
+    + Find a formula for $(partial g)/(partial y)(x,y)$.
+    + Find $nabla g(x,y)$.
+    + How do your formulas relate to the _chain rule_ from single variable calculus? Explain.
+  ]
+]
+
+#slide(title: [Siefken 22], autoscale: false)[
+  #set text(size: .85em)
+
+  #columns(2)[
+    The multi-variable chain rule *should not be memorized*. Instead, use tangent planes to derive
+    correct expressions.
+
+    Let $f: RR^2 -> RR$, $g: RR -> RR$, and $h: RR -> RR$. Define $p(t) = f(g(t), h(t))$. We'd like
+    to compute $p'(t)$.
+
+    + Find a formula for the tangent plane to $f$ at the point $(a,b)$.
+
+      Annotate your formula by underlining the #underline[constant] expressions.
+    + We will use the tangent plane to approximate $p(t)$ at $t=t_0$.
+    #set enum(numbering: "(a)")
+    + What should the value of $a$ and $b$ be? What should the value of $x$ and $y$ be?
+    + Create a formula that approximates $p(t)$ near $t=t_0$.
+    + Find $p'(t_0)$ and $p'(t)$.
+  ]
+]
+
+#slide(title: [Siefken 23], autoscale: false)[
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $f,g,h$ be functions from $RR^2$ to $RR$. Define $p(x,y) = f(g(x,y), h(x,y))$.
+
+    + Use a tangent plane approximation of $f$ to find a formula that approximates $p$ near the
+      point $(a,b)$.
+    + Find $(partial p)/(partial x) (a,b)$#v(1em)
+    + Find $(partial p)/(partial y) (a,b)$#v(1em)
+    + Find $nabla p (a,b)$
+    + Find $nabla p (x,y)$
+    + Why do we make a tangent plane approximation at the point $(a,b)$ instead of the point
+      $(x,y)$? Explain.
+  ]
+]
+
+#slide(title: [Siefken 10], autoscale: false)[
+  #set text(size: .85em)
+
+  The temperature of inside the earth at position
+  #columns(2)[
+    The temperature at position $(x,y,z)$ inside the earth given by
+    $
+      T(x,y,z) = -2(sqrt(x^2 + y^2 + z^2) - 3)^(1/3)+2
+    $
+    in units of thousands of degrees Celsius.
+
+    You are drilling through the earth. Your drill's position at year $t$ is $P(t) = (t,-2t,3t+4)$
+
+    + Find an equation for the temperature $D_T (t)$ the drill encounters at year $t$.
+    + Use multi-variable calculus to find the rate of change of $D_T$ at year 2.
+
+      Hint: do the computation symbolically first.
+  ]
+]
