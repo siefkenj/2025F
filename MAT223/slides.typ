@@ -1128,3 +1128,207 @@
 
     Find the characteristic polynomial and the eigenvalues of each matrix.
 ]
+
+#slide(title: [Siefken 41], autoscale: false)[
+  #set text(size: .82em)
+
+  #show: place.with(dy: 1em)
+  #let p = {
+    let a = lq.diagram(
+      width: 3.5in,
+      height: 3.5in,
+      xlim: (-3.5, 3.5),
+      ylim: (-3.5, 3.5),
+      grid: none,
+      xaxis: none,
+      yaxis: none,
+      ..range(-4, 5).map(x => lq.line((x, -4.5), (x, 4.5), stroke: (dash: "dashed", paint: gray))),
+      ..range(-4, 5).map(y => lq.line((-4.5, y), (4.5, y), stroke: (dash: "dashed", paint: gray))),
+      ..range(-4, 5).map(i => lq.line(
+        (-8 - 4 / 5 * i, -6 + 3 / 5 * i),
+        (8 - 4 / 5 * i, 6 + 3 / 5 * i),
+        stroke: (dash: "solid", paint: blue, thickness: 1pt),
+      )),
+      ..range(0, 1).map(i => lq.line(
+        (-8 - 4 / 5 * i, -6 + 3 / 5 * i),
+        (8 - 4 / 5 * i, 6 + 3 / 5 * i),
+        stroke: (dash: "solid", paint: blue, thickness: 3pt),
+      )),
+      ..range(-4, 5).map(i => lq.line(
+        (6 + 3 / 5 * i, -8 + 4 / 5 * i),
+        (-6 + 3 / 5 * i, 8 + 4 / 5 * i),
+        stroke: (dash: "solid", paint: green.darken(20%), thickness: 1pt),
+      )),
+      ..range(0, 1).map(i => lq.line(
+        (6 + 3 / 5 * i, -8 + 4 / 5 * i),
+        (-6 + 3 / 5 * i, 8 + 4 / 5 * i),
+        stroke: (dash: "solid", paint: green.darken(20%), thickness: 3pt),
+      )),
+      lq.place(0, 0, circle(radius: 5pt, fill: black)),
+      lq.place(.3, -.1, align: left + top)[City Hall],
+      // lq.plot((0,1), (0,1), mark: 5pt + red),
+      // lq.path((0, 0), (1, 0), (1, 1), (0, 1), fill: blue.lighten(80%), stroke: black),
+      // lq.line((0, 0), (1, 0), tip: tiptoe.stealth, stroke: (
+      //   paint: purple,
+      //   dash: "dashed",
+      //   thickness: 2pt,
+      // )),
+      // lq.line((0, 0), (0, 1), tip: tiptoe.stealth, stroke: 2pt + blue),
+    )
+    a
+  }
+
+  #stack(
+    dir: ltr,
+    spacing: 1em,
+    p,
+
+    {
+      let a = lq.diagram(
+        width: 1.3in,
+        height: 1.3in,
+        xlim: (-.5, 2),
+        ylim: (-.5, 2),
+        xaxis: none,
+        yaxis: none,
+        grid: none,
+        lq.place(1, 0, align: left, [East]),
+        lq.place(0, 1, align: left + bottom, [North]),
+        lq.line((0, 0), (1, 0), tip: tiptoe.stealth, stroke: (
+          paint: black,
+          thickness: 2pt,
+        )),
+        lq.line((0, 0), (0, 1), tip: tiptoe.stealth, stroke: 2pt + black),
+      )
+      a
+    },
+    block(width: 55%, height: 160%)[
+      #show: place.with(dy: 3em)
+      #set text(size: .9em)
+      The town of Oronto has its streets aligned to the vectors
+      $arrow(d)_1=1/5mat(4 "east"; 3 "north")$ and $arrow(d)_2=1/5mat(-3 "east"; 4 "north")$ and its
+      city hall at $arrow(0) = mat(0 "east"; 0 "north")$.
+
+      Locations in Oronto are typically given in *street coordinates*. That is, a pair $(a,b)$ where
+      $a$ is how far you walk along the $arrow(d)_1$ street and $b$ is how far you walk along the
+      $arrow(d)_2$ street.
+
+      + The points $A=(2,1)$ and $B=(3,-1)$ are given in street coordinates. Find their east-north
+        coordinates.
+      + The points $X=(4,3)$ and $Y=(1,7)$ are given in east-north coordinates. Find their street
+        coordinates.
+      + Define $arrow(e)_1=mat(1 "east"; 0 "north")$ and $arrow(e)_2=mat(0 "east"; 1 "north")$. Does
+        $"span"{arrow(e)_1, arrow(e)_2} = "span"{arrow(d)_1, arrow(d)_2}$?
+      + Notice $Y=5 arrow(d)_1 + 5 arrow(d)_2 = arrow(e)_1 + 7 arrow(e)_2$. Is the point $Y$ better
+        represented by the pair $(1,7)$ or $(5,5)$? Explain.
+    ],
+  )
+]
+
+#slide(title: [Bellah 9.1 & 9.3], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10.3cm, breakable: false)
+  #set text(size: .9em)
+  + Let $cal(B)={arrow(v)_1, arrow(v)_2, ..., arrow(v)_n}$ be an ordered basis and let $arrow(x)$ be
+    a vector. Define what is meant by the *$cal(B)$-coordinates of $arrow(x)$*.
+  + What does the notation $[arrow(x)]_(cal(B))$ mean?
+
+  + Let $cal(B)={arrow(b)_1, arrow(b)_2, arrow(b)_3}$ where
+    $
+      arrow(b)_1=mat(1; 1; 0) wide
+      "and" wide arrow(b)_2=mat(2; 1; -1) wide
+      "and" wide arrow(b)_3=mat(0; 1; 3)
+    $
+
+    Find the $cal(B)$-coordinates of $arrow(x)=mat(3; 4; 5)$.
+
+]
+
+#slide(title: [Bellah 9.4], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10.3cm, breakable: false)
+  #set text(size: .9em)
+  + Let $cal(C)$ and $cal(B)$ be ordered bases. Define the *change of basis matrix*
+    $M_(cal(B) <- cal(C))$.
+
+  #set enum(numbering: n => [P#(n - 1).])
+  Let $cal(B)={arrow(b)_1, arrow(b)_2}$ where
+  $
+    arrow(b)_1=mat(2; 1) wide "and" wide arrow(b)_2=mat(5; 3)
+  $
+  + Find $[arrow(b)_1]_(cal(E))$ and $[arrow(b)_2]_(cal(E))$.
+  + Find $M_(cal(E) <- cal(B))$.
+  + How do $M_(cal(E) <- cal(B))$ and $M_(cal(B) <- cal(E))$ relate?
+  + Find $M_(cal(B) <- cal(E))$.
+
+]
+
+#slide(title: [Bellah 9.5], autoscale: false)[
+  #show: place.with(dy: 1.6cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #set enum(numbering: n => [P#(n).])
+  Let $V$ be the plane spanned by the basis $cal(C)={mat(1; 1; 1),mat(2; 0; 1)}$.
+
+  + Show that $cal(B)={mat(3; 1; 2),mat(4; 2; 3)}$ is also a basis for $V$.
+
+  #set enum(numbering: n => [P#(n + 1)\*])
+  + What dimension is $V$?
+  + Let $arrow(x) in V$. How many coordinates does $[arrow(x)]_(cal(B))$ have?
+
+
+  #set enum(numbering: n => [P#(n + 1)])
+  + What size should a change of basis matrix $M_(cal(B) <- cal(C))$ be?
+
+    Find $M_(cal(B) <- cal(C))$ and $M_(cal(C) <- cal(B))$.
+]
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  Let $arrow(a), arrow(b) in RR^n$ be vectors and let $cal(W)$ be a basis for $RR^n$.
+
+  + What would it mean for the map $arrow(v) |-> [arrow(v)]_(cal(W))$ to be linear?
+  + Is the operation of writing a vector in coordinates linear? Explain.
+  + Let $T: RR^n -> RR^n$ be a linear transformation and let $M$ be an $n times n$ matrix.
+
+    For a vector $arrow(v) in RR^n$, which of the following make sense?
+    $
+      [T(arrow(v))]_(cal(W)) wide M [arrow(v)]_(cal(W))\
+      T([arrow(v)]_(cal(W))) wide [M arrow(v)]_(cal(W))\
+    $
+
+  + What does it mean for a matrix $M$ to be the *defining matrix for the transformation $T$ with
+      respect to the basis $cal(C)$*?
+]
+
+#slide(title: [Bellah 10.1], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Let $cal(B) = {arrow(b)_1, arrow(b)_2}$ where
+  $
+    arrow(b)_1=mat(1; 1) wide "and" wide arrow(b)_2=mat(-2; 1).
+  $
+
+  Let $f: RR^2 -> RR^2$ be the linear transformation that stretches vectors in the $arrow(b)_1$
+  direction by a factor of $2$ and leaves vectors in the $arrow(b)_2$ direction unchanged.
+
+  #set enum(numbering: n => [P#(n - 1).])
+
+  + Find a formula for $F(x_1 arrow(b)_1 + x_2 arrow(b)_2)$
+
+  + Find the defining matrix for $F$ with respect to the basis $cal(B)$.
+
+  #set enum(numbering: n => [#(n + 1).])
+  + Are $arrow(b)_1$ and $arrow(b)_2$ eigenvectors for $F$? Explain.
+  + Suppose $F$ stretched in the $arrow(b)_1$ direction by a factor of $lambda_1$ and in the
+    $arrow(b)_2$ direction by a factor of $lambda_2$.
+
+    Find $M_(F, cal(B))$
+]

@@ -606,7 +606,7 @@
   ]
 ]
 
-#slide(title: [Siefken 10], autoscale: false)[
+#slide(title: [Siefken 24], autoscale: false)[
   #set text(size: .85em)
 
   The temperature of inside the earth at position
