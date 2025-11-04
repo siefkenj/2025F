@@ -625,3 +625,53 @@
       Hint: do the computation symbolically first.
   ]
 ]
+
+#slide(title: [Siefken 25], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Consider the function $f(x,y) = x^2+y^2 - 4x y$.
+
+    A *critical point* for a multivariable function is a point where all directional derivatives are
+    zero (or undefined).
+
+    Let $arrow(u)=(u_1,u_2)$
+    + Find $f_(arrow(u))(x,y)$.
+    + Find all critical points of $f$.
+    + Graph slices of $z=f(x,y)$ when $x=0$ and $y=0$.
+    + Write down the *second derivative test* for single variable functions.
+    + Apply the second derivative test to each of your slices to decide if $(0,0)$ is a local max or
+      local min.
+
+      Do you think that $(0,0)$ is a local max, local min for the function $f$? Explain.
+
+    + Use https://www.desmos.com/3d to graph $z=f(x,y)$. What do you see?
+
+  ]
+]
+
+#slide(title: [Siefken 26], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Consider the function $f(x,y) = x^2+y^2 - 4x y$.
+
+    Let $arrow(u)=(u_1,u_2)$
+    + Find $f_(arrow(u))(0,0)$.
+    + Find all critical points of $f$.
+    + Find a formula for the *second directional derivative* of $f$ in the direction $arrow(u)$ at
+      the point $(0,0)$.
+
+    #colbreak()
+    #set enum(numbering: "(a)")
+    + The multivariable *second derivative test* says that a function $f$ has a local min at a
+      critical point $arrow(p)$ if *all* second directional derivatives of $f$ at $arrow(p)$ are
+      positive and a local max if *all* second directional derivatives are negative.
+
+      What does the multivariable second derivative test tell us about $f$ at $(0,0)$?
+  ]
+]
