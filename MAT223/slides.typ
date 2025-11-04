@@ -1142,9 +1142,9 @@
       grid: none,
       xaxis: none,
       yaxis: none,
-      ..range(-4, 5).map(x => lq.line((x, -4.5), (x, 4.5), stroke: (dash: "dashed", paint: gray))),
-      ..range(-4, 5).map(y => lq.line((-4.5, y), (4.5, y), stroke: (dash: "dashed", paint: gray))),
-      ..range(-4, 5).map(i => lq.line(
+      ..range(-5, 6).map(x => lq.line((x, -4.5), (x, 4.5), stroke: (dash: "dashed", paint: gray))),
+      ..range(-5, 6).map(y => lq.line((-4.5, y), (4.5, y), stroke: (dash: "dashed", paint: gray))),
+      ..range(-5, 6).map(i => lq.line(
         (-8 - 4 / 5 * i, -6 + 3 / 5 * i),
         (8 - 4 / 5 * i, 6 + 3 / 5 * i),
         stroke: (dash: "solid", paint: blue, thickness: 1pt),
@@ -1154,7 +1154,7 @@
         (8 - 4 / 5 * i, 6 + 3 / 5 * i),
         stroke: (dash: "solid", paint: blue, thickness: 3pt),
       )),
-      ..range(-4, 5).map(i => lq.line(
+      ..range(-5, 6).map(i => lq.line(
         (6 + 3 / 5 * i, -8 + 4 / 5 * i),
         (-6 + 3 / 5 * i, 8 + 4 / 5 * i),
         stroke: (dash: "solid", paint: green.darken(20%), thickness: 1pt),
@@ -1256,7 +1256,8 @@
   $
     arrow(b)_1=mat(2; 1) wide "and" wide arrow(b)_2=mat(5; 3)
   $
-  + Find $[arrow(b)_1]_(cal(E))$ and $[arrow(b)_2]_(cal(E))$.
+  + Find $[arrow(b)_1]_(cal(E))$ and $[arrow(b)_2]_(cal(E))$ as well as $[arrow(b)_1]_(cal(B))$ and
+    $[arrow(b)_2]_(cal(B))$.
   + Find $M_(cal(E) <- cal(B))$.
   + How do $M_(cal(E) <- cal(B))$ and $M_(cal(B) <- cal(E))$ relate?
   + Find $M_(cal(B) <- cal(E))$.
@@ -1275,7 +1276,8 @@
 
   #set enum(numbering: n => [P#(n + 1)\*])
   + What dimension is $V$?
-  + Let $arrow(x) in V$. How many coordinates does $[arrow(x)]_(cal(B))$ have?
+  + Let $arrow(x) in V$. How many coordinates does $[arrow(x)]_(cal(B))$ have? What about
+    $[arrow(x)]_(cal(C))$?
 
 
   #set enum(numbering: n => [P#(n + 1)])
