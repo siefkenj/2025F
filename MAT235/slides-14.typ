@@ -675,3 +675,30 @@
       What does the multivariable second derivative test tell us about $f$ at $(0,0)$?
   ]
 ]
+
+#slide(title: [Siefken 27], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Consider the function
+    $
+      f(x,y) = cases(x y display((y^2 - x^2)/(x^2+y^2)) &" if "(x,y) != (0,0), 0 &" otherwise")
+    $
+    In this question you may use the fact that
+    $
+      f_x (x,y) = (-x^4y-4x^2y^3+y^5)/(x^2+y^2)^2 \
+      f_y (x,y) = (-x^5+4x^3y^2+x y^4)/(x^2+y^2)^2
+    $
+    when $(x,y) != (0,0)$ and $0$ otherwise.
+
+    + Use https://desmos.com/3d to graph $f$. Does the graph look unusual?
+    + Graph $f_x$ on desmos and use the graph to estimate $f_(x y) = (partial)/(partial y) f_x$ at
+      $(0,0)$.
+    + Graph $f_y$ on desmos and use the graph to estimate $f_(y x)=(partial)/(partial x) f_y$ at
+      $(0,0)$.
+    + Does $f_(x y) = f_(y x)$. Explain.
+
+  ]
+]
