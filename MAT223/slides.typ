@@ -1334,3 +1334,147 @@
 
     Find $M_(F, cal(B))$
 ]
+
+#slide(title: [Bellah 10.16], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  + What does it mean for the matrices $A$ and $B$ to be *similar*? Give an answer both in terms of
+    words *and* in terms of symbols.
+]
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+
+  The transformation $T$ reflects vectors across the line $y=x$.
+
+  + Find $T(arrow(e)_1)$ and $T(arrow(e)_2)$.
+
+  + Find the defining matrix for $T$ with respect to the standard basis $cal(E)$.
+
+    Let $cal(B)={arrow(b)_1, arrow(b)_2} ={ arrow(e)_1 + arrow(e)_2, arrow(e)_1 - arrow(e)_2}$ be an
+    ordered basis.
+
+  + Find the defining matrix for $T$ with respect to the basis $cal(B)$.
+
+  + Are the matrices $mat(0, 1; 1, 0)$ and $mat(1, 0; 0, -1)$ similar? Explain.
+]
+
+#slide(title: [Bellah 10.4], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+
+  Theorem 10.4 states: "The matrices $A$ and $B$ are similar if and only if there is an invertible
+  matrix $P$ so that $A=P^(-1) B P$."
+
+  + What type of matrices are $P$ and $P^(-1)$?
+
+  + Justify the theorem.
+
+]
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  // #show: columns
+
+  Which of the following claims are true/false? Justify each one.
+  + If $A$ and $B$ are similar, then $det(A) = det(B)$
+  + If $A$ and $B$ are similar, then they have the same eigenvalues.
+  + If $A$ and $B$ are similar, then $A$ is invertible if and only if $B$ is invertible.
+  + If $A$ and $B$ are similar, then $"rref"(A)="rref"(B)$
+  + If $A$ and $B$ are similar, then $"null"(A) = "null"(B)$
+  + If $A$ and $B$ are similar, then $"rank"(A) = "rank"(B)$
+  + The identity matrix is similar to all other invertible matrices (of the same size).
+  + The matrices $A=mat(1, 0; 0, 0)$ and $B=mat(0, 0; 0, 1)$ are similar.
+]
+
+#slide(title: [Bellah 10.6 & 10.7], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+
+  + Define what it means for a matrix $A$ do be a *diagonal* matrix.
+  + Define what it means for a matrix $A$ to be *diagonalizable*.
+
+    Suppose $T:RR^3 -> RR^3$ has eigenvalues $1,2,-5$ and associated eigenvectors
+    $arrow(v)_1,arrow(v)_2,arrow(v)_3$. Further, suppose ${arrow(v)_1, arrow(v)_2, arrow(v)_3}$ are
+    linearly independent.
+
+  + Do the eigenvectors of $T$ form a basis for $RR^3$?
+
+  + Write down a matrix for $T$ with respect to a basis of your choice. What basis did you use and
+    why?
+
+  + Generalize the previous exercise to write down a matrix for $G:RR^n -> RR^n$ assuming
+    eigenvalues of $lambda_1, lambda_2, ..., lambda_n$ and associated eigenvectors
+    $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$. What assumptions do you need to make to write down a
+    matrix?
+]
+
+#slide(title: [Bellah 10.5], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  // #show: columns
+  The *Diagonalization Theorem* states: "An $n times n$ matrix $A$ is diagonalizable if and only if
+  $A$ has $n$ linearly independent eigenvectors."
+
+  Let $A$ be an $n times n$ matrix.
+
+  + If $A$ has $n$ linearly independent eigenvectors, explain why $A$ is diagonalizable.
+  + Let $D=mat(d_1, 0, dots, 0; 0, d_2, dots, dots.v; 0, dots, , d_n)$ and suppose $A$ and $D$ are
+    similar. I.e. $A=P^(-1)D P$. Does $A$ have $n$ linearly independent eigenvectors? Explain.
+  + Do we need to do anything else to justify the theorem?
+]
+
+#slide(title: [Bellah 10.5], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  // #show: columns
+  Diagonalize, if possible, the following matrices:
+
+  + $A =mat(0, 1; 2, 1)$
+
+  + $B = mat(2, 2; 0, 2)$
+
+  + $C = mat(1, 0; 0, 0)$
+
+  + $D = mat(1, 0, 1; 0, 1, 2)$
+
+]
+
+#slide(title: [Bellah 10.8], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Let $A=mat(4, -3, 0; 2, -1, 0; 1, -1, 1)$, $P=mat(-1, 1, 1; -2, 3, 0; 1, -1, 0)$, and
+  $P^(-1)=mat(0, 1, 3; 0, 1, 2; 1, 0, 1)$ and note that
+  $A = P^(-1) mat(1, 0, 0; 0, 1, 0; 0, 0, 2) P$.
+
+  + Compute $A^10$ by hand.
+
+    _Hint: Use all the information you're given to make it easy._
+
+  #colbreak()
+  + If you were given a description of a transformation, but you got to pick which basis it was
+    described in, what basis would you pick? Why?
+]

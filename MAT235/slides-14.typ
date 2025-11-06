@@ -531,9 +531,9 @@
     + Complete the formula: $f(3+Delta, 4) approx ...$
     + Based on the information you have, which of the following can you compute _exactly_? $g(3,4)$,
       $g(3/2,4)$, $g(6,4)$.
-    + Fill in the $??$ so that you have a valid approximation:
+    + Fill in the $?$ so that you have a valid approximation:
       $
-        g(?? + Delta, 4) approx space.thin g(??,4) + space.thin ?? Delta
+        g(??? + Delta, 4) approx space.thin g(??,4) + space.thin ? Delta
       $
 
   ]
@@ -699,6 +699,71 @@
     + Graph $f_y$ on desmos and use the graph to estimate $f_(y x)=(partial)/(partial x) f_y$ at
       $(0,0)$.
     + Does $f_(x y) = f_(y x)$. Explain.
+  ]
+]
 
+#slide(title: [Siefken 28], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $f(x,y)=cos(x+y)+cos(y)$.
+
+    + A general *second degree* polynomial in one variable is $a x^2 + b x + c$. Write down a
+      general second degree polynomial in *two* variables. Call your polynomial $Q(x,y)$.
+
+    + Find $Q(0,0)$ as well as all first *and* second order partial derivatives of $Q$ at $(0,0)$.
+
+    + Find $f(0,0)$ as well as all first *and* second order partial derivatives of $f$ at $(0,0)$.
+
+    + Can you find coefficients for $Q$ so that $Q$ matches $f$ as closely as possible near $(0,0)$?
+
+    + Use https://www.desmos.com/3d to graph $f$ and your polynomial $Q$. How do they compare?
+
+    + $Q$ is called the *second degree* approximation to $f$ at $(0,0)$. What is the *first degree*
+      approximation? (How about the $n$#super("th") degree approximation?)
+  ]
+]
+
+#slide(title: [Siefken 29], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Open
+
+    https://www.desmos.com/3d/j2qkb0agxt
+
+    which has a general second degree polynomial.
+
+    + Classify the different types of shapes you can get by changing the coefficients.
+    + How can you get a plane?
+    + Can you get a "taco" shape? (e.g., the shape of an _extruded_ parabola)?
+  ]
+]
+
+#slide(title: [Siefken 30], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    A function $f:RR^2 -> RR^2$ is *differentiable* at the point $arrow(p)$ if there exists a
+    tangent plane $z=L(x,y)$ (to $z=f(x,y)$ at the point $arrow(p)$) such that
+    $
+      lim_(arrow(h) -> arrow(0)) (f(arrow(p) + arrow(h)) - L(arrow(h))) / norm(arrow(h)) = 0.
+    $
+
+    + "$f(arrow(p) + arrow(h)) - L(arrow(h))$" is sometimes called an *error term*. Why? Does the
+      terminology make sense?
+
+    + Let $C(x,y) = -sqrt(4x^2 + 4y^2)$. Use Desmos to graph $C$.
+    + Define $z=L(x,y)$ to be a horizontal plane through the origin. Is $z=L(x,y)$ a tangent plane
+      to $z=C(x,y)$?
+    + Does $L$ satisfy the requirements for differentiability of $C$ at the origin?
+    + Is $C$ differentiable at the origin? Explain.
+    + Is $C$ differentiable at $(2,0)$?
   ]
 ]
