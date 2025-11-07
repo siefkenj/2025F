@@ -545,8 +545,8 @@
   #columns(2)[
     Let $f(x,y)=??$ be an unknown function and define $g(x,y)=f(2x,y)$.
 
-    + Find an approximation for $g(x + Delta, y)$ in terms of partial derivative(s) of $f$.
     + Find an approximation for $g(x + Delta, y)$ in terms of partial derivative(s) of $g$.
+    + Find an approximation for $g(x + Delta, y)$ in terms of partial derivative(s) of $f$.
     + Find a formula for $(partial g)/(partial x)(x,y)$ in terms of $(partial f)/(partial x)$.
 
 
