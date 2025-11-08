@@ -578,10 +578,14 @@
     Let $f: RR^2 -> RR$, $g: RR -> RR$, and $h: RR -> RR$. Define $p(t) = f(g(t), h(t))$. We'd like
     to compute $p'(t)$.
 
-    + Find a formula for the tangent plane to $f$ at the point $(a,b)$.
+    + Find a formula for $z=T(x,y)$, the tangent plane to $f$ at the point $(a,b)$.
 
       Annotate your formula by underlining the #underline[constant] expressions.
-    + We will use the tangent plane to approximate $p(t)$ at $t=t_0$.
+    + We will use the formula
+      $
+        p(t) approx T(g(t), h(t))
+      $
+      to approximate $p(t)$ at $t=t_0$.
     #set enum(numbering: "(a)")
     + What should the value of $a$ and $b$ be? What should the value of $x$ and $y$ be?
     + Create a formula that approximates $p(t)$ near $t=t_0$.
