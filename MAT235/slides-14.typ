@@ -581,15 +581,13 @@
     + Find a formula for $z=T(x,y)$, the tangent plane to $f$ at the point $(a,b)$.
 
       Annotate your formula by underlining the #underline[constant] expressions.
-    + We will use the formula
+    + We will approximate $p(t)$ at $t=t_0$ by
       $
         p(t) approx T(g(t), h(t))
       $
-      to approximate $p(t)$ at $t=t_0$.
     #set enum(numbering: "(a)")
-    + What should the value of $a$ and $b$ be? What should the value of $x$ and $y$ be?
-    + Create a formula that approximates $p(t)$ near $t=t_0$.
-    + Find $p'(t_0)$ and $p'(t)$.
+    + What should the value of $a$ and $b$ be to make this approximation good near $t=t_0$?
+    + Differentiate your approximation to find $p'(t_0)$. Then find a formula for $p'(t)$.
   ]
 ]
 
