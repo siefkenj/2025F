@@ -2,13 +2,19 @@
 #import "@preview/touying:0.6.1": *
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
-#import "@preview/lilaq:0.4.0" as lq
+#import "@preview/lilaq:0.5.0" as lq
 
 #let slide(..args) = {
-  let title = args.named().at("title", default: none)
+  let named = args.named()
+  let title = named.at("title", default: none)
+  let autoscale = named.at("autoscale", default: true)
   let positional = args.pos()
-  slide-orig(..args.named(), title: text(size: 18pt, title), ..positional.map(p => {
-    show: utils.fit-to-height.with(100%, grow: false)
+  slide-orig(title: text(size: 18pt, title), ..positional.map(p => {
+    show: if autoscale {
+      utils.fit-to-height.with(100%, grow: false)
+    } else {
+      it => it
+    }
     p
   }))
 }
@@ -20,7 +26,7 @@
     block(width: 100%, height: 100%, fill: self.colors.neutral-darkest)
   },
   config-info(
-    title: [MAT235 Slides LEC0401],
+    title: [MAT235 Slides LEC0401 (Chapter 15)],
     subtitle: [Jason Siefken],
     // author: [Jason Siefken],
     // date: datetime.today(),
@@ -53,13 +59,103 @@
 
 #title-slide()
 
-#slide(title: [Siefken 1])[
-  Multi-variable functions are functions from multiple inputs to multiple outputs.
+#slide(title: [Siefken 1], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
 
-  When there is one input and one output we can visualize a function by graphing inputs on the
-  $x$-axis and outputs on the $y$-axis.
+  #columns(2)[
+    #{
+      let s = 3cm
+      let a = lq.diagram(
+        title: [A],
+        width: s,
+        height: s,
+        lq.contour(
+          // levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          lq.linspace(-4, 5, num: 40),
+          lq.linspace(-4, 5, num: 40),
+          (x, y) => x * x + y * y,
+          map: color.map.icefire,
+        ),
+        xlim: (-4, 4),
+        ylim: (-4, 4),
+        xaxis: (ticks: lq.arange(-4, 6, step: 2)),
+        yaxis: (ticks: lq.arange(-4, 6, step: 2)),
+        // lq.place(3.5, 3.5, $5$),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+      )
+      let b = lq.diagram(
+        title: [B],
+        width: s,
+        height: s,
+        lq.contour(
+          // levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          lq.linspace(-4, 5, num: 40),
+          lq.linspace(-4, 5, num: 40),
+          (x, y) => x * x - y * y,
+          map: color.map.icefire,
+        ),
+        xlim: (-4, 4),
+        ylim: (-4, 4),
+        xaxis: (ticks: lq.arange(-4, 6, step: 2)),
+        yaxis: (ticks: lq.arange(-4, 6, step: 2)),
+        // lq.place(3.5, 3.5, $5$),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+      )
+      let c = lq.diagram(
+        title: [C],
+        width: s,
+        height: s,
+        lq.contour(
+          // levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          lq.linspace(-4, 5, num: 40),
+          lq.linspace(-4, 5, num: 40),
+          (x, y) => 2 * x * x - calc.cos(4 * y),
+          map: color.map.icefire,
+        ),
+        xlim: (-4, 4),
+        ylim: (-4, 4),
+        xaxis: (ticks: lq.arange(-4, 6, step: 2)),
+        yaxis: (ticks: lq.arange(-4, 6, step: 2)),
+        // lq.place(3.5, 3.5, $5$),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+      )
+      let d = lq.diagram(
+        title: [D],
+        width: s,
+        height: s,
+        lq.contour(
+          // levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          lq.linspace(-4, 5, num: 40),
+          lq.linspace(-4, 5, num: 40),
+          (x, y) => 2 * x + y,
+          map: color.map.icefire,
+        ),
+        xlim: (-4, 4),
+        ylim: (-4, 4),
+        xaxis: (ticks: lq.arange(-4, 6, step: 2)),
+        yaxis: (ticks: lq.arange(-4, 6, step: 2)),
+        // lq.place(3.5, 3.5, $5$),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+      )
+      show: block.with(breakable: false)
+      table(
+        columns: 2,
+        stroke: none,
+        a, b,
+        c, d,
+      )
+    }
 
-  + What are some ways we might visualize a function with two inputs and one output?
-
-    Come up with several ideas.
+    For each contour plot, determine if the contour heights can be labeled so that:
+    + There is a *local maximum* at the origin.
+    + There is a *unique* local maximum at the origin.
+    + There is no local maximum at the origin.
+    + There is no *local extreme* at the origin.
+  ]
 ]
