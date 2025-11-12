@@ -668,13 +668,16 @@
     + Find a formula for the *second directional derivative* of $f$ in the direction $arrow(u)$ at
       the point $(0,0)$.
 
-    #colbreak()
-    #set enum(numbering: "(a)")
+    // #colbreak()
+    // #set enum(numbering: "(a)")
     + The multivariable *second derivative test* says that a function $f$ has a local min at a
       critical point $arrow(p)$ if *all* second directional derivatives of $f$ at $arrow(p)$ are
       positive and a local max if *all* second directional derivatives are negative.
 
       What does the multivariable second derivative test tell us about $f$ at $(0,0)$?
+
+    + Find a general formula for the second directional derivative of a function $g$ in the
+      direction $arrow(u)$ at the point $(x,y)$.
   ]
 ]
 

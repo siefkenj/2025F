@@ -159,3 +159,83 @@
     + There is no *local extreme* at the origin.
   ]
 ]
+
+#slide(title: [Siefken 2], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    The second derivative test for multivariable functions relies on the theorem: if a function $f$
+    is twice differentiable and $Q$ is a quadratic approximation to $f$ at $arrow(p)$, then
+
+    - If $Q$ has a *strict* max (or min) at $arrow(p)$, then $f$ has a *local* (strict) max (or
+      min) at $arrow(p)$.
+
+    - If $Q$ has a saddle point at $arrow(p)$, then $f$ has a saddle point at $arrow(p)$.
+
+    Below $Q$ is a quadratic approximation to $f$ centered at $arrow(0)$.
+
+    Use https://desmos.com/3d to graph each quadratic approximation to decide if the original
+    function has a local max/min/saddle at $arrow(p)=arrow(0)$.
+
+    + $f$ where $Q(x,y) = 2x^2+1/2 y^2$
+    + $f$ where $Q(x,y) = 2x^2-1/2 y^2$
+    + $f$ where $Q(x,y) = 2x^2 +y +y^2$
+    + $f(x,y)=x^4+y^4+3$ where $Q(x,y) = 3$
+  ]
+]
+
+#slide(title: [Siefken 3], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $p(x,y) = a x^2 + b y^2 +c x y + d x +e y +f$ be a general quadratic.
+
+    + If $p$ has a critical point at $arrow(0)$, what can you say about $a,b,c,d,e,f$?
+    + If you change the value of $f$, will that change whether or not $p$ has a local max/min/saddle
+      at $arrow(0)$? Explain.
+    + If $a>0$ and $b < 0$, is it possible for $p$ to have a local min/max at $arrow(0)$? What if
+      $a <0$ and $b > 0$?
+    + Use Desmos to graph a quadratic $a x^2 + b y^2 + c x y$. Keeping $a,b > 0$, can you find
+      values of $a,b,c$ such that there
+      #set enum(numbering: "(i)")
+      + *is* a local minimum?
+      + *is* a local maximum?
+      + *is no* local minimum or maximum?
+  ]
+]
+
+#slide(title: [Siefken 4], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $p(x,y) = a x^2 + b y^2 +c x y + d x +e y +f$.
+
+    If $p$ has a global extreme at $arrow(0)$, we know:
+    - $a$ and $b$ are the same sign;
+    - $d=e=0$;
+    - $f$ doesn't matter.
+
+    I.e., we can classify $q(x,y)=a x^2 + b y^2 + c x y$.
+
+    Assume $a,b>0$.
+
+
+    + If $p$ has a critical point at $arrow(0)$, what can you say about $a,b,c,d,e,f$?
+    + If you change the value of $f$, will that change whether or not $p$ has a local max/min/saddle
+      at $arrow(0)$? Explain.
+    + If $a>0$ and $b < 0$, is it possible for $p$ to have a local min/max at $arrow(0)$? What if
+      $a <0$ and $b > 0$?
+    + Use Desmos to graph a quadratic $a x^2 + b y^2 + c x y$. Keeping $a,b > 0$, can you find
+      values of $a,b,c$ such that there
+      #set enum(numbering: "(i)")
+      + *is* a local minimum?
+      + *is* a local maximum?
+      + *is no* local minimum or maximum?
+  ]
+]
