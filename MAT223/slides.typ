@@ -1421,7 +1421,7 @@
 
   + Generalize the previous exercise to write down a matrix for $G:RR^n -> RR^n$ assuming
     eigenvalues of $lambda_1, lambda_2, ..., lambda_n$ and associated eigenvectors
-    $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$. What assumptions do you need to make to write down a
+    $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$. What assumptions are needed to be able to write down a
     matrix?
 ]
 
