@@ -169,8 +169,8 @@
     The second derivative test for multivariable functions relies on the theorem: if a function $f$
     is twice differentiable and $Q$ is a quadratic approximation to $f$ at $arrow(p)$, then
 
-    - If $Q$ has a *strict* max (or min) at $arrow(p)$, then $f$ has a *local* (strict) max (or
-      min) at $arrow(p)$.
+    - If $Q$ has a *unique* max (or min) at $arrow(p)$, then $f$ has a unique *local* max (or min)
+      at $arrow(p)$.
 
     - If $Q$ has a saddle point at $arrow(p)$, then $f$ has a saddle point at $arrow(p)$.
 
@@ -216,26 +216,229 @@
   #columns(2)[
     Let $p(x,y) = a x^2 + b y^2 +c x y + d x +e y +f$.
 
-    If $p$ has a global extreme at $arrow(0)$, we know:
+    If $p$ has a unique extreme at $arrow(0)$, we know:
     - $a$ and $b$ are the same sign;
     - $d=e=0$;
     - $f$ doesn't matter.
 
     I.e., we can classify $q(x,y)=a x^2 + b y^2 + c x y$.
 
+    We will start out simple and assume $a=b=1$.
+
+    + Let $arrow(u)=mat(u_1; u_2)$ be a unit vector.
+      #set enum(numbering: "(a)")
+      + Which of the following are possible:
+        #set enum(numbering: "(i)")
+        + $q$ has a unique min at $arrow(0)$
+        + $q$ has a unique max at $arrow(0)$
+        + $q$ has a saddle point at $arrow(0)$
+      + Find the second directional derivative of $q$ at $arrow(0)$ in the direction of $arrow(u)$.
+      + What condition(s) must be true for $q$ to have a unique min at $arrow(0)$?
+
+    //  Consider the general case where $q(x,y)=a x^2 + b y^2 + c x y$.
+    //  Assume $a,b>0$.
+
+
+  ]
+]
+
+#slide(title: [Siefken 5], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    We will now consider the general case where $q(x,y)=a x^2 + b y^2 + c x y$.
+
     Assume $a,b>0$.
 
+    + How does the graph of $z=1/a q(x,y)$ relate to the graph of $z=q(x,y)$? Does the behaviour at
+      $arrow(0)$ change depending on what $a$ is?
 
-    + If $p$ has a critical point at $arrow(0)$, what can you say about $a,b,c,d,e,f$?
-    + If you change the value of $f$, will that change whether or not $p$ has a local max/min/saddle
-      at $arrow(0)$? Explain.
-    + If $a>0$ and $b < 0$, is it possible for $p$ to have a local min/max at $arrow(0)$? What if
-      $a <0$ and $b > 0$?
-    + Use Desmos to graph a quadratic $a x^2 + b y^2 + c x y$. Keeping $a,b > 0$, can you find
-      values of $a,b,c$ such that there
+      _Hint_: Use Desmos to check you're not sure.
+
+    + How does the graph of $z=q(x, m y)$ relate to the graph of $z=q(x,y)$? Does the behaviour at
+      $arrow(0)$ change depending on what $m$ is?
+
+    + Consider the *new* polynomial
+      $
+        r(x,w) = 1/a q(x, sqrt(a)/sqrt(b) w)
+      $
+      Find a formula for $r(x,w)$.
+
+      How does the behaviour of $r$ at $arrow(0)$ relate to the behaviour of $q$ at $arrow(0)$?
+
+    + Classify the behaviour of $r$ at $arrow(0)$ (based on the previous slide).
+
+    + Classify the behaviour of $q$ at $arrow(0)$.
+
+    + Find formulas to classify the behaviour of $q$ at $arrow(0)$ in terms of $q_(x x)$, $q_(y y)$,
+      and $q_(x y)$.
+  ]
+]
+
+#slide(title: [Siefken 6], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    The height of a camp ground is given by
+    $
+      h(x,y) & =1/10 (-x^2+y(y-6)^2) \
+             & = 1/10 (-x^2 +y^3 - 12y^2+36 y)
+    $
+
+    + Find all the critical points of $h$.
+    + Where are the highest and lowest places on the campground?
+    + There is a circular fence placed around the campground at a radius of $4$ from the point
+      $(0,4)$ marking the boundaries of the campground.
+
+      Within the boundaries of the campground, what are there highest and lowest spots? If so, find
+      them.
+
+      _Hint_: Feel free to use Desmos!
+  ]
+]
+#slide(title: [Siefken 6], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    The height of a camp ground is given by
+    $h(x,y) & =1/10 (-x^2+y(y-6)^2) = 1/10 (-x^2 +y^3 - 12y^2+36 y)$
+
+    #{
+      let s = 6cm
+      let a = lq.diagram(
+        title: [Camp Ground],
+        width: s,
+        height: s,
+        lq.contour(
+          // levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          levels: (-1, 0, 1, 2, 3, 4),
+          lq.linspace(-4.5, 4.5, num: 60),
+          lq.linspace(-0.5, 8.5, num: 80),
+          (x, y) => 1 / 10 * (-x * x + y * (y - 6) * (y - 6)),
+          map: color.map.icefire,
+        ),
+        xlim: (-4.5, 4.5),
+        ylim: (-0.5, 8.5),
+        xaxis: (ticks: lq.arange(-9, 10, step: 1)),
+        yaxis: (ticks: lq.arange(-9, 10, step: 1)),
+        // lq.place(3.5, 3.5, $5$),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+      )
+      set align(center)
+      a
+    }
+
+    + On the contour plot, label the critical points you found.
+    + The lines of the contour plot are at integer levels (e.g., $1$, $2$, $-1$, etc.). Label the
+      height of each curve appropriately.
+
+    + Draw gradient vectors for $h$ on the contour plot.
+  ]
+]
+
+#slide(title: [Siefken 7], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .75em)
+
+  #columns(2)[
+    The height of a camp ground is given by
+    $h(x,y) & =1/10 (-x^2+y(y-6)^2) = 1/10 (-x^2 +y^3 - 12y^2+36 y)$
+
+    #{
+      let s = 6cm
+      let a = lq.diagram(
+        title: [Camp Ground],
+        width: s,
+        height: s,
+        lq.contour(
+          // levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          levels: (-1, 0, 1, 2, 3, 4),
+          lq.linspace(-4.5, 4.5, num: 60),
+          lq.linspace(-0.5, 8.5, num: 80),
+          (x, y) => 1 / 10 * (-x * x + y * (y - 6) * (y - 6)),
+          map: color.map.icefire,
+        ),
+        xlim: (-4.5, 4.5),
+        ylim: (-0.5, 8.5),
+        xaxis: (ticks: lq.arange(-9, 10, step: 1)),
+        yaxis: (ticks: lq.arange(-9, 10, step: 1)),
+        // lq.place(3.5, 3.5, $5$),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+        lq.ellipse(0, 4, width: 8, height: 8, align: center + horizon, stroke: 2pt + blue),
+      )
+      set align(center)
+      a
+    }
+
+    The boundary of the camp ground is given by $x^2 + (y - 4)^2 = 4^2$ and is plotted to the left.
+
+    + Identify all places *on the boundary* where $h$ could have a local extreme.
+    + At the places you identified, what is the relationship between the boundary and the level
+      curve?
       #set enum(numbering: "(i)")
-      + *is* a local minimum?
-      + *is* a local maximum?
-      + *is no* local minimum or maximum?
+      + Tangent
+      + Orthogonal
+      + Something else
+    + At the places you identified, is the gradient of $h$
+      #set enum(numbering: "(i)")
+      + Tangent
+      + Orthogonal
+      + Something else
+  ]
+]
+
+#slide(title: [Siefken 7], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .75em)
+
+  #columns(2)[
+    The height of a camp ground is given by
+    $h(x,y) & =1/10 (-x^2+y(y-6)^2) = 1/10 (-x^2 +y^3 - 12y^2+36 y)$
+
+    #{
+      let s = 6cm
+      let a = lq.diagram(
+        title: [Camp Ground],
+        width: s,
+        height: s,
+        lq.contour(
+          // levels: (4, 8, 12, 16, 20, 24, 28, 32),
+          levels: (-1, 0, 1, 2, 3, 4),
+          lq.linspace(-4.5, 4.5, num: 60),
+          lq.linspace(-0.5, 8.5, num: 80),
+          (x, y) => 1 / 10 * (-x * x + y * (y - 6) * (y - 6)),
+          map: color.map.icefire,
+        ),
+        xlim: (-4.5, 4.5),
+        ylim: (-0.5, 8.5),
+        xaxis: (ticks: lq.arange(-9, 10, step: 1)),
+        yaxis: (ticks: lq.arange(-9, 10, step: 1)),
+        // lq.place(3.5, 3.5, $5$),
+        // lq.place(1.5, 1.5, $2$),
+        // lq.place(.9, .9, $1$),
+        lq.ellipse(0, 4, width: 8, height: 8, align: center + horizon, stroke: 2pt + blue),
+      )
+      set align(center)
+      a
+    }
+
+    The boundary of the camp ground is given by $x^2 + (y - 4)^2 = 4^2$ and is plotted to the left.
+
+    Define $g(x,y)=x^2+(y-4)^2$.
+
+    + The boundary is the graph of *some* level curve for $g$. Which level curve?
+    + What is the relationship between $nabla g$ and the boundary?
+    + What is the relationship between $nabla h$ and $nabla g$ on the boundary?
+    + Solve for all the locations where $nabla g = nabla h$ on the boundary.
   ]
 ]

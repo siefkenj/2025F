@@ -1421,8 +1421,8 @@
 
   + Generalize the previous exercise to write down a matrix for $G:RR^n -> RR^n$ assuming
     eigenvalues of $lambda_1, lambda_2, ..., lambda_n$ and associated eigenvectors
-    $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$. What assumptions are needed to be able to write down a
-    matrix?
+    $arrow(v)_1, arrow(v)_2, ..., arrow(v)_n$. What assumptions are needed to be able to write down
+    a matrix?
 ]
 
 #slide(title: [Bellah 10.5], autoscale: false)[
@@ -1477,4 +1477,188 @@
   #colbreak()
   + If you were given a description of a transformation, but you got to pick which basis it was
     described in, what basis would you pick? Why?
+]
+
+#slide(title: [Siefken 24a], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  // #set text(size: .7em)
+  If $arrow(a)=mat(a_1; a_2; dots.v; a_n)$ and $arrow(b)=mat(b_1; b_2; dots.v; b_n)$ are written *in
+    the standard basis* then:
+  - The *dot product* of $arrow(a)$ and $arrow(b)$ is written as $arrow(a) dot arrow(b)$ and given
+    by
+    - (Algebraic Definition) $arrow(a) dot arrow(b)=a_1b_1+a_2b_2+...+a_n b_n$
+    - (Geometric Definition) $arrow(a) dot arrow(b)=||arrow(a)|| ||arrow(b)|| cos(theta)$ where
+      $theta$ is the smaller of the angles between $arrow(a)$ and $arrow(b)$.
+  - The *length* or *magnitude* of $arrow(a)$ is written as $||arrow(a)||$ and given by
+    $||arrow(a)||=sqrt(arrow(a) dot arrow(a))$
+
+  #set text(size: .98em)
+  Let $arrow(a)=mat(1; 1)$ and $arrow(b)=mat(3; 1)$
+  #columns(2)[
+
+    + Draw a picture of $arrow(a)$ and $arrow(b)$.
+    + Compute $arrow(a) dot arrow(b)$.
+    + Find $||arrow(a)||$ and $||arrow(b)||$.
+    + Use your knowledge of the dot product to find the angle between $arrow(a)$ and $arrow(b)$.
+  ]
+]
+#slide(title: [Siefken 24b], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  Let $arrow(a)=mat(1; 1)$ and $arrow(b)=mat(3; 1)$
+
+  Draw a picture of $arrow(a)$ and $arrow(b)$. On your picture, include
+  #columns(2)[
+    + a vector $arrow(c)$ so that $arrow(c) dot arrow(a)$ is negative.
+    + a vector $arrow(d)$ so that $arrow(d) dot arrow(a)=0$ and $arrow(d) dot arrow(b)<0$.
+    + a vector $arrow(e)$ so that $arrow(e) dot arrow(a)=0$ and $arrow(e) dot arrow(b)>0$.
+    + Can you find a vector $arrow(f)$ so that $arrow(f) dot arrow(a)=0$ and
+      $arrow(f) dot arrow(b)=0$? Explain why or why not.
+  ]
+]
+
+#slide(title: [Siefken 26], autoscale: false)[
+  #set text(size: .81em)
+  Two vectors $arrow(a)$ and $arrow(b)$ are *orthogonal* if $arrow(a) dot arrow(b)=0$.
+
+  #columns(2)[
+    + If $arrow(a)$ and $arrow(b)$ are orthogonal, what is the angle between them?
+
+      Let $arrow(n)=mat(1; 3)$
+
+    + Draw $arrow(n)$ and *all* vectors orthogonal to $arrow(n)$ in the same plot. What is the
+      resulting geometric figure?
+    + Let $arrow(x)=mat(x; y)$. Express the following relationship as an equation: "$arrow(x)$ is
+      orthogonal to $arrow(n)$."
+  ]
+]
+
+#slide(title: [Bellah 11.4#sym.star], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #show: columns
+  Recall that the algebraic definition of the dot product was for *standard coordinates*.
+
+  Consider the bases
+  $
+    cal(B)={mat(1; 2), mat(1; 1)} wide cal(C)={mat(1; 1),mat(1; -1)}\
+    cal(D)={mat(1/sqrt(2); 1/sqrt(2)), mat(-1/sqrt(2); 1/sqrt(2))}
+  $
+  Let $arrow(r)=arrow(e)_1 + 2 arrow(e)_2$. In this question you may use the fact that
+  $[arrow(r)]_(cal(B))=mat(1; 0)$, $[arrow(w)]_(cal(C))=mat(3/2; -1/2)$, and
+  $[arrow(r)]_(cal(D)) = mat(3/sqrt(2); -1/sqrt(2))$.
+
+  + To compute $arrow(r) dot arrow(r)$ with the algebraic definition, what basis do you write
+    $arrow(r)$ in? Compute $arrow(r) dot arrow(r)$.
+  + Find $arrow(u) dot arrow(u)$ where $[arrow(u)]_cal(B)=mat(1; 0)$
+
+    $arrow(v) dot arrow(v)$ where $[arrow(v)]_cal(C)=mat(3/2; -1/2)$
+
+
+    $arrow(w) dot arrow(w)$ where $[arrow(w)]_cal(D) = mat(3/sqrt(2); -1/sqrt(2))$.
+
+  + Naively apply "multiply corresponding coordinates" method to compute *fake* dot products
+    $
+      [arrow(u)]_cal(B) dot [arrow(u)]_cal(B)wide
+      [arrow(v)]_cal(C) dot [arrow(v)]_cal(C)wide
+      [arrow(w)]_cal(D) dot [arrow(w)]_cal(D)wide
+    $
+  + Compare the previous two computations. What do you notice?
+]
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  // #set text(size: .8em)
+
+  #show: columns
+  The dot product can be used in matrix multiplication.
+
+  Let $arrow(a)=mat(a_1; a_2)$, $arrow(b)=mat(b_1; b_2)$, $arrow(x)=mat(x_1; x_2)$, and
+  $arrow(y)=mat(y_1; y_2)$.
+
+  Define $M=mat(a_1, a_2; b_1, b_2)$ and $X=mat(x_1, x_2; y_1, y_2)$.
+
+  + Compute $M arrow(x)$. Can you rewrite the result using dot products?
+  + Compute $M X$. Can you rewrite the result using dot products?
+
+]
+
+#slide(title: [Bellah 11.5 & 11.8], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  // #set text(size: .8em)
+
+  // #show: columns
+  + Define what it means for a basis $cal(B)={arrow(b)_1, ..., arrow(b)_n}$ to be *orthogonal*.
+  + Define what it means for a basis $cal(B)={arrow(b)_1, ..., arrow(b)_n}$ to be *orthonormal*.
+  + Define what it means for a square matrix $Q$ to be *orthogonal*.
+]
+
+#slide(title: [Bellah 11.12#sym.star], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+  //
+  #show: columns
+  + Describe in words some transformations from $RR^2$ to $RR^2$ that do not change the length of
+    *any* vector. Find matrices for these transformations. Are they orthogonal?
+
+    #v(1em)
+    *Theorem*: Let $Q$ be an orthogonal matrix and let $T$ be the linear transformation defined by
+    $Q$ (in standard coordinates). Then, $T$ does not change the length of vectors.
+  + Restate the theorem formally, using mathematical symbols.
+
+    Let $Q$ be an orthogonal matrix with columns $cal(Q)={arrow(q)_1, ..., arrow(q)_n}$.
+  + What is $arrow(q)_1 dot arrow(q)_1$? What is $arrow(q)_1 dot arrow(q)_2$?
+  + Let $arrow(w)= alpha_1 arrow(q)_1 + ... + alpha_n arrow(q)_n$. Compute $arrow(w) dot arrow(w)$
+    in both standard and $cal(Q)$-coordinates
+  + Let $arrow(a)$ have standard coordinates $(alpha_1, ..., alpha_n)$. Compute $||arrow(a)||$ and
+    $||T(arrow(a))||$.
+]
+
+#slide(title: [Bellah 11.5#sym.star], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+  //
+  #show: columns
+  + Let $A=mat(a, b; c, d)$. What is meant by $A^T$? Describe in words and in symbols.
+
+    Suppose $Q$ is an orthogonal matrix with columns $arrow(q)_1, arrow(q)_2$.
+  + Find $Q^T$ and compute $Q^T Q$.
+  + Is $Q$ invertible? Why or why not?
+  + Find $Q^(-1)$.
+  + Compute $Q Q^T$.
+]
+
+#slide(title: [Bellah 11.6#sym.star], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+  //
+  #show: columns
+  The *Graham Schmidt* process can be used to turn a basis into an orthogonal basis.
+
+  Let $arrow(x)$ and $arrow(y)$ be non-zero vectors and define $arrow(w)_a = arrow(x) - a arrow(y)$.
+
+  + How does $"span"{arrow(x), arrow(y)}$ and $"span"{arrow(y), arrow(w)_a}$ relate? Does it matter
+    what $a$ is?
+  + Can you find an $a$ so that $arrow(w)_a$ is orthogonal to $arrow(y)$? If so, find such an $a$.
+  + Use what you've learned to find an orthogonal basis for $X="span"{mat(1; 1; 0), mat(0; 1; 0)}$.
+  + Find an ortho-normal basis for $X$.
+  + Suppose $arrow(x), arrow(y), arrow(z)$ are non-zero vectors and that $arrow(x)$ and $arrow(y)$
+    are orthogonal. Define $arrow(w)_(a,b)= arrow(z) - a arrow(x) - b arrow(y)$.
+
+    Can you find $a$ and $b$ so that $arrow(w)_(a,b)$ is orthogonal to both $arrow(x)$ and
+    $arrow(y)$? If so, how?
+  + If $arrow(x)$ and $arrow(y)$ were *not* orthogonal, could you still find $a$ and $b$? Would it
+    be easier or harder?
 ]
