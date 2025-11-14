@@ -755,8 +755,8 @@
   #set text(size: .9em)
 
   #columns(2)[
-    A function $f:RR^2 -> RR^2$ is *differentiable* at the point $arrow(p)$ if there exists a
-    tangent plane $z=L(x,y)$ (to $z=f(x,y)$ at the point $arrow(p)$) such that
+    A function $f:RR^2 -> RR^2$ is *differentiable* at the point $arrow(p)$ if there exists a plane
+    $z=L(x,y)$ (to $z=f(x,y)$ at the point $arrow(p)$) such that
     $
       lim_(arrow(h) -> arrow(0)) (f(arrow(p) + arrow(h)) - L(arrow(h))) / norm(arrow(h)) = 0.
     $
@@ -765,8 +765,11 @@
       terminology make sense?
 
     + Let $C(x,y) = -sqrt(4x^2 + 4y^2)$. Use Desmos to graph $C$.
-    + Define $z=L(x,y)$ to be a horizontal plane through the origin. Is $z=L(x,y)$ a tangent plane
-      to $z=C(x,y)$?
+    + Define $z=L(x,y)$ to be a horizontal plane through the origin.
+
+      Graph $z=C(x,y)$ and $z=L(x,y)$.
+
+      Is $z=L(x,y)$ a "good" approximation to $z=C(x,y)$ near $(0,0)$?
     + Does $L$ satisfy the requirements for differentiability of $C$ at the origin?
     + Is $C$ differentiable at the origin? Explain.
     + Is $C$ differentiable at $(2,0)$?
