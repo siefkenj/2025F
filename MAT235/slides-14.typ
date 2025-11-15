@@ -713,20 +713,20 @@
   #set text(size: .9em)
 
   #columns(2)[
-    Let $f(x,y)=cos(x+y)+cos(y)$.
+    Let $g(x,y)=cos(x+y)+cos(y)$.
 
     + A general *second degree* polynomial in one variable is $a x^2 + b x + c$. Write down a
       general second degree polynomial in *two* variables. Call your polynomial $Q(x,y)$.
 
     + Find $Q(0,0)$ as well as all first *and* second order partial derivatives of $Q$ at $(0,0)$.
 
-    + Find $f(0,0)$ as well as all first *and* second order partial derivatives of $f$ at $(0,0)$.
+    + Find $g(0,0)$ as well as all first *and* second order partial derivatives of $g$ at $(0,0)$.
 
-    + Can you find coefficients for $Q$ so that $Q$ matches $f$ as closely as possible near $(0,0)$?
+    + Can you find coefficients for $Q$ so that $Q$ matches $g$ as closely as possible near $(0,0)$?
 
-    + Use https://www.desmos.com/3d to graph $f$ and your polynomial $Q$. How do they compare?
+    + Use https://www.desmos.com/3d to graph $g$ and your polynomial $Q$. How do they compare?
 
-    + $Q$ is called the *second degree* approximation to $f$ at $(0,0)$. What is the *first degree*
+    + $Q$ is called the *second degree* approximation to $g$ at $(0,0)$. What is the *first degree*
       approximation? (How about the $n$#super("th") degree approximation?)
   ]
 ]
@@ -756,15 +756,15 @@
 
   #columns(2)[
     A function $f:RR^2 -> RR^2$ is *differentiable* at the point $arrow(p)$ if there exists a plane
-    $z=L(x,y)$ (to $z=f(x,y)$ at the point $arrow(p)$) such that
+    $z=L(x,y)$ such that $f(arrow(p)) = L(arrow(p))$ _and_
     $
-      lim_(arrow(h) -> arrow(0)) (f(arrow(p) + arrow(h)) - L(arrow(h))) / norm(arrow(h)) = 0.
+      lim_(arrow(h) -> arrow(0)) (f(arrow(p) + arrow(h)) - L(arrow(p) + arrow(h))) / norm(arrow(h)) = 0.
     $
 
-    + "$f(arrow(p) + arrow(h)) - L(arrow(h))$" is sometimes called an *error term*. Why? Does the
-      terminology make sense?
+    + "$f(arrow(p) + arrow(h)) - L(arrow(p)+arrow(h))$" is sometimes called an *error term*. Why?
+      Does the terminology make sense?
 
-    + Let $C(x,y) = -sqrt(4x^2 + 4y^2)$. Use Desmos to graph $C$.
+    + Let $C(x,y) = -sqrt(1/4 x^2 + 1/4 y^2)$. Use Desmos to graph $C$.
     + Define $z=L(x,y)$ to be a horizontal plane through the origin.
 
       Graph $z=C(x,y)$ and $z=L(x,y)$.
