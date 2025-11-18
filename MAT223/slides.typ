@@ -1549,11 +1549,12 @@
   Consider the bases
   $
     cal(B)={mat(1; 2), mat(1; 1)} wide cal(C)={mat(1; 1),mat(1; -1)}\
-    cal(D)={mat(1/sqrt(2); 1/sqrt(2)), mat(-1/sqrt(2); 1/sqrt(2))}
+    cal(D)={mat(1/sqrt(2); 1/sqrt(2)), mat(1/sqrt(2); -1/sqrt(2))}
   $
-  Let $arrow(r)=arrow(e)_1 + 2 arrow(e)_2$. In this question you may use the fact that
-  $[arrow(r)]_(cal(B))=mat(1; 0)$, $[arrow(w)]_(cal(C))=mat(3/2; -1/2)$, and
-  $[arrow(r)]_(cal(D)) = mat(3/sqrt(2); -1/sqrt(2))$.
+  Let $arrow(r)=arrow(e)_1 + 2 arrow(e)_2$. 
+  // In this question you may use the fact that
+  // $[arrow(r)]_(cal(B))=mat(1; 0)$, $[arrow(w)]_(cal(C))=mat(3/2; -1/2)$, and
+  // $[arrow(r)]_(cal(D)) = mat(3/sqrt(2); -1/sqrt(2))$.
 
   + To compute $arrow(r) dot arrow(r)$ with the algebraic definition, what basis do you write
     $arrow(r)$ in? Compute $arrow(r) dot arrow(r)$.
@@ -1584,7 +1585,7 @@
   Let $arrow(a)=mat(a_1; a_2)$, $arrow(b)=mat(b_1; b_2)$, $arrow(x)=mat(x_1; x_2)$, and
   $arrow(y)=mat(y_1; y_2)$.
 
-  Define $M=mat(a_1, a_2; b_1, b_2)$ and $X=mat(x_1, x_2; y_1, y_2)$.
+  Define $M=mat(a_1, a_2; b_1, b_2)$ and $X=mat(x_1, y_1; x_2, y_2)$.
 
   + Compute $M arrow(x)$. Can you rewrite the result using dot products?
   + Compute $M X$. Can you rewrite the result using dot products?
