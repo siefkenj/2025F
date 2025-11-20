@@ -1853,17 +1853,21 @@
 #slide(title: [], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .87em)
+  #set text(size: .80em)
   //
   #show: columns
   *Theorem: (Singular Value Decomposition)* Every matrix $A$ (square or not) can be factored as
   $
     A=U Sigma V
   $
-  where $U$ and $V$ are orthogonal matrices and $Sigma$ is a (square) diagonal matrix with the
-  singular values of $A$ on the diagonal.
+  where $U$ and $V$ are orthogonal matrices and $Sigma$ is a (maybe non-square) diagonal matrix with
+  the singular values of $A$ on the diagonal.
 
   + Suppose $A$ is an $m times n$ matrix. What sizes are $U$, $Sigma$, and $V$?
+
+  + Sometimes the SVD formula is written as "there exists orthogonal $U$ and $V$ and a diagonal
+    $Sigma$ such that $A=U Sigma V^T$". Why is this equivalent to the theorem stated at the top of
+    the slide?
 
   + Let $A$ be an unknown matrix. Suppose $U$ corresponds to the identity transformation, $V$
     rotation counter-clockwise by $90 degree$, and the singular values are $1/2$ and $3$.
