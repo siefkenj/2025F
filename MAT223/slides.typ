@@ -1551,7 +1551,7 @@
     cal(B)={mat(1; 2), mat(1; 1)} wide cal(C)={mat(1; 1),mat(1; -1)}\
     cal(D)={mat(1/sqrt(2); 1/sqrt(2)), mat(1/sqrt(2); -1/sqrt(2))}
   $
-  Let $arrow(r)=arrow(e)_1 + 2 arrow(e)_2$. 
+  Let $arrow(r)=arrow(e)_1 + 2 arrow(e)_2$.
   // In this question you may use the fact that
   // $[arrow(r)]_(cal(B))=mat(1; 0)$, $[arrow(w)]_(cal(C))=mat(3/2; -1/2)$, and
   // $[arrow(r)]_(cal(D)) = mat(3/sqrt(2); -1/sqrt(2))$.
@@ -1662,4 +1662,216 @@
     $arrow(y)$? If so, how?
   + If $arrow(x)$ and $arrow(y)$ were *not* orthogonal, could you still find $a$ and $b$? Would it
     be easier or harder?
+]
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+  //
+  #show: columns
+  The matrix $A=mat(2, -2.5, 0; 0, 1, 0; 0, -3.5, 2)$ has eigenvectors
+  $
+    mat(1; 0; 6) wide mat(1; 0; 4) wide mat(5; 2; 7)
+  $
+  + Find the eigenvalues of $A$.
+  + Diagonalize $A$.
+  + What is the _eigen space_ associated to the eigenvalue $2$? What about the eigenvalue $1$?
+  + Find an orthonormal basis for each eigen space.
+  + Can you find an orthonormal basis for $RR^3$ made up of eigenvectors of $A$? Explain why or why
+    not.
+]
+
+#slide(title: [Bellah 11.15 & 11.7], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+  //
+  #show: columns
+  + What does it mean for a matrix to be *orthogonally diagonalizable*?
+
+  #set enum(numbering: n => [P#(n).])
+
+  Orthogonally diagonalize the following matrices, if possible.
+  + $A=mat(3, 2; 2, 6)$ FYI: $"char"(A)=(lambda -2)(lambda -7)$#v(1em)
+  + $A=mat(1, 1; 2, 0)$ FYI: $"char"(A)=(lambda +1)(lambda -2)$
+]
+
+#slide(title: [Bellah 11.17], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+  //
+  #show: columns
+  + What does it mean for a matrix to be *symmetric*?
+
+  + If $A$ and $B$ are matrices, which of the follow formulas are correct $(A B)^T= A^T B^T$ *or*
+    $(A B)^T= B^T A^T$?
+
+  + Show that for any matrix $A$, the matrix $A^T A$ is symmetric.
+  + Show that for any matrix $A$, the matrix $A^T + A$ is symmetric.
+
+  + State the *Spectral Theorem*.
+]
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+  //
+  #show: columns
+  Symmetric matrices and the transpose have many amazing properties.
+
+  + Let $arrow(u), arrow(v) in RR^n$ be column vectors. Rewrite $arrow(u)^T arrow(v)$ using dot
+    products.
+  + A *left eigenvector* of a matrix $A$ is a non-zero vector $arrow(w)$ so that
+    $
+      arrow(w)^T A = lambda arrow(w)^T
+    $
+    for some $lambda$.
+
+    Let $arrow(w)$ be an eigenvector of a _symmetric_ matrix $A$. Show that $arrow(w)^T$ is a _left
+      eigenvector_ of $A$.
+  + Is it always the case that eigenvectors of a matrix is also a left eigenvector (of the same
+    matrix)?
+
+  + Suppose $arrow(v)$ is an eigenvector for the _symmetric_ matrix $A$ with eigenvalue $lambda$ and
+    suppose $||arrow(w)||=5$. Compute $arrow(w)^T A arrow(w)$.
+]
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+  //
+  #show: columns
+  Suppose $A$ is a symmetric matrix and suppose $arrow(v)_1, lambda_1$ and $arrow(v)_2, lambda_2$
+  are eigenvector-eigenvalue pairs.
+
+  + Compute $arrow(v)_1^T A arrow(v)_2$ in two different ways: $(arrow(v)_1^T A)arrow(v)_2$ and
+    $arrow(v)_1^T (A arrow(v)_2)$.
+
+    What can you conclude about $arrow(v)_1$, $arrow(v)_2$, $lambda_1$ and $lambda_2$?
+
+  + *Theorem:* Every square matrix has at least one eigenvalue in the complex numbers.
+
+    A symmetric matrix always has at least one *real* eigenvalue.
+
+    Fill in the missing steps of the following proof:
+
+    Let $arrow(v)$ be an eigenvector for the square matrix $A$ with (possibly complex) eigenvalue
+    $lambda$. Then
+    $
+      ||A arrow(v)||^2 & = (A arrow(v)) dot (A arrow(v)) \
+                       & = ... \
+                       & = lambda^2 ||arrow(v)||^2
+    $
+    Therefore $lambda^2 >= 0$ and so $lambda$ is real.
+]
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .87em)
+  //
+  #show: columns
+  To prove the spectral theorem, we need to show that every symmetric matrix has a basis of
+  eigenvectors.
+
+  Let $A$ be a symmetric matrix. Suppose $arrow(v)$ is an eigenvector for $A$ with eigenvalue
+  $lambda$.
+
+  Let $B= A- lambda/(||arrow(v)||^2) arrow(v) arrow(v)^T$.
+  + Is the matrix $B$ valid? I.e., are the matrix multiplcations/substractions that make $B$
+    defined?
+  + Is $B$ symmetric?
+  + Is $arrow(v)$ in the null space of $B$?
+  + Suppose $arrow(w)$ is another eigenvector for $A$ with eigenvalue $lambda$ that is orthogonal to
+    $arrow(v)$. Construct a matrix $C$ (like $B$) so that $arrow(v)$ and $arrow(w)$ are in the null
+    space of $C$.
+
+    What happens if $arrow(w)$ and $arrow(v)$ are not orthogonal?
+  + Let $E$ be the matrix obtained from $A$ by subtracting off
+    $lambda/(||arrow(v_i)||^2) arrow(v_i) arrow(v_i)^T$ for a maximal set of orthogonal eigenvectors
+    $arrow(v)_1, ..., arrow(v)_k$ (all with eigenvalue $lambda$).
+
+    We want to show the algebraic multiplicity of 0 for $E$ equals $"nullity"(E)$. Ideas?
+]
+
+// https://www.desmos.com/calculator/xpyoxd7dec
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .87em)
+  //
+  #show: columns
+  The *singular values* of a matrix $A$ are the lengths of the major/minor axes of the image of the
+  unit sphere.
+
+  In $RR^2$, the unit sphere is a circle.
+
+  Use
+
+  https://www.desmos.com/calculator/xpyoxd7dec
+
+  to estimate the singular values of the following matrices:
+
+  + $A=mat(2, 0; 1, 1)$#v(1em)
+  + $B=mat(-3, 1; 2, 1)$#v(1em)
+  + $C=mat(-3, 2; 2, 1)$
+  + Calculate the eigenvalues of $C$. How do they relate to the singular values you found?
+]
+
+
+#slide(title: [11.23 & 11.24], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .87em)
+  //
+  #show: columns
+  All matrices (even non-square ones) have singular values.
+
+  Let $A$ be a matrix (maybe _not_ square).
+
+  + What is the size of $A^T A$?
+  + Can $A^T A$ be diagonalized? Orthogonally diagonalized?
+  + Let $arrow(v)$ be an eigenvector for $A^T A$ with eigenvalue $lambda$.
+
+    How do $(A arrow(v)) dot (A arrow(v))$ and $arrow(v)^T A^T A arrow(v)$ relate? What can you
+    conclude about $lambda$?
+
+  + *Theorem*: The *singular values* of $A$ are equal to as the square roots of the eigenvalues of
+    $A^T A$.
+
+    Why does it make sense to take a square root here?
+
+  + What would change if we considered $A A^T$ instead of $A^T A$?
+]
+
+
+#slide(title: [], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .87em)
+  //
+  #show: columns
+  *Theorem: (Singular Value Decomposition)* Every matrix $A$ (square or not) can be factored as
+  $
+    A=U Sigma V
+  $
+  where $U$ and $V$ are orthogonal matrices and $Sigma$ is a (square) diagonal matrix with the
+  singular values of $A$ on the diagonal.
+
+  + Suppose $A$ is an $m times n$ matrix. What sizes are $U$, $Sigma$, and $V$?
+
+  + Let $A$ be an unknown matrix. Suppose $U$ corresponds to the identity transformation, $V$
+    rotation counter-clockwise by $90 degree$, and the singular values are $1/2$ and $3$.
+
+    Find $A$. Is there any ambiguity in your answer?
+
+  + Transform the picture #emoji.face.smile.slight by the matrix $A$ from the previous part.
+
+  + An unknown matrix $B$ has singular values $2$ and $3$. In what ways could $B$ transform
+    #emoji.face.smile.slight? In what ways could $B$ *not* transform #emoji.face.smile.slight?
 ]
