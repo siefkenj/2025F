@@ -291,11 +291,10 @@
 
     + Find all the critical points of $h$.
     + Where are the highest and lowest places on the campground?
-    + There is a circular fence placed around the campground at a radius of $4$ from the point
-      $(0,4)$ marking the boundaries of the campground.
+    + The boundaries of the camp ground are marked by a circular fence placed of radius of $4$
+      centered at $(0,4)$.
 
-      Within the boundaries of the campground, what are there highest and lowest spots? If so, find
-      them.
+      On the boundary, what are there highest and lowest spots?
 
       _Hint_: Feel free to use Desmos!
   ]
