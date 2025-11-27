@@ -1817,7 +1817,7 @@
 
   to estimate the singular values of the following matrices:
 
-  + $A=mat(2, 0; 1, 1)$#v(1em)
+  + $A=mat(2, 0; 5, 1)$#v(1em)
   + $B=mat(-3, 1; 2, 1)$#v(1em)
   + $C=mat(-3, 2; 2, 1)$
   + Calculate the eigenvalues of $C$. How do they relate to the singular values you found?
