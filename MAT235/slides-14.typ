@@ -326,7 +326,7 @@
 
   #show: columns.with(2)
   The *directional derivative* of a function $f: RR^2 ->RR$ at the point $arrow(p)$ *in the
-    direction $arrow(v)$* is
+  direction $arrow(v)$* is
   $
     f_(arrow(v))(arrow(p)) = lim_(h -> 0) (f(arrow(p) + h arrow(v)) - f(arrow(p))) / h .
   $
@@ -773,5 +773,44 @@
     + Does $L$ satisfy the requirements for differentiability of $C$ at the origin?
     + Is $C$ differentiable at the origin? Explain.
     + Is $C$ differentiable at $(2,0)$?
+  ]
+]
+
+#slide(title: [Practice], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Open the demos applet
+
+    https://www.desmos.com/calculator/gocmdy79gy
+
+    + Explore the surface by adjusting $h$. Where are the maxes and mins?
+    + Sketch gradient vectors on the contour map. Where are they longest? Shortest?
+    + If you followed gradient descent from the point $(1,-1)$, where would you end up?
+
+
+    #image("images/heart-level-curves.png")
+
+  ]
+]
+
+#slide(title: [Practice 2], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Open the demos applet
+
+    https://www.desmos.com/calculator/gocmdy79gy
+
+    + Estimate $f_x$ and $f_y$ at $(2,0)$.
+    + What can you say about the sign of $f_(x x)$ and $f_(y y)$ at $(2,0)$?
+
+
+    #image("images/heart-level-curves.png")
+
   ]
 ]
