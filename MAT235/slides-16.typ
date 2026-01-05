@@ -114,7 +114,7 @@
     $R=[0,4] times [0,4]$.
 
     + What would a "left-endpoint approximation" to $V$ look like? How could you find it?
-    + Using $1 times 1$ squares, find an over estimate and under estimate for $V$.
+    + Using $2 times 2$ squares, find an over estimate and under estimate for $V$.
     + How could you use a limit to get an exact value for $V$?
     + In multi-variable calculus,
     $
