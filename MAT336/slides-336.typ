@@ -265,3 +265,25 @@
 
   ]
 ]
+
+#slide(title: [Functions and Series], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #columns(2)[
+    In the 1800s:
+    - Taylor series were known.
+      - Could be differentiated term-by-term.
+      - Could be integrated term-by-term.
+      - Represented continuous functions.
+    - Graphs of functions were continuous *except* at a few points.
+
+    #colbreak()
+    - Trigonometric series
+      - Could not be differentiated term-by-term.
+      - Could be integrated term by term?
+      - Could result in _discontinuous_ functions.
+  ]
+]
