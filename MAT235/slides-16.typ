@@ -240,9 +240,9 @@
     }
     #colbreak()
 
-    + Describe the region that defines Elville as a set.
-    + Write down an integral that would give the total population of Elville.
-    + Can you express the total population of Elville in terms of integrals over rectangular
+    + Describe the region that defines Circville as a set.
+    + Write down an integral that would give the total population of Circville.
+    + Can you express the total population of Circville in terms of integrals over rectangular
       regions? If so, do it.
   ]
 ]

@@ -118,8 +118,8 @@
   + The Cesàro sum of a sequence is the limit of the averages of the partial sums.
 
     What is the Cesàro sum of $G$?
-  + $2G=G+G = G + (0+G)$. Evaluate this formula using both your result from the Cesàro sum and the
-    symbolic form of $G$.
+  + $2G=G+G = G + (0+G)$. Symbolically compute $2G$ and use that to find $G$. What do you get if you
+    use a Cesàro sum to compute $2G$?
   + The Taylor series for $1/(1-x)$ is $1+x+x^2+x^3+x^4+ dots.c$. Can this fact be used to find $G$?
     What value does it give?
 ]
@@ -139,7 +139,7 @@
   $
 
   + $2A = A+A = A+ (0+A)$. Use what you've learned to find a value for $A$.
-  + Symbolically manipulate $S-B$ to find an expression for $S-B$ in terms of $S$.
+  + Symbolically manipulate $S-A$ to find an expression for $S-A$ in terms of $S$.
   + Use what you've learned to find the value of $S$ as a real number.
   + Does your result agree with what you were taught in Calculus class?
 
