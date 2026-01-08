@@ -5,6 +5,22 @@
 #import "@preview/tiptoe:0.3.1"
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
+#import "@preview/itemize:0.2.0"
+
+#set enum(
+  full: true, // Required to get all level numbers in the function
+  numbering: (..n) => {
+    let level = n.pos().len() - 1
+    // Define the pattern based on the nesting level
+    let pattern = ("1.", "(a)", "(i)", "(A)").at(level, default: "1.")
+
+    // Apply the numbering function with the chosen pattern and the current number
+    numbering(pattern, n.pos().last())
+  },
+)
+#show: itemize.default-enum-list
+
+#let subset = math.subset.eq
 
 #let slide(..args) = {
   let named = args.named()
@@ -286,4 +302,292 @@
       - Could be integrated term by term?
       - Could result in _discontinuous_ functions.
   ]
+]
+
+// Week 2
+#slide(title: [Language of Proofs], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #columns(2)[
+    Proofs should:
+    - Convince the (appropriately trained) reader through _logical_ argument.
+    - Be unambiguous.
+
+    #colbreak()
+    We use formal language to remove ambiguity. Consider the sentence: "Can anyone in this room open
+    this jar of pickles?"
+    + What are two meanings this sentence could take on?
+    + Rephrase the sentence to be unambiguous.
+  ]
+]
+
+#slide(title: [Quantifiers], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+  Modern proofs heavily employ:
+  - Sets
+  - Quantifiers
+    - There exists/for some ($exists$)
+    - For all/for any ($forall$)
+
+  #colbreak()
+
+  For each of the following, define a set $X$ such that the statement is true.
+
+  + "For all $p in X$, $p$ lives in Toronto."
+  + "There exists a $p in X$ such that $p$ lives in Toronto."
+  + "There exists a $p in X$ such that $p$ lives in Toronto, but it is not the case that for all
+    $p in X$, $p$ lives in Toronto."
+  + "For all $p in X$, $p$ is an armadillo."
+]
+
+#slide(title: [Notes on Quantifiers], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns.with(3)
+  In *Symbolic Logic*
+  - Quantifiers are written as $exists$ and $forall$.
+  - Always come at the start of a statement.
+  - Are followed by a comma (e.g. $forall x in P, exists y in P, x > y$)
+
+  #colbreak()
+
+  In *This Class*
+  - Quantifiers are written as symbols or words; words in a paragraph, symbols in a set.
+  - Appear at the start of a statement.
+  - Are followed by the English connective (e.g. $forall x in P, exists y in P " such that "x>y$)
+
+
+  #colbreak()
+
+  In *Professional Mathematics*
+  - Quantifiers are written as symbols or words; words in a paragraph, symbols in a set.
+  - Appear where ever the author feels like (e.g. "There exists $x$ such that ??" $=$ "?? is true
+    for some $x$")
+  - Are followed by the English connective
+
+]
+
+#slide(title: [Set-builder Notation], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+  We will use *naive set theory* (in contrast to _formal_, or ZFC set theory).
+
+  A set is a collection of objects. It is
+  - Specified with curly braces ${...}$
+  - Doesn't distinguish repeated elements
+  - Has no sense of order for its elements.
+
+  Standard sets are $RR$, $ZZ$, $NN$, $QQ$, $CC$.
+
+  #colbreak()
+
+  Set-builder notation creates a new set from an existing set.
+
+  + Read aloud what is meant by ${x in RR: x > 0 " and " x < 2}$.
+  + Let $A,B subset RR$ be subsets. Write $A inter B$, $A union B$, and $A backslash B$ using
+    set-builder notation.
+
+]
+
+#slide(title: [Set Practice], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+  Definition: An _irrational_ number is a real number that is not rational.
+
+  Let $W$ be the set of positive, rational numbers and negative, irrational numbers.
+
+  + Express $W$ using set-builder notation.
+
+    #colbreak()
+    Describe the following sets:
+
+
+  + $A={x in RR:forall y in [0,1], x<y}$
+  + $B = {x in RR: exists y in [0,1] "s.t." x < y}$
+  + $C={x in [0,1]: forall y in [0,1], x<y}$
+  + $D={x in [0,1]: exists y in [0,1] "s.t." x<y}$
+  + $E={x in RR: exists y in RR "s.t." x< y}$
+  + $F={x in [0,1]: y in RR, x < y}$
+
+]
+
+#slide(title: ["Extended" Set-builder Notation], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+
+  Let $T subset NN$ be the set of positive multiples of $2$. Let $R subset NN$ be the set of
+  positive multiples of $3$.
+
+  Define
+  $
+    Q={ a/b : a in T "and" b in R}
+  $
+
+  + List at least three elements of $Q$.
+  + Is $Q$ written in standard set-builder notation?
+  + Express $Q$ using set-builder notation.
+]
+
+#slide(title: [Axioms], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  #show: columns
+
+  Mathematicians believe:
+
+  All *mathematical* statements are either true or false.
+
+  + It's 11pm. 12 hours go by. What time is it?
+  + Is the statement "11 + 12 = 11" true or false?
+  + How could you modify the statement "11 + 12 = 11" to make it true?
+
+    How could you modify it to make it false?
+
+    #colbreak()
+    Axioms are *assumptions* that
+    - Are as simplified as possible
+    - Don't contradict other assumed axioms
+    - Cannot be derived from other axioms
+
+    Which of the following are axioms?
+
+  + For all $a,b in RR$, $a+b in RR$.
+  + There is no largest real number.
+  + For all $a in RR$, $a+ 1 > a$
+  + $sqrt(2)$ is irrational.
+  + For all $a in RR$, $a^2 >= 0$
+]
+
+#slide(title: [A Proof about Even Numbers], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  #show: columns
+
+  Let $E$ be the set of even integers.
+
+  + Which of these is a correct description of $E$?
+    + $E= { n in ZZ : forall a in ZZ, n=2a}$
+    + $E= { n in ZZ : exists a in ZZ, n=2a}$
+  + Write a proof that $6 in E$.
+  + Write a proof that $5 in.not E$.
+  + Which of the following statements are true?
+    + For all $a in ZZ$, the number $n=2a$ is even.
+    + There exists $a in ZZ$ such that the number $n=2a$ is even.
+  + Prove each true statement above.
+
+]
+
+#slide(title: [A One-to-One Proof], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  #show: columns
+
+  A function $f$ with domain $D$ is *one-to-one* if different inputs produce different outputs.
+
+  + Write a formal definition of _one-to_one_ (using quantifiers, etc.).
+  + Prove that $f(x)=3x+2$ with domain $RR$ is one-to-one.
+  + Prove that $g(x)=x^2$ with domain $RR$ is not one-to-one.
+  + Define $h(x)=x^2$ with domain $D subset RR$. Can you find a $D$ such that $h$ is one-to-one? If
+    so, do it. Prove your answer.
+]
+
+#slide(title: [Criticizing Proofs 1], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  #show: columns
+
+  *Theorem:* The sum of two odd numbers is even.
+
+  *Proof:*
+
+  $3$ is odd.\
+  $5$ is odd.\
+  $3+5=8$ is even.
+
+  #colbreak()
+  + What is wrong with the proof?
+  + Can it be salvaged?
+]
+#slide(title: [Criticizing Proofs 2], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  #show: columns
+
+  *Theorem:* The sum of two odd numbers is even.
+
+  *Proof:*
+
+  The sum of two numbers is always even.
+
+  even + even = even\
+  even + odd = odd\
+  odd + even = odd\
+  odd + odd = even
+
+  #colbreak()
+  + What is wrong with the proof?
+  + Can it be salvaged?
+]
+
+#slide(title: [Criticizing Proofs 3], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  #show: columns
+
+  *Theorem:* The sum of two odd numbers is even.
+
+  *Proof:*
+
+  $x=2a+1$ odd\
+  $y=2b+1$ odd\
+  $x+y=2n$ even\
+  $2a+1+2b+1=2n$\
+  $2a+2b+2=2n$\
+  $a+b+1=n$
+
+
+  #colbreak()
+  + What is wrong with the proof?
+  + Can it be salvaged?
 ]

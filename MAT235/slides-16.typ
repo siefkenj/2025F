@@ -3,6 +3,10 @@
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
 #import "@preview/lilaq:0.5.0" as lq
+#import "@preview/itemize:0.2.0"
+#import "@preview/cetz:0.4.2"
+
+#show: itemize.default-enum-list
 
 #let slide(..args) = {
   let named = args.named()
@@ -458,4 +462,231 @@
 
       Use the integral of your choice to compute the exact population of Wackville.
   ]
+]
+
+#slide(title: [Siefken 11], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  // #columns(2)[
+  The density of a $2 times 4 times 8$ wooden plank is given by $rho(x, y, z)$.
+
+  + Find a set $R$ so that $M=display(integral_(R) rho dif V)$ gives the total mass of the plank.
+  + Express $M$ using iterated integrals.
+  + A physicist says, "I will use '$dif V = dif y dif z dif x$' to represent a tiny volume." Set up
+    an iterated integral (with the correct bounds) to use the physicist's idea to find $M$.
+  // ]
+]
+
+#slide(title: [Siefken 12], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+
+  #show: columns
+  #cetz.canvas(length: 3cm, {
+    import cetz.draw: *
+
+    set-style(
+      mark: (fill: black, scale: 2),
+      stroke: (thickness: 0.4pt, cap: "round"),
+      angle: (
+        radius: 0.3,
+        label-radius: .22,
+        fill: green.lighten(80%),
+        stroke: (paint: green.darken(50%)),
+      ),
+      content: (padding: 1pt),
+    )
+
+    grid(
+      (-1.5, -1.5),
+      (1.4, 1.4),
+      step: 0.5,
+      stroke: gray + 0.2pt,
+    )
+
+    circle((0, 0), radius: 1, stroke: (dash: "dashed"))
+
+    line((-1.5, 0), (1.5, 0), mark: (end: "stealth"))
+    // content((), $ x $, anchor: "west")
+    line((0, -1.5), (0, 1.5), mark: (end: "stealth"))
+    // content((), $ y $, anchor: "south")
+
+    for (x, ct) in ((-1, $ -1 $), (1, $ 1 $)) {
+      line((x, 3pt), (x, -3pt))
+      content((), anchor: "north", ct)
+    }
+
+    for (y, ct) in ((-1, $ -1 $), (-0.5, $ -1/2 $), (0.5, $ 1/2 $), (1, $ 1 $)) {
+      line((3pt, y), (-3pt, y))
+      // content((), anchor: "east", ct)
+    }
+
+    // Draw the green angle
+    // cetz.angle.angle((0, 0), (1, 0), (1, calc.tan(30deg)), label: text(green, [#sym.alpha]))
+
+    // line((0, 0), (1, calc.tan(30deg)))
+
+    set-style(stroke: (thickness: 1.2pt))
+
+    circle((.71, .71), radius: 2pt, fill: black)
+    content((), anchor: "south-west", $space arrow(p)$)
+
+    circle((-1, 1), radius: 2pt, fill: black)
+    content((), anchor: "south-west", $space arrow(q)$)
+
+    circle((0, -1.5), radius: 2pt, fill: black)
+    content((), anchor: "south-west", $space arrow(r)$)
+  })
+
+
+  *Polar coordinates* describe points in terms of $(r, theta)$, where $r$ is the distance from the
+  origin and $theta$ is the angle, measured counter-clockwise from the positive $x$-axis.
+
+  + Describe the points $arrow(p)$, $arrow(q)$, and $arrow(r)$ in polar coordinates.
+  + Describe the points $arrow(p)$, $arrow(q)$, and $arrow(r)$ in rectangular coordinates.
+  + Draw the graph of $r(theta)=2theta$ in polar coordinates.
+  + Draw the graph of $r(theta)=3$ in polar coordinates. How can you draw the same graph in
+    rectangular coordinates?
+
+]
+#slide(title: [Siefken 13], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+  Let $f=1$ be a constant function,
+  $
+    R={arrow(p) in RR^2 : arrow(p)=(x,y) " with " x^2+y^2 <= 4}
+  $
+  be a region and $display(I = integral_R f dif A=integral_R dif A)$.
+
+  + Describe $R$ using polar coordinates.
+  + Use geometry to find the exact value of $I$.
+  + Set up an iterated integral to compute $I$ using _rectangular_ coordinates.
+  + Set up an iterated integral to compute $I$ using _polar_ coordinates.
+  + Does $display(integral_(theta=0)^(theta=2 pi) integral_(r=0)^(r=2) dif r dif theta)$ give the
+    correct value of $I$? What went wrong?
+
+]
+
+#slide(title: [Siefken 14], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+
+  #cetz.canvas(length: 3cm, {
+    import cetz.draw: *
+
+    set-style(
+      mark: (fill: black, scale: 2),
+      stroke: (thickness: 0.4pt, cap: "round"),
+      angle: (
+        radius: 0.3,
+        label-radius: .22,
+        fill: green.lighten(80%),
+        stroke: (paint: green.darken(50%)),
+      ),
+      content: (padding: 1pt),
+    )
+
+
+    circle((0, 0), radius: 1, stroke: (dash: "dashed"))
+    circle((0, 0), radius: .5, stroke: (dash: "dashed"))
+    circle((0, 0), radius: 1.5, stroke: (dash: "dashed"))
+
+    line((-1.5, 0), (1.5, 0), mark: (end: "stealth"))
+    // content((), $ x $, anchor: "west")
+    line((0, -1.5), (0, 1.5), mark: (end: "stealth"))
+    // content((), $ y $, anchor: "south")
+
+    for (x, ct) in ((-1, $ -1 $), (1, $ 1 $)) {
+      line((x, 3pt), (x, -3pt))
+      // content((), anchor: "north", ct)
+    }
+
+    for (y, ct) in ((-1, $ -1 $), (-0.5, $ -1/2 $), (0.5, $ 1/2 $), (1, $ 1 $)) {
+      // line((3pt, y), (-3pt, y))
+      // content((), anchor: "east", ct)
+    }
+
+    // Draw the green angle
+    // cetz.angle.angle((0, 0), (1, 0), (1, calc.tan(30deg)), label: text(green, [#sym.alpha]))
+
+    // line((0, 0), (1, calc.tan(30deg)))
+
+    set-style(stroke: (thickness: 1.2pt))
+
+    let newArc = (c: (0, 0), radius: 1, start: 0deg, stop: 90deg, ..rest) => {
+      let (cx, cy) = c
+      arc-through(
+        (cx + radius * calc.cos(start), cy + radius * calc.sin(start)),
+        (cx + radius * calc.cos((start + stop) / 2), cy + radius * calc.sin((start + stop) / 2)),
+        (cx + radius * calc.cos(stop), cy + radius * calc.sin(stop)),
+        ..rest,
+      )
+    }
+    let ray = (c: (0, 0), radius-start: .5, radius-end: 1, angle: 0deg, ..rest) => {
+      let (cx, cy) = c
+      line(
+        (cx + radius-end * calc.cos(angle), cy + radius-end * calc.sin(angle)),
+        (cx + radius-start * calc.cos(angle), cy + radius-start * calc.sin(angle)),
+        ..rest,
+      )
+    }
+
+    newArc(start: 30deg, stop: 60deg, radius: 1.)
+    newArc(start: 30deg, stop: 60deg, radius: .5)
+    ray(angle: 30deg, radius-start: .5, radius-end: 1.)
+    ray(angle: 60deg, radius-start: .5, radius-end: 1.)
+    content((), anchor: "south-west", $space space R$)
+    ray(angle: 30deg, radius-start: 0, radius-end: 1.7, stroke: (
+      dash: "dashed",
+      paint: gray,
+      thickness: 0.8pt,
+    ))
+    ray(angle: 60deg, radius-start: 0, radius-end: 1.7, stroke: (
+      dash: "dashed",
+      paint: gray,
+      thickness: 0.8pt,
+    ))
+  })
+
+
+  The region $R$ is a _polar sector_ based on the following boundary curves:
+  - $theta = theta_0$ and $theta = theta_0 + Delta theta$
+  - $r = r_0$ and $r = r_0 + Delta r$
+
+  + What is the area of the annulus ("donut") between the curves $r=r_0$ and $r=r_0 + Delta r$?
+  + What percentage of the annulus that you just calculated, does $R$ take up?
+  + Find the area of $R$.
+  + In polar coordinates, it is said "$dif A = r dif r dif theta$". Why?
+]
+
+#slide(title: [Siefken 15], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+  We'd like to find the volume of the surface below the cone $z=sqrt(x^2+y^2)$ and above the region
+  $R$, in the plane, bounded by the graph of $r(theta)=sin(theta)$.
+
+  + Let $f$ be be a function whose inputs are _rectangular_ coordinates so that $z=f(x,y)$ describes
+    the code. Find a formula for $f$.
+  + Let $g$ be be a function whose inputs are _polar_ coordinates so that $z=g(r, theta)$ describes
+    the code. Find a formula for $g$.
+  + Use desmos to graph the region $R$. Describe $R$ using polar coordinates.
+  + Set up an integral to find the volume in question.
+  + What goes wrong if we use $theta=0$ to $theta=2pi$ in our integral?
+
 ]
