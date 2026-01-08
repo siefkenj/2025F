@@ -21,7 +21,8 @@ jobs:
                   echo "Files in current directory:"
                   ls -la
             - name: Compile Typst Files
-              uses: siefkenj/compile-typst-action@main
+              # uses: siefkenj/compile-typst-action@main
+              uses: ammar-ahmed22/compile-typst-action@v1
               with:
                   source_paths: "MAT336/slides-336.typ MAT223/slides.typ MAT235/slides-12.typ MAT235/slides-13.typ MAT235/slides-14.typ MAT235/slides-15.typ MAT235/slides-16.typ MAT235/slides-17.typ MAT235/slides-18.typ"
                   output_paths: "MAT336/slides-336.pdf MAT223/slides.pdf MAT235/slides-12.pdf MAT235/slides-13.pdf MAT235/slides-14.pdf MAT235/slides-15.pdf MAT235/slides-16.pdf MAT235/slides-17.pdf MAT235/slides-18.pdf"
