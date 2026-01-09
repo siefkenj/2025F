@@ -161,7 +161,11 @@
 
 ]
 
-#slide(title: [A Troubling Sum 3])[
+#slide(title: [A Troubling Sum 3], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: 1.0em)
+
   Consider
   $
     E = 1 + 1 + 1 + 1 + dots.c

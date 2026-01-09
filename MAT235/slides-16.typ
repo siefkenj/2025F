@@ -380,7 +380,7 @@
     + It is sometimes said that "$dif x dif y = dif A$". Does this statement make sense?
     + Is it true that
       $
-        integral_([0,4]) integral_([0,3]) f(x,y) #text(fill: red, $dif y dif x$) = integral_([0,4]) integral_([0,3]) f(x,y) #text(fill: red, $dif y dif x$) ?
+        integral_([0,4]) integral_([0,3]) f(x,y) #text(fill: red, $dif y dif x$) = integral_([0,4]) integral_([0,3]) f(x,y) #text(fill: red, $dif x dif y$) ?
       $
     + Why would someone write
       $
@@ -398,7 +398,7 @@
 #slide(title: [Siefken 9], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
+  #set text(size: .75em)
 
   #columns(2)[
     The town of Veeville has a population density given by $P(x,y)$ and a boundary shown below.
