@@ -427,8 +427,8 @@
 
     Let $D$ be the region defining Veeville and let $Q$ be its total population.
 
-    + Find a formulas for $L(y)$ and $R(y)$ that give the the *leftmost* and *rightmost* points in
-      $D$ with $y$-coordinate equal to $y$.
+    + Find a formulas for $L(y)$ and $R(y)$ that give the $x$ coordinates of the *leftmost* and
+      *rightmost* points in $D$ with $y$-coordinate equal to $y$. (E.g., $L(3)=1$ and $R(3)=3$)
 
       What is the domain of $L$ and $R$?
 
