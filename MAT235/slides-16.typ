@@ -666,7 +666,7 @@
   - $r = r_0$ and $r = r_0 + Delta r$
 
   + What is the area of the annulus ("donut") between the curves $r=r_0$ and $r=r_0 + Delta r$?
-  + What percentage of the annulus that you just calculated, does $R$ take up?
+  + What portion of the annulus that you just calculated does $R$ take up?
   + Find the area of $R$.
   + In polar coordinates, it is said "$dif A = r dif r dif theta$". Why?
 ]

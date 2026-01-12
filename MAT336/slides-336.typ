@@ -343,7 +343,7 @@
 
   #colbreak()
 
-  For each of the following, define a set $X$ such that the statement is true.
+  For each of the following, define a set of people $X$ such that the statement is true.
 
   + "For all $p in X$, $p$ lives in Toronto."
   + "There exists a $p in X$ such that $p$ lives in Toronto."
@@ -368,7 +368,7 @@
 
   In *This Class*
   - Quantifiers are written as symbols or words; words in a paragraph, symbols in a set.
-  - Appear at the start of a statement.
+  - Primarily appear at the start of a statement.
   - Are followed by the English connective (e.g. $forall x in P, exists y in P " such that "x>y$)
 
 
