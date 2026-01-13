@@ -690,3 +690,167 @@
   + What goes wrong if we use $theta=0$ to $theta=2pi$ in our integral?
 
 ]
+
+#slide(title: [Siefken 16], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+  #image("images/cylindrical-coords.png")
+
+  *Cylindrical coordinates* describe points in $RR^3$ using polar coordinates for the $x y$-plane
+  and a $z$ coordinate.
+
+  + What geometric objects are represented by the equation $r=1$? What about $theta = pi/4$? What
+    about $z=2$?
+  + Describe, using cylindrical coordinates, a cylinder with height 3 and radius 4.
+  + Describe, using cylindrical coordinates, an infinite (right) cone whose point is in the positive
+    $z$-direction.
+
+]
+
+#slide(title: [Siefken 17], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+
+  #show: columns
+  #image("images/conical-pool.jpg")
+
+  A conical pool bounded in cylindrical coordinates by the equations $z=2r$ and $z=6$ is filled with
+  water and debris of density $rho(r, theta, z)$.
+
+  + Fill in the missing parts of the following integral so that it computes the total mass of the
+    pool and its contents.
+    $
+      M = integral_(?=?)^(?=?) integral_(?=?)^(?=?) integral_(?=?)^(?=?) rho(r, theta, z) space ??
+    $
+
+    + $rho$, given in *rectangular* coordinates is $rho(x, y, z)=24 + x^2 + y^2 - 3z$. Find $M$, the
+      total mass of the pool.
+
+]
+
+#slide(title: [Siefken 18], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+
+  #show: columns
+  #image("images/spherical-coordinates.svg")
+
+  *Spherical coordinates* describe points using:
+  - a distance from the origin $rho$
+  - an angle descending from the positive $z$-axis $phi$
+  - an angle in the $x y$-plane, measured counter-clockwise from the positive $x$-axis $theta$
+
+  + Write the following _spherical coordinates_ in both _rectangular coordinates_ and _cylindrical
+    coordinates_: $(rho, theta, phi) = (2, 0, 0)$ #h(1em) $(rho, theta, phi) = (2, 0, pi/4)$ #h(
+      1em,
+    )\
+    $(rho, theta, phi) = (2, pi, 0)$ #h(1em) $(rho, theta, phi) = (2, pi, pi/4)$ #h(1em)\
+    $(rho, theta, phi) = (2, pi/2, pi/3)$ #h(1em)
+
+    + Describe a situation where you would prefer (a) spherical coordinates, (b) cylindrical
+      coordinates, and (c) rectangular coordinates.
+
+]
+
+#slide(title: [Siefken 19], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+
+  #show: columns
+  #image("images/spherical-dv.png")
+
+  The diagram shows a sector, $S$, in spherical coordinates formed by changing $rho,phi, theta$ by
+  $Delta rho, Delta phi, Delta theta$.
+
+  + Are the sides of $S$ straight or curved? A mix?
+  + What angles do you find at the corners of $S$?
+  + If you pretend that $S$ is a rectangular box, what is its volume?
+  + How does the exact volume of $S$ compare to your approximation? Does your answer depend on the
+    values of $rho, phi, theta$? What about $Delta rho, Delta phi, Delta theta$?
+  + What "$dif V$" should you use in spherical coordinates?
+  // Spherical and rectangular coordinates are related by
+  // $
+  //   x &= rho sin(phi) cos(theta)\
+  //   y &= rho sin(phi) sin(theta)\
+  //   z &= rho cos(phi)
+  // $
+
+  // We'd like to find out what $d V$ is in spherical coordinates.
+  // + What is the length of the vector pointing from $(rho, phi, theta)$ to $(rho + Delta rho, phi, theta)$?
+  // + What is the length of the vector pointing from $(rho, phi, theta)$ to $(rho, phi + Delta phi, theta)$?
+  // + What is the length of the vector pointing from $(rho, phi, theta)$ to $(rho, phi, theta + Delta theta)$?
+
+
+]
+
+#slide(title: [Siefken 20], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+
+  #show: columns
+  #image("images/glass-dome2.jpg")
+
+  A glass dome of constant density is protecting astronauts on the moon. Its inner radius is 6m and
+  it is .5m thick.
+
+  + Set up an integral in spherical coordinates to find the total mass of the dome.
+  + Will the integral
+    $
+      integral_(y=-6)^(y=6) integral_(x=-sqrt(6^2-y^2))^(x=sqrt(6^2-y^2)) integral_(z=sqrt(6^2-x^2-y^2))^(z=sqrt(6.5^2-x^2-y^2)) 1dif z dif x dif y
+    $
+    compute the correct mass? Why or why not?
+  + On a test, what method would you use to solve this question?
+  // Spherical and rectangular coordinates are related by
+  // $
+  //   x &= rho sin(phi) cos(theta)\
+  //   y &= rho sin(phi) sin(theta)\
+  //   z &= rho cos(phi)
+  // $
+
+  // We'd like to find out what $d V$ is in spherical coordinates.
+  // + What is the length of the vector pointing from $(rho, phi, theta)$ to $(rho + Delta rho, phi, theta)$?
+  // + What is the length of the vector pointing from $(rho, phi, theta)$ to $(rho, phi + Delta phi, theta)$?
+  // + What is the length of the vector pointing from $(rho, phi, theta)$ to $(rho, phi, theta + Delta theta)$?
+
+
+]
+
+#slide(title: [Siefken 21], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .75em)
+
+
+  #show: columns
+  #image("images/skew-coordinates.png")
+
+  In a particular Amazon warehouse, locations are referenced with tape on the floor. The tape is
+  laid out in the directions $arrow(b)_1=mat(4; 1)$ and $arrow(b)_1=mat(1; 3)$.
+
+  At the warehouse, the position of items uses $b$-coordinates. That is if an item is at
+  $b$-coordinates $(u,v)$, then its physical location is at $u arrow(b)_1 + v arrow(b)_2$.
+
+  The average weight of packages at location $(u,v)$ (in $b$-coordinates) is given by
+  $
+    W(u,v)=2 + sin(u)+v
+  $
+
+  + Let $R$ be the region defining the warehouse. What does $Q= display(integral_R W dif A)$
+    represent?
+  + Is $Q = display(integral integral 2+sin(x)+y dif x dif y)$ for appropriate bounds?
+  + What is $dif A$ in $b$-coordinates? Use your answer to set up an integral to find $Q$.
+
+
+]
