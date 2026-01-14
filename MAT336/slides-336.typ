@@ -520,7 +520,7 @@
 
   A function $f$ with domain $D$ is *one-to-one* if different inputs produce different outputs.
 
-  + Write a formal definition of _one-to_one_ (using quantifiers, etc.).
+  + Write a formal definition of _one-to-one_ (using quantifiers, etc.).
   + Prove that $f(x)=3x+2$ with domain $RR$ is one-to-one.
   + Prove that $g(x)=x^2$ with domain $RR$ is not one-to-one.
   + Define $h(x)=x^2$ with domain $D subset RR$. Can you find a $D$ such that $h$ is one-to-one? If
