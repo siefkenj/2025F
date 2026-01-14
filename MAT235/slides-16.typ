@@ -562,16 +562,18 @@
   #show: columns
   Let $f=1$ be a constant function,
   $
-    R={arrow(p) in RR^2 : arrow(p)=(x,y) " with " x^2+y^2 <= 4}
+    R={arrow(p) in RR^2 : arrow(p)=(x,y) " with " x^2+y^2 <= 9}
   $
   be a region and $display(I = integral_R f dif A=integral_R dif A)$.
 
   + Describe $R$ using polar coordinates.
   + Use geometry to find the exact value of $I$.
   + Set up an iterated integral to compute $I$ using _rectangular_ coordinates.
-  + Set up an iterated integral to compute $I$ using _polar_ coordinates.
-  + Does $display(integral_(theta=0)^(theta=2 pi) integral_(r=0)^(r=2) dif r dif theta)$ give the
+  // + Set up an iterated integral to compute $I$ using _polar_ coordinates.
+  + Does $display(integral_(theta=0)^(theta=2 pi) integral_(r=0)^(r=3) dif r dif theta)$ give the
     correct value of $I$? What went wrong?
+
+  + In rectangular coordinates "$dif A = dif x dif y$". In polar coordnates, should "$dif A = dif r dif theta$"? Why or why not?
 
 ]
 
