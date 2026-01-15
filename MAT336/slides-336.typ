@@ -6,6 +6,10 @@
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
 #import "@preview/itemize:0.2.0"
+#import "@preview/ergo:0.2.0": *
+
+#show: ergo-init
+
 
 #set enum(
   full: true, // Required to get all level numbers in the function
@@ -594,4 +598,383 @@
   #colbreak()
   + What is wrong with the proof?
   + Can it be salvaged?
+]
+
+#slide(title: [Archimedean Underestimate], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  #show: columns
+
+  #{
+    let f(x) = 1 - x * x
+    import "@preview/cetz:0.4.2"
+    import "@preview/cetz-plot:0.1.3"
+    cetz.canvas({
+      import cetz.draw: *
+      import cetz-plot: *
+
+      plot.plot(
+        size: (9, 6),
+        x-tick-step: 1,
+        y-tick-step: none,
+        x-label: none,
+        y-label: none,
+        axis-style: none,
+
+        {
+          plot.add(
+            f,
+            domain: (-1, 1),
+          )
+          plot.add(
+            ((0, 1), (1 / 2, f(1 / 2)), (1 / 4, f(1 / 4)), (0, 1)),
+            fill: true,
+            mark: none,
+            style: (fill: red.lighten(60%), stroke: red),
+            label: $t_3$,
+          )
+          plot.add(
+            ((1, 0), (1 / 2, f(1 / 2)), (3 / 4, f(3 / 4)), (1, 0)),
+            fill: true,
+            mark: none,
+            style: (fill: red.lighten(60%), stroke: red),
+          )
+          plot.add(
+            ((1, 0), (1 / 2, f(1 / 2)), (0, 1)),
+            fill: true,
+            mark: none,
+            style: (fill: orange.lighten(80%), stroke: orange),
+            label: $t_2$,
+          )
+          plot.add(
+            ((0, 0), (1, 0), (0, 1), (0, 0)),
+            fill: true,
+            mark: none,
+            style: (fill: blue.lighten(80%), stroke: blue),
+            label: $t_1$,
+          )
+          plot.add(
+            ((0, 1), (-1 / 2, f(1 / 2)), (-1 / 4, f(1 / 4)), (0, 1)),
+            fill: true,
+            mark: none,
+            style: (fill: red.lighten(60%), stroke: red),
+          )
+          plot.add(
+            ((-1, 0), (-1 / 2, f(1 / 2)), (-3 / 4, f(3 / 4)), (-1, 0)),
+            fill: true,
+            mark: none,
+            style: (fill: red.lighten(60%), stroke: red),
+          )
+          plot.add(
+            ((-1, 0), (-1 / 2, f(1 / 2)), (0, 1)),
+            fill: true,
+            mark: none,
+            style: (fill: orange.lighten(80%), stroke: orange),
+          )
+          plot.add(
+            ((0, 0), (-1, 0), (0, 1), (0, 0)),
+            fill: true,
+            mark: none,
+            style: (fill: blue.lighten(80%), stroke: blue),
+          )
+        },
+      )
+      // ...
+    })
+  }
+
+  Archimedean method (area under $1-x^2$): Fill with triangles.
+  - Total area of $t_1=1$
+  - Total area of $t_2=1/4$
+  - Total area of $t_3=1/16$
+  - Total area of $t_n=1/4^(n-1)$
+
+  + Find a formula that always _under estimates_ the area under $1-x^2$.
+  + Should the limit of $t_1+t_2+t_3+dots.c +t_n$ equal the area under $1-x^2$? Why or why not?
+
+]
+
+#slide(title: [Archimedean Overestimate], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  #show: columns
+
+  #{
+    let f(x) = 1 - x * x
+    import "@preview/cetz:0.4.2"
+    import "@preview/cetz-plot:0.1.3"
+    cetz.canvas({
+      import cetz.draw: *
+      import cetz-plot: *
+
+      plot.plot(
+        size: (9, 6),
+        x-tick-step: 1,
+        y-tick-step: none,
+        x-label: none,
+        y-label: none,
+        axis-style: none,
+
+        {
+          plot.add(
+            f,
+            domain: (-1, 1),
+          )
+          plot.add(
+            ((1 / 2, f(1 / 2)), (1.13, .065), (1, 0), (1 / 2, f(1 / 2))),
+            fill: true,
+            mark: none,
+            style: (fill: green.lighten(80%), stroke: (paint: green, dash: "dashed")),
+            label: $"error"_2$,
+          )
+          plot.add(
+            ((1 / 2, f(1 / 2)), (0.17, 1.105), (0, 1), (1 / 2, f(1 / 2))),
+            fill: true,
+            mark: none,
+            style: (fill: green.lighten(80%), stroke: (paint: green, dash: "dashed")),
+          )
+          plot.add(
+            ((1, 0), (1 / 2, f(1 / 2)), (0, 1)),
+            fill: true,
+            mark: none,
+            style: (fill: orange.lighten(80%), stroke: orange),
+            label: $t_2$,
+          )
+          plot.add(
+            ((0, 0), (1, 0), (0, 1), (0, 0)),
+            fill: true,
+            mark: none,
+            style: (fill: blue.lighten(80%), stroke: blue),
+            label: $t_1$,
+          )
+          plot.add(
+            ((-1 / 2, f(1 / 2)), (-1.13, .065), (-1, 0), (-1 / 2, f(1 / 2))),
+            fill: true,
+            mark: none,
+            style: (fill: green.lighten(80%), stroke: (paint: green, dash: "dashed")),
+          )
+          plot.add(
+            ((-1 / 2, f(1 / 2)), (-0.17, 1.105), (0, 1), (-1 / 2, f(1 / 2))),
+            fill: true,
+            mark: none,
+            style: (fill: green.lighten(80%), stroke: (paint: green, dash: "dashed")),
+          )
+          plot.add(
+            ((-1, 0), (-1 / 2, f(1 / 2)), (0, 1)),
+            fill: true,
+            mark: none,
+            style: (fill: orange.lighten(80%), stroke: orange),
+          )
+          plot.add(
+            ((0, 0), (-1, 0), (0, 1), (0, 0)),
+            fill: true,
+            mark: none,
+            style: (fill: blue.lighten(80%), stroke: blue),
+          )
+        },
+      )
+      // ...
+    })
+  }
+
+  Archimedean showed that triangles of total area $"error"_n=t_n$ could be added to completely cover
+  the parabola.
+  + Find a formula that always _over estimates_ the area under $1-x^2$.
+  + Do you have enough information to argue about the true area under $1-x^2$?
+
+]
+
+#slide(title: [Finding Exact Area], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  // #show: columns
+  We'd like to find the area under the parabola $1-x^2$. Call this area $A$.
+
+  + Could $A < 4/3$? Prove your answer.
+  + Could $A > 4/3$? Prove your answer.
+  + The *trichotomy axiom* for real numbers states that for real numbers $a$ and $b$, exactly one of
+    the following is true: $a < b$, $a = b$, or $a > b$.
+
+    Prove $A=4/3$. Did you have to make any additional assumptions?
+]
+
+#slide(title: [Archimedean Understanding], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+
+  #show: columns
+  Your textbook states:
+  #defn[Archimedean Understanding][The _Archimedean understanding_ of an infinite series is that it
+    is shorthand for the sequence of finite summations.
+
+    The value of an infinite series, if it exists, is that number $T$ such that given any $L < T$
+    and any $M > T$, all the finite sums from some point on will strictly be contained in the
+    interval between $L$ and $M$.
+  ]
+  #colbreak()
+
+  + What does the definition mean when it says "from some point on"? Is that really needed?
+  + Let $(t_i)_(i in NN)$ be a sequence of real numbers. Formally rewrite (using $forall$ and
+    $exists$) the definition of the Archimedean understanding of what it means for
+    $t_0 + t_1 + t_2 + dots.c$ to equal the number $T$.
+  + We say a series is *convergent* if its limit exists in the Archimedean sense. Formally write
+    what it means for a series $t_0 + t_1 + t_2 + dots.c$ to be convergent.
+]
+
+#slide(title: [Convergence in Different Sets (Is there a there there?)], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+
+  #show: columns
+
+  Let $DD = {q in QQ: exists n in NN, exists b in ZZ "such that" q = b/2^n}$
+
+  Let $L={x in DD: 3x < 1 }$.
+
+  + Does $L$ have a largest element? Why or why not?
+  + We want a sequence of $l_i in L$ that "converges to the maximum of $L$".
+
+    What should "converges to the maximum of $L$" mean?
+
+    Provide a formal definition and find such a sequence.
+
+  + According to the "Archimedean understanding", what should $l_i$ converge to? (Hint: you can
+    rewrite $l_i$ as a series, if needed.)
+
+    Is your result in $DD$? Is this an issue?
+
+  + Consider $S={q in QQ: q^2 < 2}$. What number should a sequence that "converges to the maximum of
+    $S$" converge to? Is your answer in $QQ$?
+
+  + Let $A={x in RR: x < "area under" 1-x^2}$. What should a sequence that "converges to the maximum
+    of $A$" converge to? Is your answer in $RR$? Are you sure?
+]
+
+#slide(title: [Nested Interval Principle], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+  Your textbook states:
+  #defn[Nested Interval Principle][
+    Given an increasing sequence $x_1 <= x_2<= x_3 <= dots.c$ and a decreasing sequence
+    $y_1 >= y_2 >= y_3 >= dots.c$ such that $y_n$ is always larger than $x_n$ but the difference
+    between $x_n$ and $y_n$ can be made arbitrarily small by taking $n$ sufficiently large, there
+    exists _exactly one_ real number that is greater than or equal to every $x_n$ and less than or
+    equal to every $y_n$.
+  ]
+
+  #colbreak()
+  + Formally restate the Nested Interval Principle using quantifiers $forall$ and $exists$.
+  + How does the nested interval principle apply to Archimedes' argument for area under $1-x^2$? Is
+    it needed?
+  + Leibnitz imagined than an infinitesimal $dif x$ satisfied $dif x > 0$ and
+    $forall a in RR, a > 0 ==> dif x < a$.
+
+    What does the Nested Interval Principle say about $dif x$?
+]
+
+#slide(title: [Putting it Together], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: 1em)
+
+
+  #show: columns
+  + Explain how every statement about a series can be converted into a statement about a sequence
+    (and vice versa).
+  + What should it mean for a _sequence_ to converge in the Archimedean sense?
+  + Show that if a sequence/series converges in the Archimedean sense, its value is unique.
+  + We showed via many methods that $O=1-1+1-1+1- dots.c$ takes on the value $1/2$. Is this true in
+    the Archimedean sense?
+]
+
+#slide(title: [Divergent to Infinity], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+
+  #show: columns
+  + Come up with a formal definition of what it should mean for the series
+    $t_0 + t_1 + t_2 + dots.c$ to be *divergent to infinity*.
+]
+
+#slide(title: [Geometric Series], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  A *geometric series* $a_0 + a_1+ a_2 + dots.c$ is a series where the ratio of successive terms is
+  constant.
+
+  Let $A$ be the series $a_0+a_1+a_2+dots.c$ with summands $(a_i)_(i in NN)$.
+
+  + Formally define what it means for $A$ to be a _geometric_ series.
+  + If $A$ is a geometric series, it can be defined using only $a_0$ and $a_1$. How?
+  + Let $S_n = a_0 + a_1 + a_2 + dots.c + a_n$. Compute $S_n - a_1/a_0 S_n$ and use the result to
+    find a formula for $S_n$.
+  + Prove that if $a_1/a_0 in [0,1)$ then $A$ converges in the Archimedean sense.
+]
+
+#slide(title: [Taylor Series], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  A *power series about $x=0$* is a series of the form
+  $
+    a_0 + a_1 x + a_2 x^2 + dots.c
+  $
+  *Taylor series about $x=0$* is a power series where the coefficients are
+  $
+    a_n = (f^((n)) (0)) / n!
+  $
+
+  + Find the Taylor series about $x=0$ for $f(x)=1/(1-x)$.
+  + Euler argued that $1/(1-x)$ and $1+x+x^2+x^3+ dots.c$ could be used interchangeably. When is
+    this true in the Archimedean sense?
+  + Famously, the Taylor series for $e^x$ is $1 + x + x^2/2! + x^3/3! + dots.c$.
+
+    Fix $x=1/2$. Show that if the Taylor series converges at $x=1/2$, then it converges to a value
+    less than $1/(1-1/2) = 2$.
+  + Is the fact that the partial sums of $1 + (1/2) + (1/2)^2/2! + (1/2)^3/3! + dots.c$ are bounded
+    above by $2$ enough to show that the series converges?
+]
+
+#slide(title: [Lagrange's Theorem], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+  #show: columns
+  #thm[Lagrange's Remainder Theorem][
+    Let $f$ be infinitely differentiable. Let
+    $
+      E_n (x) = f(x) - (f(0) + f'(0)x + f''(0)x^2/2! \ + dots.c + f^(n-1)(0)x^(n-1)/(n-1)!) = f(x) - T_(n-1) (x).
+    $
+    Then there exists a $c$ in the interval between $0$ and $x$ such that
+    $display(E_n (x) = f^(n)(c) x^n / n!)$
+  ][]
+  + Does Lagrange's Theorem state that $forall x, exists c$ or $exists c, forall x$?
+  + Give upper and lower bounds on the difference between $e^(1/2)$ and the $n-1$#super[st] Taylor
+    approximation to $e^x$ at $x=2$.
+  + Prove that the Taylor series for $e^x$ converges at $1/2$ to $e^(1/2)$ in the Archimedean sense.
 ]
