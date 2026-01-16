@@ -976,5 +976,5 @@
   + Does Lagrange's Theorem state that $forall x, exists c$ or $exists c, forall x$?
   + Give upper and lower bounds on the difference between $e^(1/2)$ and the $n-1$#super[st] Taylor
     approximation to $e^x$ at $x=2$.
-  + Prove that the Taylor series for $e^x$ converges at $1/2$ to $e^(1/2)$ in the Archimedean sense.
+  + Prove that the Taylor series (centered at 0) for $e^x$ converges when $x=1/2$ to $e^(1/2)$ in the Archimedean sense.
 ]
