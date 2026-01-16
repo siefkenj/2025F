@@ -684,9 +684,9 @@
   $R$, in the plane, bounded by the graph of $r(theta)=sin(theta)$.
 
   + Let $f$ be be a function whose inputs are _rectangular_ coordinates so that $z=f(x,y)$ describes
-    the code. Find a formula for $f$.
+    the cone. Find a formula for $f$.
   + Let $g$ be be a function whose inputs are _polar_ coordinates so that $z=g(r, theta)$ describes
-    the code. Find a formula for $g$.
+    the cone. Find a formula for $g$.
   + Use desmos to graph the region $R$. Describe $R$ using polar coordinates.
   + Set up an integral to find the volume in question.
   + What goes wrong if we use $theta=0$ to $theta=2pi$ in our integral?
