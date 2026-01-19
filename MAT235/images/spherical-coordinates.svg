@@ -287,12 +287,12 @@
        x="220"
        y="270"
        font-style="italic"
-       id="text62">θ</text>
+       id="text62">φ</text>
     <text
        x="195"
        y="415"
        font-style="italic"
-       id="text63">φ</text>
+       id="text63">θ</text>
   </g>
   <g
      font-family="serif"
@@ -305,8 +305,8 @@
          dx="0 0 0 0 0 -10 0 0 0 -5 0 -10"
          id="tspan63">(𝜌,  <tspan
    style="font-style:italic"
-   id="tspan69">φ</tspan> ,<tspan
+   id="tspan69">θ</tspan> ,<tspan
    style="font-style:italic"
-   id="tspan70">θ</tspan> )</tspan></text>
+   id="tspan70">φ</tspan> )</tspan></text>
   </g>
 </svg>
