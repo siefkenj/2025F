@@ -3,6 +3,10 @@
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
 #import "@preview/lilaq:0.5.0" as lq
+#import "@preview/itemize:0.2.0"
+#import "@preview/cetz:0.4.2"
+
+#show: itemize.default-enum-list
 
 #let slide(..args) = {
   let named = args.named()
@@ -64,64 +68,37 @@
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
 
-  #columns(2)[
-    Let $f:RR -> RR$ be a function.
+  #show: columns
 
-    + Explain in words what "the integral from $a$ to $b$ of $f$" means.
-    + Write down the *left-endpoint approximation* to "the integral from $a$ to $b$ of $f$".
-    + In the expression $display(integral_a^b f(x) dif x)$, what does the "$dif x$" represent?
-    + In multi-variable calculus, we often write "the integral from $a$ to $b$ of $f$" as
-      $
-        display(integral_R f(x) dif x)
-      $
-      where $R = space.thin ??$. What could $R$ be in this case?
-  ]
+  + For each of the following situations, determine if it can be modeled by a function. If so, what
+    is the *domain* and *codomain*?
+    - He elevation of a camp ground.
+    - The position of a bee.
+    - The direction the wind is blowing.
+    - Tax revenue that Canada collects.
+  + Of the functions you identified, which types have we studied so far in MAT235? Which did you
+    study in Calc I?
 ]
 
 #slide(title: [Siefken 2], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
+  #set text(size: .9em)
 
-  #columns(2)[
-    #{
-      let a = lq.diagram(
-        title: [$z=f(x,y)$],
-        width: 6cm,
-        height: 6cm,
-        lq.contour(
-          lq.linspace(-5, 5, num: 20),
-          lq.linspace(-5, 5, num: 20),
-          (x, y) => 2 * x + y,
-          map: color.map.icefire,
-        ),
-        xlim: (-0, 4),
-        ylim: (-0, 4),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        lq.place(3.5, 3.5, $5$),
-        lq.place(2.8, 2.8, $4$),
-        lq.place(2.2, 2.2, $3$),
-        lq.place(1.5, 1.5, $2$),
-        lq.place(.9, .9, $1$),
-      )
-      set align(center)
-      a
-    }
-    // #colbreak()
+  #show: columns
 
-    We'd like to find *volume*, $V$, under the surface $z=f(x,y)$ on the region
-    $R=[0,4] times [0,4]$.
+  Let $arrow(p)=mat(1; 1)$ and $arrow(d)=mat(2; 0)$. Define
+  $
+    arrow(f)(t) = t arrow(d)+arrow(p)
+  $
 
-    + What would a "left-endpoint approximation" to $V$ look like? How could you find it?
-    + Using $1 times 1$ squares, find an over estimate and under estimate for $V$.
-    + How could you use a limit to get an exact value for $V$?
-    + In multi-variable calculus,
-    $
-      V = integral_R f dif A
-    $
-    Explain why this notation makes sense. What does the $dif A$ represent?
-  ]
+  + What is the domain and codomain of $arrow(f)$?
+  + What is $arrow(f)(3)$?
+  + What does the graph of $arrow(f)$ look like?
+  + How long does it take (if you think of $t$ as seconds) for $arrow(f)$ to traverse from $(1,1)$
+    to $(5,1)$?
+  + Make a new function $arrow(g)$ whose graph is the same as $arrow(f)$ but traverses at 1 unit per
+    second.
 ]
 
 #slide(title: [Siefken 3], autoscale: false)[
@@ -129,74 +106,45 @@
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
 
-  #columns(2)[
-    #[
-      #set text(size: .9em)
-      $P(x,y)$ represents the population *density* (people per square kilometer) on the $3 times 2$
-      km town of Rectville.
-      #image("images/density-1.png", width: 9cm)
-    ]
+  #show: columns
 
-    + Write down a set that defines the *region* that Rectville occupies.
-    + At $(0,0)$, $P=1000$. What does that mean?
-    + About how many people are in the $1/10 times 1/10$ km region near $(0,0)$?
-    + Set up an integral to find the total population of Rectville.
-    + Estimate the total population of Rectville.
+  A bee leaves a flower located at $(3,0,0)$ and flies off in a cork-screw pattern.
 
-    #text(size: .8em)[
-      The figure for Rectville came from Calculus: Multivariable by Hughes-Hallett et al.
-    ]
-  ]
+  #image("images/helix.png", width: 6cm)
+
+  #colbreak()
+  Its motion is described by $arrow(p)(t)$.
+
+  + Find a formula for $arrow(p)(t)$.
+  + Every time the bee makes a complete circle, it gains $5$m of height. Modify your formula for
+    $arrow(p)(t)$ to incorporate this information.
+  + Suppose the flower started at position $(0,0,0)$, but the radius and height gain per circle
+    remained the same. Find a formula for $arrow(p)(t)$.
 ]
+
 
 #slide(title: [Siefken 4], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
 
-  #columns(2)[
-    The town of Elville has a population density given by $P(x,y)$ and a boundary shown below.
-    #{
-      let a = lq.diagram(
-        // title: [$z=f(x,y)$],
-        width: 7.5cm,
-        height: 6cm,
-        // lq.contour(
-        //   lq.linspace(-5, 5, num: 20),
-        //   lq.linspace(-5, 5, num: 20),
-        //   (x, y) => 2 * x + y,
-        //   map: color.map.icefire,
-        // ),
-        xlim: (-0, 5),
-        ylim: (-0, 4),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        // lq.place(3.5, 3.5, $5$),
-        // lq.place(2.8, 2.8, $4$),
-        // lq.place(2.2, 2.2, $3$),
-        // lq.place(1.5, 1.5, $2$),
-        // lq.place(.9, .9, $1$),
-        lq.path(
-          (1, 0),
-          (1, 3),
-          (4, 3),
-          (4, 1),
-          (3, 1),
-          (3, 0),
-          (1, 0),
-          stroke: 2pt + blue,
-          fill: blue.lighten(60%).transparentize(50%),
-        ),
-      )
-      set align(center)
-      a
-    }
+  #show: columns
+  Below is a _Lemniscate_ curve.
+  #{
+    let ts = lq.arange(0, 6.5, step: 0.05)
+    let a = lq.diagram(
+      width: 12cm,
+      height: 5cm,
+      lq.plot(ts.map(t => calc.cos(t)), ts.map(t => calc.sin(2 * t)), mark: none, stroke: 2pt),
+    )
+    a
+  }
 
-    + Describe the region that defines Elville as a set.
-    + Write down an integral that would give the total population of Elville.
-    + Can you express the total population of Elville in terms of integrals over rectangular
-      regions? If so, do it.
-  ]
+  #colbreak()
+  + Could the lemniscate be the graph of a function $f:RR -> RR$? Explain.
+  + Could the lemniscate be the graph of a function $f:RR -> RR^2$? Explain.
+  + Make a table of values for a function that produces the lemniscate.
+  + Find a formula for a function whose graph is the lemniscate. Use Desmos to check your answer.
 ]
 
 #slide(title: [Siefken 5], autoscale: false)[
@@ -204,258 +152,64 @@
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
 
-  #columns(2)[
-    The town of Circville has a population density given by $P(x,y)$ and a boundary shown below.
-    #{
-      let a = lq.diagram(
-        // title: [$z=f(x,y)$],
-        width: 6cm,
-        height: 6cm,
-        // lq.contour(
-        //   lq.linspace(-5, 5, num: 20),
-        //   lq.linspace(-5, 5, num: 20),
-        //   (x, y) => 2 * x + y,
-        //   map: color.map.icefire,
-        // ),
-        xlim: (-0, 4),
-        ylim: (-0, 4),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        // lq.place(3.5, 3.5, $5$),
-        // lq.place(2.8, 2.8, $4$),
-        // lq.place(2.2, 2.2, $3$),
-        // lq.place(1.5, 1.5, $2$),
-        // lq.place(.9, .9, $1$),
-        lq.ellipse(
-          1,
-          1,
-          width: 2,
-          height: 2,
-          stroke: 2pt + blue,
-          fill: blue.lighten(60%).transparentize(50%),
-        ),
-      )
-      set align(center)
-      a
-    }
-    #colbreak()
+  #show: columns
+  A fish is swimming in a pond. Its position as a function of time is given by
+  $arrow(f)(t) = (t^2, 2t)$.
 
-    + Describe the region that defines Elville as a set.
-    + Write down an integral that would give the total population of Elville.
-    + Can you express the total population of Elville in terms of integrals over rectangular
-      regions? If so, do it.
-  ]
+  + Graph $arrow(f)$.
+  + Estimate how far has the fish travelled from time $t=1$ to $t=1+Delta t$. Is your estimate
+    exact?
+  + Estimate the average speed of the fish from time $t=1$ to $t=1+Delta t$.
+  + Can you find the exact speed of the fish at time $t=1$? If so, do it.
+    #colbreak()
+  + What's the difference between speed and velocity?
+  + Find the velocity of the fish at time $t=1$.
+  + What's the relationship between the velocity of the fish and the graph of $arrow(f)$? Should you
+    draw the velocity vector at the origin or somewhere else?
 ]
 
 #slide(title: [Siefken 6], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .9em)
+  #set text(size: .8em)
 
-  #columns(2)[
-    #{
-      let a = lq.diagram(
-        title: [$z=f(x,y)$],
-        width: 6cm,
-        height: 4cm,
-        lq.contour(
-          lq.linspace(-5, 5, num: 20),
-          lq.linspace(-5, 5, num: 20),
-          (x, y) => 2 * x,
-          map: color.map.icefire,
-        ),
-        xlim: (-0, 4),
-        ylim: (-0, 3),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        lq.place(2.8, .9, $6$),
-        lq.place(1.8, .9, $4$),
-        lq.place(.8, .9, $2$),
-      )
-      set align(center)
-      a
-    }
+  #show: columns
+  $arrow(p): RR -> RR^2$ describes the motion of a particle.
 
-    $z=f(x,y)$ defines a plane.
+  + How should you interpret $dif/(dif t) arrow(p)(t)$?#v(1em)
+  + How should you interpret $dif^2/(dif t^2) arrow(p)(t)$?
 
-    #colbreak()
+    You are on a playground toy that spins very fast.
+    #set align(center)
+    #image("images/merry-go-round.jpg", width: 5cm)
 
-    + Find an equation for $f(x,y)$.
-    + Use geometry to find the exact value of
-      $
-        V = display(integral_([0,4] times [0,3])f dif A)
-      $
-    + Let $c$ be a constant. What does
-      $
-        W = display(integral_([0,4]) f(x,c)) dif x
-      $
-      mean geometrically? Find its exact value.
-    + How can $W$ be used to find $V$?
-  ]
+  + Make a diagram of this situation. Draw your *velocity* vector on the diagram.
+  + Draw your *acceleration* vector on the diagram.
+  + Come up with a mathematical model (i.e. a function) that describes your position vs. time on the
+    ride.
+
+    Using your model, compute your velocity and acceleration vectors. Do they match your
+    predictions?
+
 ]
+
 #slide(title: [Siefken 7], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .75em)
-
-  #columns(2)[
-    Recall
-    #{
-      let a = lq.diagram(
-        title: [$z=f(x,y)=2x$],
-        width: 6cm,
-        height: 4cm,
-        lq.contour(
-          lq.linspace(-5, 5, num: 20),
-          lq.linspace(-5, 5, num: 20),
-          (x, y) => 2 * x,
-          map: color.map.icefire,
-        ),
-        xlim: (-0, 4),
-        ylim: (-0, 3),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        lq.place(2.8, .9, $6$),
-        lq.place(1.8, .9, $4$),
-        lq.place(.8, .9, $2$),
-      )
-      set align(center)
-      a
-    }
-
-
-    #colbreak()
-    + Compute
-      $
-        integral_([0,3]) (integral_([0,4]) f(x,c) dif x) dif c
-      $
-    + Compute
-      $
-        integral_([0,4]) (integral_([0,3]) f(x,c) dif c) dif x
-      $
-    + Integrals like the above are called *iterated integrals*. How do the iterated integrals relate
-      to $display(integral_([0,4] times [0,3]) f dif A)$?
-
-      Do iterated integrals remind you of partial derivatives? If so, how?
-  ]
-]
-
-#slide(title: [Siefken 8], autoscale: false)[
-  #show: place.with(dy: 1.3cm)
-  #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .75em)
-
-  #columns(2)[
-    #{
-      let a = lq.diagram(
-        title: [$z=f(x,y)=2x+y$],
-        width: 6cm,
-        height: 4cm,
-        lq.contour(
-          lq.linspace(-5, 5, num: 20),
-          lq.linspace(-5, 5, num: 20),
-          (x, y) => 2 * x + y,
-          map: color.map.icefire,
-        ),
-        xlim: (-0, 4),
-        ylim: (-0, 3),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-      )
-      set align(center)
-      a
-    }
-
-    Let $R=[0,4] times [0,3]$. Let
-    $
-      V = integral_R f dif A
-    $
-
-    + Set up _two different_ iterated integrals to compute $V$.
-    + Evaluate both iterated integrals to find $V$.
-    + It is sometimes said that "$dif x dif y = dif A$". Does this statement make sense?
-    + Is it true that
-      $
-        integral_([0,4]) integral_([0,3]) f(x,y) #text(fill: red, $dif y dif x$) = integral_([0,4]) integral_([0,3]) f(x,y) #text(fill: red, $dif y dif x$) ?
-      $
-    + Why would someone write
-      $
-        display(integral_(x in [0,4]) integral_(y in [0,3]) f(x,y) dif y dif x) " or "
-        display(integral_(x=0)^(x=4) integral_(y=0)^(y=3) f(x,y) dif y dif x)
-      $
-      instead of
-      $
-        display(integral_([0,4]) integral_([0,3]) f(x,y) dif y dif x) wide "or" wide
-        display(integral_0^4 integral_0^3 f(x,y) dif y dif x)?
-      $
-  ]
-]
-
-#slide(title: [Siefken 9], autoscale: false)[
-  #show: place.with(dy: 1.3cm)
-  #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
-
-  #columns(2)[
-    The town of Veeville has a population density given by $P(x,y)$ and a boundary shown below.
-    #{
-      let a = lq.diagram(
-        // title: [$z=f(x,y)$],
-        width: 6cm,
-        height: 6cm,
-        xlim: (-0, 4),
-        ylim: (-0, 4),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        lq.path(
-          (2, 0),
-          (1, 3),
-          (3, 3),
-          (2, 0),
-          stroke: 2pt + blue,
-          fill: blue.lighten(60%).transparentize(50%),
-        ),
-      )
-      set align(center)
-      a
-    }
-    #colbreak()
-
-    Let $D$ be the region defining Veeville and let $Q$ be its total population.
-
-    + Find a formulas for $L(y)$ and $R(y)$ that give the the *leftmost* and *rightmost* points in
-      $D$ with $y$-coordinate equal to $y$.
-
-      What is the domain of $L$ and $R$?
-
-    + Fill in the ? in the population integral:
-      $
-        Q= integral_(?=?)^(?=?) integral_(?=L(y))^(?=R(y)) P(x,y) dif ? dif ?
-      $
-
-    + Find an iterated integral to compute $Q$ in terms of $dif y dif x$.
-
-    // _Hint:_ You may need to split the integral into two parts.
-  ]
-]
-
-#slide(title: [Siefken 10], autoscale: false)[
-  #show: place.with(dy: 1.3cm)
-  #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
 
-  #columns(2)[
-    The town of Wackville has a population density given by $P(x,y)$ and a boundary enclosed on the
-    north by $y=-x^2+4$ and on the south by $y=-x$.
+  #show: columns
+  You are riding the _Lemniscate Coaster_, a roller coaster whose track is laid out in the shape of
+  a lemniscate. A car on the coaster can be modeled by $arrow(p)(t)=(20cos t, 20sin 2t)$.
 
-    Let $D$ be the region defining Wackville and let $Q$ be its total population.
+  + Find expressions for the velocity and the acceleration of the roller coaster.
+  + Use Desmos to estimate: what is the fastest that the coaster goes? What is the most acceleration
+    it experiences?
+    #colbreak()
+    To make the ride safe for children, the maximum acceleration should not exceed
+    $3g approx 29 "m"/"s"^2$. To achieve this, engineers will install breaking pads that slow the
+    coaster down by a factor of $k$.
 
-    + Sketch $D$.
-
-    + Set up an iterated integral to compute $Q$ in terms of $dif x dif y$.
-    + Set up an iterated integral to compute $Q$ in terms of $dif y dif x$.
-    + The population density is given by the function $P(x,y) = (x+y)/10+20$.
-
-      Use the integral of your choice to compute the exact population of Wackville.
-  ]
+  + Model the slowed-down coaster's position with a new function $arrow(q)(t)$.
+  + What should $k$ be to ensure the maximum acceleration is $3g$? (Hint: Use Desmos to estimate!)
 ]
