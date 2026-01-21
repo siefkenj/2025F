@@ -213,3 +213,33 @@
   + Model the slowed-down coaster's position with a new function $arrow(q)(t)$.
   + What should $k$ be to ensure the maximum acceleration is $3g$? (Hint: Use Desmos to estimate!)
 ]
+
+#slide(title: [Siefken 7], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  You are riding the _Lemniscate Coaster_ modeled by $arrow(p)(t)=(20cos t, 20sin 2t)$. You'd like
+  to find the total length of the coaster track.
+
+  #{
+    let ts = lq.arange(0, 6.5, step: 0.05)
+    let ts2 = lq.arange(0, 6.5, step: 0.2)
+    let a = lq.diagram(
+      width: 12cm,
+      height: 5cm,
+      lq.plot(ts2.map(t => calc.cos(t)), ts2.map(t => calc.sin(2 * t)), mark: "o", stroke: none),
+      lq.plot(ts.map(t => calc.cos(t)), ts.map(t => calc.sin(2 * t)), mark: none, stroke: 2pt),
+    )
+    a
+  }
+
+  Your strategy is to divide your journey into $n$ steps of length $Delta t$, find the displacement
+  between consecutive steps, and add up all the distances.
+
+  + Write down an express for the displacement between time $t$ and time $t+Delta t$.
+  + Write down an expression that estimates the distance travelled from time $t$ to $t+ Delta t$.
+  + Write down an expression that approximates the total length of the track.
+  + How could you find the exact length of the track? Do it.
+]
