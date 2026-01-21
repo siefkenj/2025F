@@ -573,7 +573,8 @@
   + Does $display(integral_(theta=0)^(theta=2 pi) integral_(r=0)^(r=3) dif r dif theta)$ give the
     correct value of $I$? What went wrong?
 
-  + In rectangular coordinates "$dif A = dif x dif y$". In polar coordnates, should "$dif A = dif r dif theta$"? Why or why not?
+  + In rectangular coordinates "$dif A = dif x dif y$". In polar coordnates, should
+    "$dif A = dif r dif theta$"? Why or why not?
 
 ]
 
@@ -739,7 +740,7 @@
 #slide(title: [Siefken 18], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
+  #set text(size: .75em)
 
 
   #show: columns
@@ -757,8 +758,8 @@
     $(rho, theta, phi) = (2, pi, 0)$ #h(1em) $(rho, theta, phi) = (2, pi, pi/4)$ #h(1em)\
     $(rho, theta, phi) = (2, pi/2, pi/3)$ #h(1em)
 
-    + Describe a situation where you would prefer (a) spherical coordinates, (b) cylindrical
-      coordinates, and (c) rectangular coordinates.
+  + Describe a situation where you would prefer (a) spherical coordinates, (b) cylindrical
+    coordinates, and (c) rectangular coordinates.
 
 ]
 
