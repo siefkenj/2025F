@@ -7,6 +7,7 @@
 #import themes.metropolis: slide as slide-orig
 #import "@preview/itemize:0.2.0"
 #import "@preview/ergo:0.2.0": *
+#import "@preview/ergo:0.2.0"
 
 #show: ergo-init
 
@@ -976,5 +977,109 @@
   + Does Lagrange's Theorem state that $forall x, exists c$ or $exists c, forall x$?
   + Give upper and lower bounds on the difference between $e^(1/2)$ and the $n-1$#super[st] Taylor
     approximation to $e^x$ at $x=2$.
-  + Prove that the Taylor series (centered at 0) for $e^x$ converges when $x=1/2$ to $e^(1/2)$ in the Archimedean sense.
+  + Prove that the Taylor series (centered at 0) for $e^x$ converges when $x=1/2$ to $e^(1/2)$ in
+    the Archimedean sense.
+]
+
+#slide(title: [Newton and Cauchy's Limits], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .75em)
+
+  #show: columns
+  #defn[Newton's Limit (paraphrased)][
+    // Synthesized from https://hsm.stackexchange.com/questions/9580/what-was-the-notion-of-limit-that-newton-used
+    // and https://en.wikipedia.org/wiki/History_of_calculus
+    // Not _exactly_ what Newton said.
+    The limit is the the _ultimate value_ of a process of motion as time continually approaches a
+    given time. It neither the value before it arrives at its last time, when the motion ceases, nor
+    after, but at the very instant when it arrives.
+  ]
+  #defn[Cauchy's Limit][
+    When the values successively attributed to the same variable approach indefinitely a fixed
+    value, eventually differing from it by as little as one could wish, that fixed value is called
+    the limit of all the others.
+  ]
+  + Newton and Cauchy both use the term "approach". Are they using it in the same way?
+  + Does Newton provide a method for determining if a limit is achieved? If a limit is not achieved?
+
+    Does Cauchy?
+  + What does Cauchy mean by "successively attributed to the same variable"?
+  + What would an "Archimedean" definition of limit look like?
+  // + Rephrase Cauchy's definition using quantifiers.
+]
+
+#slide(title: [Modern Limits], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  #defn[Modern Limit][
+    The function $f$ is said to have a _limit_ $L$ as $x$ approaches $a$ if for all $epsilon > 0$,
+    there exists a $delta > 0$ such that for all $x$ satisfying $0 < |x - a| < delta$, we have
+    $|f(x) - L| < epsilon.$
+
+  ]
+  + Does the modern definition of limit differ from the "Archimedean" definition? If so, how?
+  + Does the modern definition of limit provide a method for determining if a limit is achieved? If
+    a limit is not achieved?
+  + What improvement's does the modern definition make compared to Cauchy's?
+  + How does one prove a statement "for all" when quantifying over an infinite number of options?
+  + Prove $display(lim_(x -> 2) 3x = 6)$.
+]
+
+#slide(title: [Derivatives], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  #defn[Cauchy's Derivative (modernized)][
+    The _derivative_ of a function $f$ at a point $a$, denoted $f'(a)$, is a value such that for all
+    $epsilon > 0$, there exists a $delta > 0$ such that for all $x$ satisfying
+    $0 < |x - a| < delta$, we have
+    $
+      abs(f'(a) - (f(x) - f(a)) / (x - a)) < epsilon.
+    $
+
+  ]
+  + How should we interpret the quantity $(f(x) - f(a)) / (x - a)$?
+  + Can the definition be re-written in terms of limits?
+  + Use the Cauchy's definition to prove that if $f(x)=x^2$, then $f'(3) = 6$.
+]
+
+#slide(title: [Problems with Derivatives], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Recall Fourier's series:
+  $
+    F(x) = 4/pi [cos((pi x)/2) & - 1/3 cos((3 pi x)/2) \
+                               & + 1/5 cos((5 pi x)/2) - dots.c]
+  $
+  Fourier claimed $F(x)=1$ for $x in (-1,1)$.
+  + Assuming Fourier is right, what is $F'(0.5)$?
+  + Find the derivative of Fourier's series (term by term).
+  + What went wrong? Can this be fixed by applying the Archimedean understanding?
+]
+
+#slide(title: [Mean Value Theorem], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Cauchy wanted to prove Lagrange's Remainder Theorem. He first needed to prove the Mean Value Theorem.
+  #thm[Mean Value Theorem 1][
+    Let $f$ be continuous on $[a,b]$ and differentiable on $[a,b]$. Then there exists a $c in [a,b]$
+    such that
+    $
+      f'(c) = (f(b) - f(a)) / (b - a).
+    $
+  ][]
+
+  + Read through Cauchy's proof of the Mean Value Theorem. Are you convinced?
 ]
