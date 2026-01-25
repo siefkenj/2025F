@@ -833,7 +833,7 @@
 #slide(title: [Siefken 21], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .75em)
+  #set text(size: .7em)
 
 
   #show: columns
@@ -850,10 +850,36 @@
     W(u,v)=2 + sin(u)+v
   $
 
-  + Let $R$ be the region defining the warehouse. What does $Q= display(integral_R W dif A)$
-    represent?
+  + The warehouse is a parallelogram with sides $20 arrow(b)_1$ and $30 arrow(b)_2$. Let $R$ be the
+    region defining the warehouse. What does $Q= display(integral_R W dif A)$ represent?
   + Is $Q = display(integral integral 2+sin(x)+y dif x dif y)$ for appropriate bounds?
   + What is $dif A$ in $b$-coordinates? Use your answer to set up an integral to find $Q$.
+]
+
+#slide(title: [Siefken 22], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
 
 
+  #show: columns
+  The _Jacobian_ can be used to find $dif A$ for arbitrary coordinate systems.
+
+  If $u,v$ coordinates are related to $x,y$ coordinates by
+  $
+    x = x(u,v)\
+    y = y(u,v)
+  $
+  then
+  $
+    dif A = det
+    mat(
+      (partial x)/(partial u), (partial x)/(partial v);
+      (partial y)/(partial u), (partial y)/(partial v)
+    ).
+  $
+  This determinant is called the *Jacobian* for the coordinate system.
+  #colbreak()
+  + In polar coordinates, $x=r cos theta$ and $y = r sin theta$. Use the Jacobian to find $dif A$ in
+    polar coordinates.
 ]
