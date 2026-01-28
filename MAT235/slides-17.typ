@@ -72,7 +72,7 @@
 
   + For each of the following situations, determine if it can be modeled by a function. If so, what
     is the *domain* and *codomain*?
-    - He elevation of a camp ground.
+    - The elevation of a camp ground.
     - The position of a bee.
     - The direction the wind is blowing.
     - Tax revenue that Canada collects.

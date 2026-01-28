@@ -864,6 +864,8 @@
     of $A$" converge to? Is your answer in $RR$? Are you sure?
 ]
 
+// Start of Week 4 (there was a snow day for 1 hour of class)
+
 #slide(title: [Nested Interval Principle], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
@@ -975,9 +977,9 @@
     $display(E_n (x) = f^(n)(c) x^n / n!)$
   ][]
   + Does Lagrange's Theorem state that $forall x, exists c$ or $exists c, forall x$?
-  + Give upper and lower bounds on the difference between $e^(1/2)$ and the $n-1$#super[st] Taylor
-    approximation to $e^x$ at $x=2$.
-  + Prove that the Taylor series (centered at 0) for $e^x$ converges when $x=1/2$ to $e^(1/2)$ in
+  + Give upper and lower bounds on the difference between $e^(1/2)$ and the $(n-1)$#super[st] Taylor
+    approximation (centered at $0$) to $e^x$ evaluated at $x=1/2$.
+  + Prove that the Taylor series (centered at $0$) for $e^x$ converges when $x=1/2$ to $e^(1/2)$ in
     the Archimedean sense.
 ]
 
@@ -992,8 +994,8 @@
     // and https://en.wikipedia.org/wiki/History_of_calculus
     // Not _exactly_ what Newton said.
     The limit is the the _ultimate value_ of a process of motion as time continually approaches a
-    given time. It neither the value before it arrives at its last time, when the motion ceases, nor
-    after, but at the very instant when it arrives.
+    given time. It is neither the value _before_ it arrives at its last time, _when_ the motion
+    ceases, nor _after_, but at the very instant when it arrives.
   ]
   #defn[Cauchy's Limit][
     When the values successively attributed to the same variable approach indefinitely a fixed
@@ -1017,7 +1019,11 @@
   #show: columns
   #defn[Modern Limit][
     The function $f$ is said to have a _limit_ $L$ as $x$ approaches $a$ if for all $epsilon > 0$,
-    there exists a $delta > 0$ such that for all $x$ satisfying $0 < |x - a| < delta$, we have
+    there exists a $delta > 0$ such that for all $x$ satisfying
+    $
+      0 < |x - a| < delta,
+    $
+    we have
     $|f(x) - L| < epsilon.$
 
   ]
@@ -1062,7 +1068,7 @@
   $
   Fourier claimed $F(x)=1$ for $x in (-1,1)$.
   + Assuming Fourier is right, what is $F'(0.5)$?
-  + Find the derivative of Fourier's series (term by term).
+  + Find the derivative of Fourier's series (term by term). What is the limit of the result?
   + What went wrong? Can this be fixed by applying the Archimedean understanding?
 ]
 
@@ -1072,7 +1078,8 @@
   #set text(size: .9em)
 
   #show: columns
-  Cauchy wanted to prove Lagrange's Remainder Theorem. He first needed to prove the Mean Value Theorem.
+  Cauchy wanted to prove Lagrange's Remainder Theorem. He first needed to prove the Mean Value
+  Theorem.
   #thm[Mean Value Theorem 1][
     Let $f$ be continuous on $[a,b]$ and differentiable on $[a,b]$. Then there exists a $c in [a,b]$
     such that
