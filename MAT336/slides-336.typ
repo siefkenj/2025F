@@ -843,7 +843,7 @@
 
   Let $DD = {q in QQ: exists n in NN, exists b in ZZ "such that" q = b/2^n}$
 
-  Let $L={x in DD: 3x < 1 }$.
+  Let $L={x in DD: 3x <= 1 }$.
 
   + Does $L$ have a largest element? Why or why not?
   + We want a sequence of $l_i in L$ that "converges to the maximum of $L$".
@@ -857,11 +857,11 @@
 
     Is your result in $DD$? Is this an issue?
 
-  + Consider $S={q in QQ: q^2 < 2}$. What number should a sequence that "converges to the maximum of
-    $S$" converge to? Is your answer in $QQ$?
+  + Consider $S={q in QQ: q^2 <= 2}$. What number should a sequence that "converges to the maximum
+    of $S$" converge to? Is your answer in $QQ$?
 
-  + Let $A={x in RR: x < "area under" 1-x^2}$. What should a sequence that "converges to the maximum
-    of $A$" converge to? Is your answer in $RR$? Are you sure?
+  + Let $A={x in RR: x <= "area under" 1-x^2}$. What should a sequence that "converges to the
+    maximum of $A$" converge to? Is your answer in $RR$? Are you sure?
 ]
 
 // Start of Week 4 (there was a snow day for 1 hour of class)
@@ -902,7 +902,10 @@
   + Explain how every statement about a series can be converted into a statement about a sequence
     (and vice versa).
   + What should it mean for a _sequence_ to converge in the Archimedean sense?
-  + Show that if a sequence/series converges in the Archimedean sense, its value is unique.
+  + Let $(q_i)_(i in NN)$ be a sequence. Suppose you have a decreasing sequence of upper bounds and
+    an increasing sequence of lower bounds that get arbitrarily close to each other.
+
+    Show that $(q_i)$ converges in the Archimedean sense.
   + We showed via many methods that $O=1-1+1-1+1- dots.c$ takes on the value $1/2$. Is this true in
     the Archimedean sense?
 ]
