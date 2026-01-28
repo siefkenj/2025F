@@ -892,6 +892,7 @@
     What does the Nested Interval Principle say about $dif x$?
 ]
 
+// Ended Week 4 with this. It was really confusing. How exactly does the nested interval principle fit in?
 #slide(title: [Putting it Together], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
