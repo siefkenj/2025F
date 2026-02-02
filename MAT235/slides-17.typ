@@ -202,7 +202,7 @@
   You are riding the _Lemniscate Coaster_, a roller coaster whose track is laid out in the shape of
   a lemniscate. A car on the coaster can be modeled by $arrow(p)(t)=(20cos t, 20sin 2t)$.
 
-  + Find expressions for the velocity and the acceleration of the roller coaster.
+  + Find expressions for the velocity, speed, and the acceleration of the roller coaster.
   + Use Desmos to estimate: what is the fastest that the coaster goes? What is the most acceleration
     it experiences?
     #colbreak()
