@@ -3,6 +3,8 @@
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
 #import "@preview/lilaq:0.5.0" as lq
+#import "@preview/itemize:0.2.0"
+#show: itemize.default-enum-list
 
 #let slide(..args) = {
   let named = args.named()
@@ -65,62 +67,40 @@
   #set text(size: .9em)
 
   #columns(2)[
-    Let $f:RR -> RR$ be a function.
+    Recall that work is $"force" dot "displacement"$.
 
-    + Explain in words what "the integral from $a$ to $b$ of $f$" means.
-    + Write down the *left-endpoint approximation* to "the integral from $a$ to $b$ of $f$".
-    + In the expression $display(integral_a^b f(x) dif x)$, what does the "$dif x$" represent?
-    + In multi-variable calculus, we often write "the integral from $a$ to $b$ of $f$" as
-      $
-        display(integral_R f(x) dif x)
-      $
-      where $R = space.thin ??$. What could $R$ be in this case?
+    Let $arrow(F)(x,y)=(-2,0)$ denote the force of the wind.
+
+    Let $A=(0,0)$, $B=(3,0)$, and $C=(3,3)$.
+
+    + Draw $arrow(F)$.
+    + To move from $A$ to $B$, how much work is required?
+    + To move from $B$ to $A$, how much work is required?
+    + To move from $B$ to $C$, how much work is required?
+    + How much work is required to move from $A$ to $B$ to $C$? Does this differ from moving
+      directly from $A$ to $C$ in a straight line?
+
   ]
 ]
 
 #slide(title: [Siefken 2], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
+  #set text(size: .9em)
 
   #columns(2)[
-    #{
-      let a = lq.diagram(
-        title: [$z=f(x,y)$],
-        width: 6cm,
-        height: 6cm,
-        lq.contour(
-          lq.linspace(-5, 5, num: 20),
-          lq.linspace(-5, 5, num: 20),
-          (x, y) => 2 * x + y,
-          map: color.map.icefire,
-        ),
-        xlim: (-0, 4),
-        ylim: (-0, 4),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        lq.place(3.5, 3.5, $5$),
-        lq.place(2.8, 2.8, $4$),
-        lq.place(2.2, 2.2, $3$),
-        lq.place(1.5, 1.5, $2$),
-        lq.place(.9, .9, $1$),
-      )
-      set align(center)
-      a
-    }
-    // #colbreak()
+    Let $arrow(F)(x,y)=cases((-2,0) & "if" y < 2, (-4,0) & "if" y >= 2)$ denote the force of an
+    uneven wind.
 
-    We'd like to find *volume*, $V$, under the surface $z=f(x,y)$ on the region
-    $R=[0,4] times [0,4]$.
+    Let $A=(0,0)$, $B=(3,0)$, and $C=(3,3)$.
 
-    + What would a "left-endpoint approximation" to $V$ look like? How could you find it?
-    + Using $1 times 1$ squares, find an over estimate and under estimate for $V$.
-    + How could you use a limit to get an exact value for $V$?
-    + In multi-variable calculus,
-    $
-      V = integral_R f dif A
-    $
-    Explain why this notation makes sense. What does the $dif A$ represent?
+    + Draw $arrow(F)$.
+    + To move from $A$ to $B$, how much work is required?
+    + To move from $B$ to $A$, how much work is required?
+    + To move from $B$ to $C$, how much work is required?
+    + How much work is required to move from $A$ to $B$ to $C$? Does this differ from moving
+      directly from $A$ to $C$ in a straight line?
+
   ]
 ]
 
@@ -130,72 +110,47 @@
   #set text(size: .9em)
 
   #columns(2)[
-    #[
-      #set text(size: .9em)
-      $P(x,y)$ represents the population *density* (people per square kilometer) on the $3 times 2$
-      km town of Rectville.
-      #image("images/density-1.png", width: 9cm)
-    ]
+    Let $arrow(F)(x,y)=(-y, 0)$ denote the force of an uneven wind.
 
-    + Write down a set that defines the *region* that Rectville occupies.
-    + At $(0,0)$, $P=1000$. What does that mean?
-    + About how many people are in the $1/10 times 1/10$ km region near $(0,0)$?
-    + Set up an integral to find the total population of Rectville.
-    + Estimate the total population of Rectville.
+    Let $A=(0,0)$ and $B=(3,3)$.
 
-    #text(size: .8em)[
-      The figure for Rectville came from Calculus: Multivariable by Hughes-Hallett et al.
-    ]
+    + Draw $arrow(F)$.
+
+      You are moving from $A$ to $B$ in a straight line. Let $W$ denote the work required to do so.
+    + Does $arrow(F)(0,0) dot B$ overestimate or underestimate $W$? What about
+      $arrow(F)(3,3) dot B$?
+    + Is $arrow(F)(0,0) dot 1/2 B + arrow(F)(1.5,1.5) dot 1/2 B$ more or less accurate than the
+      previous estimates?
+    + Write down a limit that will give the exact value of $W$.
+    + Can you express $W$ as an integral?
+    + Does the speed at which you move from $A$ to $B$ affect the value of $W$?
   ]
 ]
 
 #slide(title: [Siefken 4], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .9em)
+  #set text(size: .85em)
 
   #columns(2)[
-    The town of Elville has a population density given by $P(x,y)$ and a boundary shown below.
-    #{
-      let a = lq.diagram(
-        // title: [$z=f(x,y)$],
-        width: 7.5cm,
-        height: 6cm,
-        // lq.contour(
-        //   lq.linspace(-5, 5, num: 20),
-        //   lq.linspace(-5, 5, num: 20),
-        //   (x, y) => 2 * x + y,
-        //   map: color.map.icefire,
-        // ),
-        xlim: (-0, 5),
-        ylim: (-0, 4),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        // lq.place(3.5, 3.5, $5$),
-        // lq.place(2.8, 2.8, $4$),
-        // lq.place(2.2, 2.2, $3$),
-        // lq.place(1.5, 1.5, $2$),
-        // lq.place(.9, .9, $1$),
-        lq.path(
-          (1, 0),
-          (1, 3),
-          (4, 3),
-          (4, 1),
-          (3, 1),
-          (3, 0),
-          (1, 0),
-          stroke: 2pt + blue,
-          fill: blue.lighten(60%).transparentize(50%),
-        ),
-      )
-      set align(center)
-      a
-    }
+    Let $arrow(F)(x,y)=(-y, 0)$ denote the force of an uneven wind.
 
-    + Describe the region that defines Elville as a set.
-    + Write down an integral that would give the total population of Elville.
-    + Can you express the total population of Elville in terms of integrals over rectangular
-      regions? If so, do it.
+    Let $A=(0,0)$ and $B=(3,3)$.
+
+    + Write down a function $arrow(r): RR -> RR^2$ that traces out a straight-line path from $A$ to
+      $B$ with $arrow(r)(0)=A$ and $arrow(r)(1)=B$.
+
+    + How should you interpret $arrow(F)(arrow(r)(t))$?
+    + What does the quantity $arrow(F)(arrow(r)(t)) dot arrow(r)'(t)$ represent?
+    + Write down an integral that gives the exact amount of work moving along path $arrow(r)$ from
+      time $t=0$ to $t=1$.
+
+      Evaluate the integral.
+    + Let $arrow(q)(t)=(3t^2, 3t^2)$.
+      #set enum(numbering: "(a)")
+      + What is the graph of $arrow(q)$?
+      + Compute much work is done moving along the path of $arrow(q)$ from time $t=0$ to $t=1$.
+      + Is your answer the same or different compared to moving along the path of $arrow(r)$? Why?
   ]
 ]
 
@@ -205,45 +160,18 @@
   #set text(size: .9em)
 
   #columns(2)[
-    The town of Circville has a population density given by $P(x,y)$ and a boundary shown below.
-    #{
-      let a = lq.diagram(
-        // title: [$z=f(x,y)$],
-        width: 6cm,
-        height: 6cm,
-        // lq.contour(
-        //   lq.linspace(-5, 5, num: 20),
-        //   lq.linspace(-5, 5, num: 20),
-        //   (x, y) => 2 * x + y,
-        //   map: color.map.icefire,
-        // ),
-        xlim: (-0, 4),
-        ylim: (-0, 4),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        // lq.place(3.5, 3.5, $5$),
-        // lq.place(2.8, 2.8, $4$),
-        // lq.place(2.2, 2.2, $3$),
-        // lq.place(1.5, 1.5, $2$),
-        // lq.place(.9, .9, $1$),
-        lq.ellipse(
-          1,
-          1,
-          width: 2,
-          height: 2,
-          stroke: 2pt + blue,
-          fill: blue.lighten(60%).transparentize(50%),
-        ),
-      )
-      set align(center)
-      a
-    }
-    #colbreak()
+    Let $h(x,y)=-x^2-2y^2$ denote a height of a hill.
 
-    + Describe the region that defines Elville as a set.
-    + Write down an integral that would give the total population of Elville.
-    + Can you express the total population of Elville in terms of integrals over rectangular
-      regions? If so, do it.
+    + Starting at $arrow(p)=(2,3)$ you start walking in the direction of $arrow(v)=(-1,1)$.
+
+      What does the quantity $nabla h(arrow(p)) dot arrow(v)$ represent?
+    + You walk (staring at $arrow(p)$) with velocity $arrow(v)$ for $4$ seconds.
+      #set enum(numbering: "(a)")
+      + What is your ending location?
+      + Find a function $arrow(r): RR -> RR^2$ that parameterizes your path (in the $x y$-plane).
+      + Find the total change in height between your starting an ending locations.#v(1em)
+      + Compute $display(integral_0^4 nabla h(arrow(r)(t)) dot arrow(r)'(t) dif t)$. Does this equal
+        your change in height? Why?
   ]
 ]
 
@@ -253,209 +181,43 @@
   #set text(size: .9em)
 
   #columns(2)[
+    A vector field $arrow(F): RR^n -> RR^m$ is called *conservative* or *path independent* if for
+    any points $A$ and $B$, the work done by $arrow(F)$ moving between points $A$ and $B$ does not
+    depend on the path taken from $A$ to $B$.
+
+
     #{
-      let a = lq.diagram(
-        title: [$z=f(x,y)$],
-        width: 6cm,
-        height: 4cm,
-        lq.contour(
-          lq.linspace(-5, 5, num: 20),
-          lq.linspace(-5, 5, num: 20),
-          (x, y) => 2 * x,
-          map: color.map.icefire,
-        ),
-        xlim: (-0, 4),
-        ylim: (-0, 3),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        lq.place(2.8, .9, $6$),
-        lq.place(1.8, .9, $4$),
-        lq.place(.8, .9, $2$),
-      )
-      set align(center)
-      a
+      let width = 4cm
+      let height = width
+      let plot(f, title: none) = {
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+        )
+      }
+
+      plot((x, y) => (x, y), title: [X])
+      h(1fr)
+      // plot((x, y) => (y, x), title: [B])
+      // h(1fr)
+      plot((x, y) => (-y, x), title: [Y])
+      h(1fr)
+      // plot((x, y) => (x, -y), title: [D])
+      // h(1fr)
+      // plot((x, y) => (x * x, 1), title: [E])
+      // h(1fr)
+      plot((x, y) => ((1.5 + calc.abs(y)), 0), title: [Z])
     }
-
-    $z=f(x,y)$ defines a plane.
-
-    #colbreak()
-
-    + Find an equation for $f(x,y)$.
-    + Use geometry to find the exact value of
-      $
-        V = display(integral_([0,4] times [0,3])f dif A)
-      $
-    + Let $c$ be a constant. What does
-      $
-        W = display(integral_([0,4]) f(x,c)) dif x
-      $
-      mean geometrically? Find its exact value.
-    + How can $W$ be used to find $V$?
-  ]
-]
-#slide(title: [Siefken 7], autoscale: false)[
-  #show: place.with(dy: 1.3cm)
-  #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .75em)
-
-  #columns(2)[
-    Recall
-    #{
-      let a = lq.diagram(
-        title: [$z=f(x,y)=2x$],
-        width: 6cm,
-        height: 4cm,
-        lq.contour(
-          lq.linspace(-5, 5, num: 20),
-          lq.linspace(-5, 5, num: 20),
-          (x, y) => 2 * x,
-          map: color.map.icefire,
-        ),
-        xlim: (-0, 4),
-        ylim: (-0, 3),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        lq.place(2.8, .9, $6$),
-        lq.place(1.8, .9, $4$),
-        lq.place(.8, .9, $2$),
-      )
-      set align(center)
-      a
-    }
-
-
-    #colbreak()
-    + Compute
-      $
-        integral_([0,3]) (integral_([0,4]) f(x,c) dif x) dif c
-      $
-    + Compute
-      $
-        integral_([0,4]) (integral_([0,3]) f(x,c) dif c) dif x
-      $
-    + Integrals like the above are called *iterated integrals*. How do the iterated integrals relate
-      to $display(integral_([0,4] times [0,3]) f dif A)$?
-
-      Do iterated integrals remind you of partial derivatives? If so, how?
-  ]
-]
-
-#slide(title: [Siefken 8], autoscale: false)[
-  #show: place.with(dy: 1.3cm)
-  #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .75em)
-
-  #columns(2)[
-    #{
-      let a = lq.diagram(
-        title: [$z=f(x,y)=2x+y$],
-        width: 6cm,
-        height: 4cm,
-        lq.contour(
-          lq.linspace(-5, 5, num: 20),
-          lq.linspace(-5, 5, num: 20),
-          (x, y) => 2 * x + y,
-          map: color.map.icefire,
-        ),
-        xlim: (-0, 4),
-        ylim: (-0, 3),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-      )
-      set align(center)
-      a
-    }
-
-    Let $R=[0,4] times [0,3]$. Let
-    $
-      V = integral_R f dif A
-    $
-
-    + Set up _two different_ iterated integrals to compute $V$.
-    + Evaluate both iterated integrals to find $V$.
-    + It is sometimes said that "$dif x dif y = dif A$". Does this statement make sense?
-    + Is it true that
-      $
-        integral_([0,4]) integral_([0,3]) f(x,y) #text(fill: red, $dif y dif x$) = integral_([0,4]) integral_([0,3]) f(x,y) #text(fill: red, $dif y dif x$) ?
-      $
-    + Why would someone write
-      $
-        display(integral_(x in [0,4]) integral_(y in [0,3]) f(x,y) dif y dif x) " or "
-        display(integral_(x=0)^(x=4) integral_(y=0)^(y=3) f(x,y) dif y dif x)
-      $
-      instead of
-      $
-        display(integral_([0,4]) integral_([0,3]) f(x,y) dif y dif x) wide "or" wide
-        display(integral_0^4 integral_0^3 f(x,y) dif y dif x)?
-      $
-  ]
-]
-
-#slide(title: [Siefken 9], autoscale: false)[
-  #show: place.with(dy: 1.3cm)
-  #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
-
-  #columns(2)[
-    The town of Veeville has a population density given by $P(x,y)$ and a boundary shown below.
-    #{
-      let a = lq.diagram(
-        // title: [$z=f(x,y)$],
-        width: 6cm,
-        height: 6cm,
-        xlim: (-0, 4),
-        ylim: (-0, 4),
-        xaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        yaxis: (ticks: lq.arange(-4, 5, step: 1)),
-        lq.path(
-          (2, 0),
-          (1, 3),
-          (3, 3),
-          (2, 0),
-          stroke: 2pt + blue,
-          fill: blue.lighten(60%).transparentize(50%),
-        ),
-      )
-      set align(center)
-      a
-    }
-    #colbreak()
-
-    Let $D$ be the region defining Veeville and let $Q$ be its total population.
-
-    + Find a formulas for $L(y)$ and $R(y)$ that give the the *leftmost* and *rightmost* points in
-      $D$ with $y$-coordinate equal to $y$.
-
-      What is the domain of $L$ and $R$?
-
-    + Fill in the ? in the population integral:
-      $
-        Q= integral_(?=?)^(?=?) integral_(?=L(y))^(?=R(y)) P(x,y) dif ? dif ?
-      $
-
-    + Find an iterated integral to compute $Q$ in terms of $dif y dif x$.
-
-    // _Hint:_ You may need to split the integral into two parts.
-  ]
-]
-
-#slide(title: [Siefken 10], autoscale: false)[
-  #show: place.with(dy: 1.3cm)
-  #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .9em)
-
-  #columns(2)[
-    The town of Wackville has a population density given by $P(x,y)$ and a boundary enclosed on the
-    north by $y=-x^2+4$ and on the south by $y=-x$.
-
-    Let $D$ be the region defining Wackville and let $Q$ be its total population.
-
-    + Sketch $D$.
-
-    + Set up an iterated integral to compute $Q$ in terms of $dif x dif y$.
-    + Set up an iterated integral to compute $Q$ in terms of $dif y dif x$.
-    + The population density is given by the function $P(x,y) = (x+y)/10+20$.
-
-      Use the integral of your choice to compute the exact population of Wackville.
+    + Based on the pictures, which vector fields are _conservative_?
+    + Suppose $arrow(F)= nabla f$ for some function $f: RR^2 -> RR$. Is $arrow(F)$ conservative? Why
+      or why not?
   ]
 ]

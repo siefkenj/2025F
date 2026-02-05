@@ -214,7 +214,7 @@
   + What should $k$ be to ensure the maximum acceleration is $3g$? (Hint: Use Desmos to estimate!)
 ]
 
-#slide(title: [Siefken 7], autoscale: false)[
+#slide(title: [Siefken 8], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
@@ -244,7 +244,7 @@
   + How could you find the exact length of the track? Do it.
 ]
 
-#slide(title: [Siefken 8], autoscale: false)[
+#slide(title: [Siefken 9], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
@@ -262,7 +262,7 @@
     Will the arrows in your tornado drawing be longer or shorter, closer to the origin?
 ]
 
-#slide(title: [Siefken 9], autoscale: false)[
+#slide(title: [Siefken 10], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
@@ -311,7 +311,7 @@
   $
 ]
 
-#slide(title: [Siefken 10], autoscale: false)[
+#slide(title: [Siefken 11], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
