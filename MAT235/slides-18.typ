@@ -74,11 +74,11 @@
     Let $A=(0,0)$, $B=(3,0)$, and $C=(3,3)$.
 
     + Draw $arrow(F)$.
-    + To move from $A$ to $B$, how much work is required?
-    + To move from $B$ to $A$, how much work is required?
-    + To move from $B$ to $C$, how much work is required?
-    + How much work is required to move from $A$ to $B$ to $C$? Does this differ from moving
-      directly from $A$ to $C$ in a straight line?
+    + To move from $A$ to $B$, how much work do you do? Does the wind do?
+    + To move from $B$ to $A$, how much work do you do? Does the wind do?
+    + To move from $B$ to $C$, how much work do you do? Does the wind do?
+    + How much work do you do and how much work does the wind do to move from $A$ to $B$ to $C$?
+      Does this differ from moving directly from $A$ to $C$ in a straight line?
 
   ]
 ]
@@ -95,11 +95,11 @@
     Let $A=(0,0)$, $B=(3,0)$, and $C=(3,3)$.
 
     + Draw $arrow(F)$.
-    + To move from $A$ to $B$, how much work is required?
-    + To move from $B$ to $A$, how much work is required?
-    + To move from $B$ to $C$, how much work is required?
-    + How much work is required to move from $A$ to $B$ to $C$? Does this differ from moving
-      directly from $A$ to $C$ in a straight line?
+    + To move from $A$ to $B$, how much work do you do? Does the wind do?
+    + To move from $B$ to $A$, how much work do you do? Does the wind do?
+    + To move from $B$ to $C$, how much work do you do? Does the wind do?
+    + How much work do you do and how much work does the wind do to move from $A$ to $B$ to $C$?
+      Does this differ from moving directly from $A$ to $C$ in a straight line?
 
   ]
 ]
@@ -110,13 +110,14 @@
   #set text(size: .9em)
 
   #columns(2)[
-    Let $arrow(F)(x,y)=(-y, 0)$ denote the force of an uneven wind.
+    Let $arrow(F)(x,y)=(y, 0)$ denote the force of an uneven wind.
 
     Let $A=(0,0)$ and $B=(3,3)$.
 
     + Draw $arrow(F)$.
 
-      You are moving from $A$ to $B$ in a straight line. Let $W$ denote the work required to do so.
+      You are moving from $A$ to $B$ in a straight line. Let $W$ denote the work that the _wind_
+      does while you move.
     + Does $arrow(F)(0,0) dot B$ overestimate or underestimate $W$? What about
       $arrow(F)(3,3) dot B$?
     + Is $arrow(F)(0,0) dot 1/2 B + arrow(F)(1.5,1.5) dot 1/2 B$ more or less accurate than the
@@ -133,7 +134,7 @@
   #set text(size: .85em)
 
   #columns(2)[
-    Let $arrow(F)(x,y)=(-y, 0)$ denote the force of an uneven wind.
+    Let $arrow(F)(x,y)=(y, 0)$ denote the force of an uneven wind.
 
     Let $A=(0,0)$ and $B=(3,3)$.
 
@@ -149,7 +150,7 @@
     + Let $arrow(q)(t)=(3t^2, 3t^2)$.
       #set enum(numbering: "(a)")
       + What is the graph of $arrow(q)$?
-      + Compute much work is done moving along the path of $arrow(q)$ from time $t=0$ to $t=1$.
+      + Compute how much work is done moving along the path of $arrow(q)$ from time $t=0$ to $t=1$.
       + Is your answer the same or different compared to moving along the path of $arrow(r)$? Why?
   ]
 ]
@@ -157,7 +158,40 @@
 #slide(title: [Siefken 5], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .9em)
+  #set text(size: .85em)
+
+  #columns(2)[
+    Let $R subset.eq RR^2$ be a _region_ in $RR^2$ and let $P subset.eq RR^2$ be a _curve_ in
+    $RR^2$.
+
+    + Let $f: RR^2 -> RR$.
+      #set enum(numbering: "(a)")
+      + What does $display(integral_R f dif A)$ mean?
+      + What is the difference between
+        $
+          display(integral_R f dif A) wide "and" wide display(integral.double_R f(x,y) dif x dif y)
+        $
+    + Let $arrow(F): RR^2 -> RR^2$ and let $arrow(r): RR -> RR^2$ be a parameterization of $P$.
+      #set enum(numbering: "(a)")
+      + What does $display(integral_P arrow(F) dot d arrow(r))$ mean?
+      + What is the difference between
+        $
+          display(integral_P arrow(F) dot d arrow(r)) wide "and" wide display(integral_0^1 arrow(F)(arrow(r)(t)) dot arrow(r)'(t) dif t)
+        $
+    + Let $C subset.eq RR^2$ be the unit circle and let $arrow(F)(x,y)=mat(-y; x)$.
+
+      Compute $display(integral_C arrow(F) dot d arrow(r))$.
+
+      What choices did you have to make in order to compute the integral? Would making different
+      choices change your answer?
+
+  ]
+]
+
+#slide(title: [Siefken 6], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
 
   #columns(2)[
     Let $h(x,y)=-x^2-2y^2$ denote a height of a hill.
@@ -172,10 +206,19 @@
       + Find the total change in height between your starting an ending locations.#v(1em)
       + Compute $display(integral_0^4 nabla h(arrow(r)(t)) dot arrow(r)'(t) dif t)$. Does this equal
         your change in height? Why?
+
+    + The *fundamental theorem of line integrals* states that for a differentiable function
+      $f:RR^n -> RR$ and an oriented smooth path $P subset.eq RR^n$ with start $arrow(a)$ and end
+      $arrow(b)$, then
+      $
+        integral_P nabla f dot d arrow(r) = f(arrow(b)) - f(arrow(a)).
+      $
+      How does this theorem relate to the usual Fundamental Theorem of Calculus?
+
   ]
 ]
 
-#slide(title: [Siefken 6], autoscale: false)[
+#slide(title: [Siefken 7], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
@@ -219,5 +262,55 @@
     + Based on the pictures, which vector fields are _conservative_?
     + Suppose $arrow(F)= nabla f$ for some function $f: RR^2 -> RR$. Is $arrow(F)$ conservative? Why
       or why not?
+  ]
+]
+
+#slide(title: [Siefken 8], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    If $arrow(F) = nabla f$ for some $f$, then $f$ is called a *potential function* for $arrow(F)$.
+
+    Let $arrow(F)(x,y) = mat(y cos x; sin x +y)$
+
+    + Assuming that $arrow(F)$ has a potential function $f$, what can you say about
+      $(partial f)/(partial x)$? What about $(partial f)/(partial y)$?
+
+    + Suppose $f$ is a potential function for $arrow(F)$. Let $A(x)$ be a function of $x$, $B(y)$ be
+      a function of $y$ and $C(x,y)$ be a function of $x$ and $y$.
+
+      #set enum(numbering: "(a)")
+      + Which of the following could _possibly_ solve the differential equation
+        $(partial f)/(partial x) = y cos x$?
+        - $y sin x + A(x)$
+        - $y sin x + B(y)$
+        - $y sin x + C(x,y)$
+      + Write the general solution to $(partial f)/(partial y) = sin x + y$
+      + Find a potential function for $arrow(F)$.
+  ]
+]
+
+#slide(title: [Siefken 9], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    *Theorem:* A continuous vector field $arrow(F): RR^n -> RR^n$ is conservative if and only if it
+    has a potential function.
+
+    Let $arrow(F)(x,y) = mat(y cos x; sin x +y)$ (same field as the previous question.)
+
+    + Show that $arrow(F)$ is conservative.
+
+    + Consider the path $P$ parameterized by $arrow(r)(t) = mat(sin t; sin 2t + cos t)$ where
+      $t in [0, 2pi]$. Find
+      $
+        integral_P arrow(F) dot d arrow(r)
+      $
+
+    + Could the vector field $arrow(G)(x,y)=mat(2x y; x y)$ be path-independent? Why or why not?
   ]
 ]

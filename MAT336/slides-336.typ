@@ -966,6 +966,8 @@
     above by $2$ enough to show that the series converges?
 ]
 
+// Finished first hour of week 6
+// They had lots of trouble with part 3. We'll get there eventually...
 #slide(title: [Lagrange's Theorem], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
@@ -975,10 +977,10 @@
   #thm[Lagrange's Remainder Theorem][
     Let $f$ be infinitely differentiable. Let
     $
-      E_n (x) = f(x) - (f(0) + f'(0)x + f''(0)x^2/2! \ + dots.c + f^(n-1)(0)x^(n-1)/(n-1)!) = f(x) - T_(n-1) (x).
+      E_n (x) = f(x) - (f(0) + f'(0)x + f''(0)x^2/2! \ + dots.c + f^((n-1))(0)x^(n-1)/(n-1)!) = f(x) - T_(n-1) (x).
     $
     Then there exists a $c$ in the interval between $0$ and $x$ such that
-    $display(E_n (x) = f^(n)(c) x^n / n!)$
+    $display(E_n (x) = f^((n))(c) x^n / n!)$
   ][]
   + Does Lagrange's Theorem state that $forall x, exists c$ or $exists c, forall x$?
   + Give upper and lower bounds on the difference between $e^(1/2)$ and the $(n-1)$#super[st] Taylor
