@@ -617,3 +617,47 @@
     + Can you make a converse to your theorem? I.e., a theorem about curl-free vector fields?
   ]
 ]
+
+#slide(title: [Siefken 18], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $S$ be a circle of radius $2$ centered at the origin.
+
+    + Find a function $arrow(c): RR -> RR^2$ whose graph is $S$.
+    + Is your function $arrow(c)$ one-to-one? Can you adjust the domain so that it is?
+
+      #v(1em)
+      #show: pad.with(left: -1.2em)
+      Consider the function $arrow(F): RR^2 -> RR^3$ defined by
+      $arrow(F)(t,s) = mat(cos t; sin t; s)$
+
+    + When $s$ is held constant, what does the graph of $arrow(F)(t,s)$ look like?
+    + When $t$ is held constant, what does the graph of $arrow(F)(t,s)$ look like?
+    + What surface does $arrow(F)$ make when it is graphed?
+    + Can you restrict the domain of $arrow(F)$ so that it is one-to-one? If so, do it.
+  ]
+]
+
+#slide(title: [Siefken 18], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $R$ be the surface of the cone $z = sqrt(x^2 + y^2)$.
+
+    You would like to find a function $arrow(F)$ whose graph is $R$.
+    + The function $arrow(F)$ must have domain $RR^?$ and codomain $RR^(??)$. Fill in the question
+      marks.
+    + Find an example of $arrow(F)$ based on the idea of taking slices along the $arrow(i)$ and
+      $arrow(j)$ directions.
+    + Find an example of $arrow(F)$ based on the idea of taking horizontal (i.e., constant $z$)
+      slices and radial slices.
+
+    + If you integrated a function over the surface $R$, should it matter what $arrow(F)$ you
+      choose?
+  ]
+]
