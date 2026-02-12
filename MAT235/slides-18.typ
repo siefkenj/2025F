@@ -1,5 +1,6 @@
 #import "@preview/colorful-boxes:1.4.3" as cb
 #import "@preview/touying:0.6.1": *
+#import "@preview/cetz:0.4.2"
 #import themes.metropolis: *
 #import themes.metropolis: slide as slide-orig
 #import "@preview/lilaq:0.5.0" as lq
@@ -312,5 +313,307 @@
       $
 
     + Could the vector field $arrow(G)(x,y)=mat(2x y; x y)$ be path-independent? Why or why not?
+  ]
+]
+
+#slide(title: [Siefken 10], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          lq.place(1, 0, image("images/leaf.svg", width: 3em)),
+        )
+      }
+
+      plot((x, y) => (-y, calc.sin(y + 1) + x / 5), title: $arrow(F):RR^2 -> RR^2$)
+    }
+    #colbreak()
+    A leaf is floating in a pond. The surface of the pond is moving with a velocity at each position
+    given by $arrow(F)$.
+
+    + Describe the motion of the leaf over the next few seconds.
+    + Besides moving, what other motions could the leaf undergo?
+    + If you integrated $arrow(F)$ on the *interior* of the leaf, what mathematical object would you
+      get? (vector/scalar/etc.?) What would it tell you?
+    + If you integrated $arrow(F)$ along the *boundary* of the leaf, what mathematical object would
+      you get? (vector/scalar/etc.?) What would it tell you?
+
+      Are there different ways to do this integral?
+  ]
+]
+
+#slide(title: [Siefken 11], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #{
+    let diagram(v1, v2, title: none) = {
+      cetz.canvas({
+        import cetz.draw: *
+
+        group(name: "figure", {
+          let shift = 0.1
+
+          line((0, -shift), (v1.at(0), -shift + v1.at(1)), mark: (end: "straight"), name: "v1")
+          line(
+            (0, 1 + shift),
+            (v2.at(0), 1 + shift + v2.at(1)),
+            mark: (end: "straight"),
+            name: "v2",
+          )
+
+          line((0, 0), (0, 1), mark: (symbol: "[]"), stroke: 2pt)
+
+          content("v1.end", $arrow(v)_1$, anchor: "north-west", padding: .3em)
+          content("v2.end", $arrow(v)_2$, anchor: "north-west", padding: .3em)
+        })
+        content(
+          "figure.north",
+          [
+            #{
+              if title != none {
+                show: align.with(center)
+                title
+                [\ ]
+              }
+            }
+
+            $arrow(v)_1 = mat(#(v1.at(0)) ; #(v1.at(1)))$ #sym.space
+            $arrow(v)_2 = mat(#(v2.at(0)) ; #(v2.at(1)))$],
+          anchor: "south",
+          padding: .4em,
+        )
+      })
+    }
+    stack(
+      dir: ltr,
+      spacing: 3em,
+      diagram((-1, 0), (-1, 0), title: "A"),
+      diagram((-0.5, 0), (-1, 0), title: "B"),
+      diagram(
+        (-1, -1),
+        (-2, .5),
+        title: "C",
+      ),
+    )
+  }
+  #columns(2)[
+    The diagrams above show vertical rods (of length 1) subjected to forces at their endpoints.
+
+    + Which of the rods with *rotate*?
+    + For each rod, calculate the net (total) *rotational* force in the counter clockwise direction.
+
+      Hint: Since the rods are length 1, this is the same as the _torque_ on each rod.
+  ]
+]
+
+#slide(title: [Siefken 12], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          lq.place(1, 0, {
+            cetz.canvas({
+              import cetz.draw: *
+
+              group(name: "figure", {
+                let shift = 0.1
+
+                line((0, 0), (0, 1), mark: (symbol: "[]"), stroke: 2pt, name: "rod")
+
+                content("rod.mid", [$R$], anchor: "west", padding: .5em)
+                content("rod.start", [$arrow(p)$], anchor: "north", padding: .2em)
+              })
+            })
+          }),
+        )
+      }
+
+      plot((x, y) => (-y, calc.sin(y + 1) + x / 5), title: $arrow(F):RR^2 -> RR^2$)
+    }
+    #colbreak()
+    A unit length rod, $R$, has floats on each of its ends. It is placed, oriented vertically, in a
+    pond described by $arrow(F)$ such that only its floats actually touch the water.
+
+    Its bottom end is at location $arrow(p)$.
+
+    + How could you determine if the rod will move in the pond? (I.e., what force should you
+      compute?)
+    + How could you determine if the rod will rotate in the pond?
+    + Write down a formula for the *rotational* force acting on the rod.
+    + Suppose you made the rod much shorter (by a factor of $t$). Write a formula for the rotational
+      force *per* unit length of the shorter rod.
+  ]
+]
+
+#slide(title: [Siefken 14], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .74em)
+
+  #columns(2)[
+    Let $arrow(F): RR^2 -> RR^2$ be a vector field describing the velocity of a fluid in a pond. A
+    tiny, tiny rod $R$ is placed at location $arrow(p)$
+
+    + If $R$ is placed vertically, how could you compute the *rotational* force per unit length
+      (i.e. normalized force) that acts on the rod (in the counter-clockwise direction)?
+    + If $R$ is placed vertically, is the (normalized) rotational force approximately equal to
+      $
+        // partial/(partial x) arrow(F) wide &"or" wide partial/(partial y) arrow(F)\
+        x"-coord of" partial/(partial x) arrow(F) wide &"or" wide x"-coord of" partial/(partial y) arrow(F)\
+        "or" wide y"-coord of" partial/(partial x) arrow(F) wide &"or" wide y"-coord of" partial/(partial y) arrow(F) \
+      $
+    + If $R$ is placed _horizontally_, how can the (normalized) rotational force be computed? Can a
+      derivative be used?
+    + Suppose you dropped a tiny square into the pond. How could you compute the *total*
+      (normalized) rotational force acting on the square?
+
+    + Suppose $arrow(F)(x,y) = (-y^2, x)$. Calculate the (normalized) rotational force a small
+      square centered $arrow(p) = (1,2)$ would be subjected to.
+  ]
+]
+
+#slide(title: [Siefken 15], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    Let $arrow(F): RR^2 -> RR^2$ be a vector field. The *curl* of $arrow(F)$ at a point $arrow(p)$,
+    written as $"curl"(arrow(F))$ or $nabla times arrow(F)$ is defined as:
+
+    The limit of the (normalized) rotational force a small square at location $arrow(p)$ experiences
+    _in the counter-clockwise direction_.
+
+    Let $arrow(F)(x,y)=mat(-y^2; x)$ and let $arrow(p)=(1,2)$.
+
+    + Find $"curl"thin arrow(F) ( arrow(p))$.
+    + "$nabla times arrow(F)$" is a mnemonic for curl. We think of
+      "$nabla = mat(partial/(partial x); partial/(partial y))$". In $RR^2$, we think of "$times$" as
+      a determinant. So
+      $
+        nabla times arrow(F) = det mat(partial/(partial x), -y^2; partial/(partial y), x).
+      $
+      What happens when you "compute" this determinant? Does it make mathematical sense? Can you
+      figure out how to find the curl from your formula?
+  ]
+]
+
+#slide(title: [Siefken 15], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    Let $arrow(F): RR^2 -> RR^2$ be a vector field. The *curl* of $arrow(F)$ at a point $arrow(p)$,
+    written as $"curl"(arrow(F))$ or $nabla times arrow(F)$ is defined as:
+
+    The limit of the (normalized) rotational force a small square at location $arrow(p)$ experiences
+    _in the counter-clockwise direction_.
+
+    Let $arrow(F)(x,y)=mat(-y^2; x)$ and let $arrow(p)=(1,2)$.
+
+    + Find $"curl"thin arrow(F) ( arrow(p))$.
+    + "$nabla times arrow(F)$" is a mnemonic for curl. We think of
+      "$nabla = mat(partial/(partial x); partial/(partial y))$". In $RR^2$, we think of "$times$" as
+      a determinant. So
+      $
+        nabla times arrow(F) = det mat(partial/(partial x), -y^2; partial/(partial y), x).
+      $
+      What happens when you "compute" this determinant? Does it make mathematical sense? Can you
+      figure out how to find the curl from your formula?
+  ]
+]
+
+#slide(title: [Siefken 16], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          lq.place(1, 0, image("images/leaf.svg", width: 3em)),
+        )
+      }
+
+      plot((x, y) => (-y, calc.sin(y + 1) + x / 5), title: $arrow(F):RR^2 -> RR^2$)
+    }
+    #colbreak()
+    Recall the leaf floating in a pond whose surface velocity is given by $arrow(F)$.
+
+    + What does the integral of $arrow(F)$ over the *area* of the leaf tell you?
+    + What does the (path) integral of $arrow(F)$ along the *boundary* of the leaf tell you?
+    + What does the integral of $"curl"thin arrow(F)$ over the *area* of the leaf tell you?
+
+    + *Green's Theorem* states that "a certain path integral = a certain area integral". Fill in
+      Green's Theorem with the appropriate integrals.
+  ]
+]
+
+#slide(title: [Siefken 17], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    Let $arrow(F):RR^2 -> RR^2$ and suppose $arrow(F) = nabla f$ for some $f:RR^2 -> RR$.
+
+    + Are path integrals over $arrow(F)$ path independent? Why or why not?
+    + What is the path integral of $arrow(F)$ along a closed curve (i.e. a curve that starts and
+      ends at the same point)?
+    + Let $D$ be the unit disk in $RR^2$ centered at the origin.
+
+      What does Green's theorem say about the curl of $arrow(F)$ inside of $D$?
+    + Can $arrow(F)$ have non-zero curl anywhere?
+
+    + Make a theorem about the curl of conservative vector fields.
+    + Can you make a converse to your theorem? I.e., a theorem about curl-free vector fields?
   ]
 ]
