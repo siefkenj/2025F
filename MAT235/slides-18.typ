@@ -358,76 +358,76 @@
   ]
 ]
 
-#slide(title: [Siefken 11], autoscale: false)[
-  #show: place.with(dy: 1.3cm)
-  #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
+// #slide(title: [Siefken 11], autoscale: false)[
+//   #show: place.with(dy: 1.3cm)
+//   #show: block.with(height: 10cm, breakable: false)
+//   #set text(size: .8em)
 
-  #{
-    let diagram(v1, v2, title: none) = {
-      cetz.canvas({
-        import cetz.draw: *
+//   #{
+//     let diagram(v1, v2, title: none) = {
+//       cetz.canvas({
+//         import cetz.draw: *
 
-        group(name: "figure", {
-          let shift = 0.1
+//         group(name: "figure", {
+//           let shift = 0.1
 
-          line((0, -shift), (v1.at(0), -shift + v1.at(1)), mark: (end: "straight"), name: "v1")
-          line(
-            (0, 1 + shift),
-            (v2.at(0), 1 + shift + v2.at(1)),
-            mark: (end: "straight"),
-            name: "v2",
-          )
+//           line((0, -shift), (v1.at(0), -shift + v1.at(1)), mark: (end: "straight"), name: "v1")
+//           line(
+//             (0, 1 + shift),
+//             (v2.at(0), 1 + shift + v2.at(1)),
+//             mark: (end: "straight"),
+//             name: "v2",
+//           )
 
-          line((0, 0), (0, 1), mark: (symbol: "[]"), stroke: 2pt)
+//           line((0, 0), (0, 1), mark: (symbol: "[]"), stroke: 2pt)
 
-          content("v1.end", $arrow(v)_1$, anchor: "north-west", padding: .3em)
-          content("v2.end", $arrow(v)_2$, anchor: "north-west", padding: .3em)
-        })
-        content(
-          "figure.north",
-          [
-            #{
-              if title != none {
-                show: align.with(center)
-                title
-                [\ ]
-              }
-            }
+//           content("v1.end", $arrow(v)_1$, anchor: "north-west", padding: .3em)
+//           content("v2.end", $arrow(v)_2$, anchor: "north-west", padding: .3em)
+//         })
+//         content(
+//           "figure.north",
+//           [
+//             #{
+//               if title != none {
+//                 show: align.with(center)
+//                 title
+//                 [\ ]
+//               }
+//             }
 
-            $arrow(v)_1 = mat(#(v1.at(0)) ; #(v1.at(1)))$ #sym.space
-            $arrow(v)_2 = mat(#(v2.at(0)) ; #(v2.at(1)))$],
-          anchor: "south",
-          padding: .4em,
-        )
-      })
-    }
-    stack(
-      dir: ltr,
-      spacing: 3em,
-      diagram((-1, 0), (-1, 0), title: "A"),
-      diagram((-0.5, 0), (-1, 0), title: "B"),
-      diagram(
-        (-1, -1),
-        (-2, .5),
-        title: "C",
-      ),
-    )
-  }
-  #columns(2)[
-    The diagrams above show vertical rods (of length 1) subjected to forces at their endpoints.
+//             $arrow(v)_1 = mat(#(v1.at(0)) ; #(v1.at(1)))$ #sym.space
+//             $arrow(v)_2 = mat(#(v2.at(0)) ; #(v2.at(1)))$],
+//           anchor: "south",
+//           padding: .4em,
+//         )
+//       })
+//     }
+//     stack(
+//       dir: ltr,
+//       spacing: 3em,
+//       diagram((-1, 0), (-1, 0), title: "A"),
+//       diagram((-0.5, 0), (-1, 0), title: "B"),
+//       diagram(
+//         (-1, -1),
+//         (-2, .5),
+//         title: "C",
+//       ),
+//     )
+//   }
+//   #columns(2)[
+//     The diagrams above show vertical rods (of length 1) subjected to forces at their endpoints.
 
-    + Which of the rods with *rotate*?
-    + For each rod, calculate the net (total) *rotational* force in the counter clockwise direction.
+//     + Which of the rods with *rotate*?
+//     + For each rod, calculate the net (total) *rotational* force in the counter clockwise direction.
 
-      Hint: Since the rods are length 1, this is the same as the _torque_ on each rod.
-  ]
-]
+//       Hint: Since the rods are length 1, this is the same as the _torque_ on each rod.
+//   ]
+// ]
 
 #slide(title: [Siefken 12], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
+  #set text(size: .78em)
 
   #columns(2)[
     #{
@@ -474,35 +474,55 @@
       compute?)
     + How could you determine if the rod will rotate in the pond?
     + Write down a formula for the *rotational* force acting on the rod.
-    + Suppose you made the rod much shorter (by a factor of $t$). Write a formula for the rotational
-      force *per* unit length of the shorter rod.
+
+      _Hint:_ a dot product might be useful.
+    + How can $partial/(partial y) arrow(F)$ be used to estimate the rotational force on the rod?
+    // + Suppose you made the rod much shorter (by a factor of $t$). Write a formula for the rotational
+    //   force *per* unit length of the shorter rod.
   ]
 ]
 
 #slide(title: [Siefken 14], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .74em)
+  #set text(size: .9em)
 
   #columns(2)[
     Let $arrow(F): RR^2 -> RR^2$ be a vector field describing the velocity of a fluid in a pond. A
     tiny, tiny rod $R$ is placed at location $arrow(p)$
 
-    + If $R$ is placed vertically, how could you compute the *rotational* force per unit length
-      (i.e. normalized force) that acts on the rod (in the counter-clockwise direction)?
-    + If $R$ is placed vertically, is the (normalized) rotational force approximately equal to
-      $
-        // partial/(partial x) arrow(F) wide &"or" wide partial/(partial y) arrow(F)\
-        x"-coord of" partial/(partial x) arrow(F) wide &"or" wide x"-coord of" partial/(partial y) arrow(F)\
-        "or" wide y"-coord of" partial/(partial x) arrow(F) wide &"or" wide y"-coord of" partial/(partial y) arrow(F) \
-      $
-    + If $R$ is placed _horizontally_, how can the (normalized) rotational force be computed? Can a
-      derivative be used?
-    + Suppose you dropped a tiny square into the pond. How could you compute the *total*
-      (normalized) rotational force acting on the square?
+    Suppose $R$ is placed *vertically* in the pond. The rotational force acting on $R$ (in the
+    counter-clockwise direction) is
+    $
+      approx wide mat(-1; 0) dot partial/(partial y) arrow(F) wide "times" wide "length of" R
+    $
 
-    + Suppose $arrow(F)(x,y) = (-y^2, x)$. Calculate the (normalized) rotational force a small
-      square centered $arrow(p) = (1,2)$ would be subjected to.
+    + Suppose $R$ is placed *horizontally* in the pond. How could you estimate the rotational force
+      on $R$? Is the force you computed acting in the clockwise or counter-clockwise direction?
+
+    + Suppose a tiny square $S$ is placed in the pond. How can you estimate the total rotational
+      force on $S$?
+
+    + Find the _normalized_ rotational force on $S$. That is the rotational force per unit side
+      length of $S$.
+
+
+
+    // + If $R$ is placed vertically, how could you compute the *rotational* force per unit length
+    //   (i.e. normalized force) that acts on the rod (in the counter-clockwise direction)?
+    // + If $R$ is placed vertically, is the (normalized) rotational force approximately equal to
+    //   $
+    //     // partial/(partial x) arrow(F) wide &"or" wide partial/(partial y) arrow(F)\
+    //     x"-coord of" partial/(partial x) arrow(F) wide &"or" wide x"-coord of" partial/(partial y) arrow(F)\
+    //     "or" wide y"-coord of" partial/(partial x) arrow(F) wide &"or" wide y"-coord of" partial/(partial y) arrow(F) \
+    //   $
+    // + If $R$ is placed _horizontally_, how can the (normalized) rotational force be computed? Can a
+    //   derivative be used?
+    // + Suppose you dropped a tiny square into the pond. How could you compute the *total*
+    //   (normalized) rotational force acting on the square?
+
+    // + Suppose $arrow(F)(x,y) = (-y^2, x)$. Calculate the (normalized) rotational force a small
+    //   square centered $arrow(p) = (1,2)$ would be subjected to.
   ]
 ]
 

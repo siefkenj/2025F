@@ -1041,6 +1041,7 @@
   + Prove $display(lim_(x -> 2) 3x = 6)$.
 ]
 
+// Finished in last hour of week 6.
 #slide(title: [Derivatives], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
