@@ -65,21 +65,203 @@
 #slide(title: [Siefken 1], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .9em)
+  #set text(size: .8em)
 
   #columns(2)[
-    Recall that work is $"force" dot "displacement"$.
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          lq.place(-1, 0, {
+            cetz.canvas({
+              import cetz.draw: *
 
-    Let $arrow(F)(x,y)=(-2,0)$ denote the force of the wind.
+              group(name: "figure", {
+                let shift = 0.1
 
-    Let $A=(0,0)$, $B=(3,0)$, and $C=(3,3)$.
+                line((0, 0), (0, 2), mark: (symbol: "o"), stroke: 2pt, name: "rod")
 
-    + Draw $arrow(F)$.
-    + To move from $A$ to $B$, how much work do you do? Does the wind do?
-    + To move from $B$ to $A$, how much work do you do? Does the wind do?
-    + To move from $B$ to $C$, how much work do you do? Does the wind do?
-    + How much work do you do and how much work does the wind do to move from $A$ to $B$ to $C$?
-      Does this differ from moving directly from $A$ to $C$ in a straight line?
+                // content("rod.mid", [$R$], anchor: "west", padding: .5em)
+                content("rod.start", [$A$], anchor: "north", padding: .2em)
+              })
+            })
+          }),
+          lq.place(1, 0, {
+            cetz.canvas({
+              import cetz.draw: *
 
+              group(name: "figure", {
+                let shift = 0.1
+
+                line((0, 0), (2, 2), mark: (symbol: "o"), stroke: 2pt, name: "rod")
+
+                // content("rod.mid", [$R$], anchor: "west", padding: .5em)
+                content("rod.start", [$B$], anchor: "north", padding: .2em)
+              })
+            })
+          }),
+        )
+      }
+
+      plot((x, y) => (1, 0))
+    }
+    #colbreak()
+    Some ants are having a race! But, it is a very boring race. They are all travelling at the same
+    speed (5 m/hour) due east and the density of ants is 1000 ants per square metre.
+
+    You set up two ant counters, $A$ and $B$.
+
+    + If $A$ is 2 metre long, how many ants cross counter $A$ in one hour?
+    + How many ants cross counter $B$ in one hour *compared to* counter $A$?
+    + How many ants/hour/unit length cross counter $A$?
+    + $B$ is at a 45 degree angle relative to $A$. How many ants/hour/unit length cross counter $B$?
+  ]
+]
+
+#slide(title: [Siefken 2], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          // lq.place(-1, 0, {
+          //   cetz.canvas({
+          //     import cetz.draw: *
+
+          //     group(name: "figure", {
+          //       let shift = 0.1
+
+          //       line((0, 0), (0, 2), mark: (symbol: "o"), stroke: 2pt, name: "rod")
+
+          //       // content("rod.mid", [$R$], anchor: "west", padding: .5em)
+          //       content("rod.start", [$A$], anchor: "north", padding: .2em)
+          //     })
+          //   })
+          // }),
+          lq.place(0, 0, {
+            cetz.canvas({
+              import cetz.draw: *
+
+              group(name: "figure", {
+                let shift = 0.1
+
+                line((0, 0), (2, 2), mark: (symbol: "o"), stroke: 2pt, name: "rod")
+
+                // content("rod.mid", [$R$], anchor: "west", padding: .5em)
+                content("rod.start", [$C$], anchor: "north", padding: .2em)
+              })
+            })
+          }),
+        )
+      }
+
+      plot((x, y) => (1, 0))
+    }
+    #colbreak()
+    Some ants are having a race! There are 1000 ants per square metre and they are all travelling
+    5m/hour due east.
+
+    Counter $C$ is 2 metres long and is oriented at angle $theta$ (measured counter clockwise from
+    due east).
+
+    + At what angle will counter $C$ count the *maximum* number of ants/hour?
+    + At what angle will counter $C$ count the *minimum* number of ants/hour?
+    + Find a formula for the number of ants/hour that cross counter $C$ in terms of $theta$.
+  ]
+]
+
+#slide(title: [Siefken 3], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          // lq.place(-1, 0, {
+          //   cetz.canvas({
+          //     import cetz.draw: *
+
+          //     group(name: "figure", {
+          //       let shift = 0.1
+
+          //       line((0, 0), (0, 2), mark: (symbol: "o"), stroke: 2pt, name: "rod")
+
+          //       // content("rod.mid", [$R$], anchor: "west", padding: .5em)
+          //       content("rod.start", [$A$], anchor: "north", padding: .2em)
+          //     })
+          //   })
+          // }),
+          lq.place(0, 0, {
+            cetz.canvas({
+              import cetz.draw: *
+
+              group(name: "figure", {
+                let shift = 0.1
+
+                line((0, 0), (2, 2), mark: (symbol: "o"), stroke: 2pt, name: "rod")
+
+                // content("rod.mid", [$R$], anchor: "west", padding: .5em)
+                content("rod.start", [$C$], anchor: "north", padding: .2em)
+              })
+            })
+          }),
+        )
+      }
+
+      plot((x, y) => (1, 0))
+    }
+    #colbreak()
+    Some ants are having a race! There are 1000 ants per square metre and they are all travelling
+    5m/hour due east.
+
+    Counter $C$ is 2 metres long and is oriented at angle $theta$ (measured counter clockwise from
+    due east).
+
+    A *normal vector* to a point on a surface is a non-zero vector orthogonal to the surface.
+
+    + Find a normal vector to counter $C$ (your answer will depend on theta).
+    + Find a *unit normal* vector to counter $C$ (i.e., a normal vector of length 1).
+    + Find a formula for the number of ants/hour that cross counter $C$ in terms of the unit normal
+      vector.
   ]
 ]
