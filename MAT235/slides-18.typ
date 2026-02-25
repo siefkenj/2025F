@@ -424,7 +424,7 @@
 //   ]
 // ]
 
-#slide(title: [Siefken 12], autoscale: false)[
+#slide(title: [Siefken 11], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .78em)
@@ -482,7 +482,7 @@
   ]
 ]
 
-#slide(title: [Siefken 14], autoscale: false)[
+#slide(title: [Siefken 12], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
@@ -526,10 +526,10 @@
   ]
 ]
 
-#slide(title: [Siefken 15], autoscale: false)[
+#slide(title: [Siefken 13], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
+  #set text(size: .9em)
 
   #columns(2)[
     Let $arrow(F): RR^2 -> RR^2$ be a vector field. The *curl* of $arrow(F)$ at a point $arrow(p)$,
@@ -539,11 +539,14 @@
     _in the counter-clockwise direction_.
 
     Let $arrow(F)(x,y)=mat(-y^2; x)$ and let $arrow(p)=(1,2)$.
+    #v(1em)
 
     + Find $"curl"thin arrow(F) ( arrow(p))$.
-    + "$nabla times arrow(F)$" is a mnemonic for curl. We think of
-      "$nabla = mat(partial/(partial x); partial/(partial y))$". In $RR^2$, we think of "$times$" as
-      a determinant. So
+    + "$nabla times arrow(F)$" is a mnemonic for curl.
+
+      We think of "$nabla = mat(partial/(partial x); partial/(partial y))$".
+
+      In $RR^2$, we think of "$times$" as a determinant. So
       $
         nabla times arrow(F) = det mat(partial/(partial x), -y^2; partial/(partial y), x).
       $
@@ -552,33 +555,8 @@
   ]
 ]
 
-#slide(title: [Siefken 15], autoscale: false)[
-  #show: place.with(dy: 1.3cm)
-  #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .8em)
 
-  #columns(2)[
-    Let $arrow(F): RR^2 -> RR^2$ be a vector field. The *curl* of $arrow(F)$ at a point $arrow(p)$,
-    written as $"curl"(arrow(F))$ or $nabla times arrow(F)$ is defined as:
-
-    The limit of the (normalized) rotational force a small square at location $arrow(p)$ experiences
-    _in the counter-clockwise direction_.
-
-    Let $arrow(F)(x,y)=mat(-y^2; x)$ and let $arrow(p)=(1,2)$.
-
-    + Find $"curl"thin arrow(F) ( arrow(p))$.
-    + "$nabla times arrow(F)$" is a mnemonic for curl. We think of
-      "$nabla = mat(partial/(partial x); partial/(partial y))$". In $RR^2$, we think of "$times$" as
-      a determinant. So
-      $
-        nabla times arrow(F) = det mat(partial/(partial x), -y^2; partial/(partial y), x).
-      $
-      What happens when you "compute" this determinant? Does it make mathematical sense? Can you
-      figure out how to find the curl from your formula?
-  ]
-]
-
-#slide(title: [Siefken 16], autoscale: false)[
+#slide(title: [Siefken 14], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .8em)
@@ -617,7 +595,7 @@
   ]
 ]
 
-#slide(title: [Siefken 17], autoscale: false)[
+#slide(title: [Siefken 15], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .8em)
@@ -638,7 +616,7 @@
   ]
 ]
 
-#slide(title: [Siefken 18], autoscale: false)[
+#slide(title: [Siefken 16], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
@@ -661,7 +639,7 @@
   ]
 ]
 
-#slide(title: [Siefken 18], autoscale: false)[
+#slide(title: [Siefken 17], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
