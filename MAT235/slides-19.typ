@@ -265,3 +265,29 @@
       vector.
   ]
 ]
+
+#slide(title: [Siefken 4], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    The *flux* of a vector field through a surface is the amount of material per second that the
+    vector field would "push through" the surface.
+
+    + In the ant questions, the ant's velocities could be described by a vector field
+      $arrow(F): RR^2 -> RR^2$ and the counter was described by a curve $C$.
+
+      Rephrase the ant question(s) using the term "flux".
+
+    + Suppose $arrow(G): RR^2 -> RR^2$ is a constant vector field. Let $Q$ be the line segment from $(0,0)$ to $(1,1)$.
+
+      How can you find the flux of $arrow(G)$ through $Q$?
+
+    + Suppose $arrow(H): RR^2 -> RR^2$ is non-constant vector field. Let $Q$ be the line segment from $(0,0)$ to $(1,1)$.
+
+      How can you estimate the flux of $arrow(H)$ through $Q$?
+
+      How could you find the _exact_ flux of $arrow(H)$ through $Q$?
+  ]
+]

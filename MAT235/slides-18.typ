@@ -535,7 +535,7 @@
     Let $arrow(F): RR^2 -> RR^2$ be a vector field. The *curl* of $arrow(F)$ at a point $arrow(p)$,
     written as $"curl"(arrow(F))$ or $nabla times arrow(F)$ is defined as:
 
-    The limit of the (normalized) rotational force a small square at location $arrow(p)$ experiences
+    The limit of the (normalized) rotational force a small "L" at location $arrow(p)$ experiences
     _in the counter-clockwise direction_.
 
     Let $arrow(F)(x,y)=mat(-y^2; x)$ and let $arrow(p)=(1,2)$.
