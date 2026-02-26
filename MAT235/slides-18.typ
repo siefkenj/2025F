@@ -427,7 +427,7 @@
 #slide(title: [Siefken 11], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .78em)
+  #set text(size: .75em)
 
   #columns(2)[
     #{
@@ -465,7 +465,7 @@
       plot((x, y) => (-y, calc.sin(y + 1) + x / 5), title: $arrow(F):RR^2 -> RR^2$)
     }
     #colbreak()
-    A unit length rod, $R$, has floats on each of its ends. It is placed, oriented vertically, in a
+    The rod $R$ has length $h$ and has floats on each of its ends. It is placed, oriented vertically, in a
     pond described by $arrow(F)$ such that only its floats actually touch the water.
 
     Its bottom end is at location $arrow(p)$.
@@ -489,7 +489,7 @@
 
   #columns(2)[
     Let $arrow(F): RR^2 -> RR^2$ be a vector field describing the velocity of a fluid in a pond. A
-    tiny, tiny rod $R$ is placed at location $arrow(p)$
+    tiny rod $R$ (with floats on its ends) is placed at location $arrow(p)$.
 
     Suppose $R$ is placed *vertically* in the pond. The rotational force acting on $R$ (in the
     counter-clockwise direction) is
@@ -500,11 +500,11 @@
     + Suppose $R$ is placed *horizontally* in the pond. How could you estimate the rotational force
       on $R$? Is the force you computed acting in the clockwise or counter-clockwise direction?
 
-    + Suppose a tiny square $S$ is placed in the pond. How can you estimate the total rotational
-      force on $S$?
+    + Suppose you glue a horizontal and vertical rod together into an $L$ shape. How can you estimate the total rotational
+      force on the $L$?
 
-    + Find the _normalized_ rotational force on $S$. That is the rotational force per unit side
-      length of $S$.
+    + Find the _normalized_ rotational force on the $L$. That is the rotational force per unit side
+      length of the $L$.
 
 
 
