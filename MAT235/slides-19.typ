@@ -280,14 +280,148 @@
 
       Rephrase the ant question(s) using the term "flux".
 
-    + Suppose $arrow(G): RR^2 -> RR^2$ is a constant vector field. Let $Q$ be the line segment from $(0,0)$ to $(1,1)$.
+    + Suppose $arrow(G): RR^2 -> RR^2$ is a constant vector field. Let $Q$ be the line segment from
+      $(0,0)$ to $(1,1)$.
 
       How can you find the flux of $arrow(G)$ through $Q$?
 
-    + Suppose $arrow(H): RR^2 -> RR^2$ is non-constant vector field. Let $Q$ be the line segment from $(0,0)$ to $(1,1)$.
+    + Suppose $arrow(H): RR^2 -> RR^2$ is non-constant vector field. Let $Q$ be the line segment
+      from $(0,0)$ to $(1,1)$.
 
       How can you estimate the flux of $arrow(H)$ through $Q$?
 
       How could you find the _exact_ flux of $arrow(H)$ through $Q$?
+  ]
+]
+
+#slide(title: [Siefken 5], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        let ts = lq.arange(-1, 1.1, step: 0.1)
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          lq.plot(
+            ts.map(t => -t * t + 1),
+            ts,
+            mark: none,
+            stroke: 3pt,
+          ),
+        )
+      }
+
+      plot(
+        (x, y) => (3, 1), //, title: [$arrow(F)(x,y)=(3,1)$]
+      )
+    }
+    #colbreak()
+
+    On the left is the vector field $arrow(F)(x,y)=(3, 1)$ and the curve $C$ parameterized by
+    $
+      arrow(r)(t)=(-t^2 + 1, t) wide "for" wide t in [-1,1].
+    $
+
+    + Draw the segment of $C$ from $t=0$ to $t=0.5$.
+    + Estimate the flux through the segment of $C$ from $t=0$ to $t=0.5$.
+    + How can $arrow(r)'(0)$ be used to get an estimate similar to the previous part?
+    + Can you set up an integral to find the exact flux through the segment of $C$ from $t=-1$ to
+      $t=1$?
+  ]
+]
+
+#slide(title: [Siefken 6], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    Let $arrow(F):RR^3 -> RR^3$ be given by $arrow(F)(x,y,z)=(1,0,0)$
+
+    + Let $S$ be a _unit square_ with normal vector $arrow(n)=(1,0,0)$. Find the flux of $arrow(F)$
+      through $S$.
+    + Let $S$ be a unit square with normal vector $arrow(n)=(2,0,0)$. Find the flux of $arrow(F)$
+      through $S$.
+    + Let $S$ be a unit square with normal vector $arrow(n)=(1,1,1)$. Find the flux of $arrow(F)$
+      through $S$.
+      #colbreak()
+
+      Let $Q$ be the unit square with sides $arrow(a) = (0,0,1)$,
+      $arrow(b)=(sqrt(2)/2, sqrt(2)/2, 0)$ and corner at the origin.
+
+      Let $arrow(G)(x,y,z) = (x+2y,1, y-z)$
+
+    + How could one find the flux of $arrow(G)$ through $Q$?
+    + Parameterize $Q$.
+    + Find a normal vector to "$dif A$", a tiny piece of $Q$.
+
+      How long should this normal vector be to be useful when approximating the flux through $Q$?
+    + Set up and evaluate an integral to find the flux of $arrow(G)$ through $Q$.
+  ]
+]
+
+#slide(title: [Siefken 7], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $arrow(F):RR^3 -> RR^3$ be given by $arrow(F)(x,y,z)=(x,2y,3z)$
+
+    Let $C$ be a cylinder of radius 2 and height 1 centered on the $z$ axis.
+
+    Let $P$ be a parameterization of $C$.
+
+    + Is $RR^2$ an appropriate domain for $P$? If not, what would be an appropriate domain?
+    + Find a parameterization $P$ for the surface of the cylinder.
+    + Consider the rectangle with corners $P(t,s)$, $P(t + Delta t, s)$, $P(t, s + Delta s)$,
+      $P(t + Delta t, s + Delta s)$.
+
+      Use partial derivatives to find an (approximate) normal vector and the (approximate) area of
+      this rectangle.
+
+    + Set up an integral to find the flux of $arrow(F)$ through $C$.
+
+    + Find the flux of $arrow(F)$ through $C$.
+  ]
+]
+
+#slide(title: [Siefken 7], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+
+    Let $S$ be the surface defined by the parameterization $P(t,s) = mat(t; s; cos(t)+cos(s))$ where
+    $(t,s) in [-pi, pi]^2$
+
+    + Explore
+
+      https://www.desmos.com/3d/qoh1kzqemv
+
+      What are the parameters $k_1$ and $k_2$ and $Delta$ doing?
+
+    + Is the shaded grey patch an exact parallelogram? Why or why not?
+
+    + Find an approximate normal vector and the approximate area of the shaded grey patch. (Your
+      answer will depend on $k_1$ and $k_2$.)
+
+    + Let $arrow(F):RR^3 -> RR^3$ be a vector field. Set up an integral to find the flux of
+      $arrow(F)$ through $S$.
   ]
 ]
