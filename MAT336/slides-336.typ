@@ -1161,9 +1161,11 @@
 
   + Try to prove the intermediate value theorem.
 
-  + Define $C^- = {x in [a,b]: f(x) < c}$ and $C^+ = {x in [a,b]: f(x) > c}$.
+  + Define $C^- = {x in [a,b]: f(x) <= c}$ and $C^+ = {x in [a,b]: f(x) => c}$.
 
-    What can you say about $C^-$ and $C^+$? What about $C^- union C^+$?
+    Could either of $C^-$ or $C^+$ be empty?
+
+    What can you say about $C^- union C^+$?
 ]
 
 #slide(title: [Intermediate Value Theorem 2], autoscale: false)[
@@ -1174,9 +1176,21 @@
   #show: columns
   Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$.
 
-  Define $C^- = {x in [a,b]: f(x) < c}$ and $C^+ = {x in [a,b]: f(x) > c}$.
+  Define $C^- = {x in [a,b]: f(x) <= c}$ and $C^+ = {x in [a,b]: f(x) => c}$.
 
-  Assume there is no $x in [a,b]$ such that $f(x)=c$.
+  // Assume there is no $x in [a,b]$ such that $f(x)=c$.
 
   + What does $C^- union C^+$ equal?
+  + Partition $[a,b]$ into $n$ sub-intervals $[x_k, x_(k+1))$, etc. of equal length.
+
+    Claim: Either there is a sub-interval that intersects both $C^-$ and $C^+$ OR there is a $k$ so
+    $[x_(k-1),x_(k) ) subset C^-$ and $[x_(k),x_(k+1) ) subset C^+$ (or the other way around).
+
+    Do you believe the claim?
+  + Show there is a point $x_0 in [a,b]$ so that arbitrarily close to $x_0$ there are points in both
+    $C^-$ and $C^+$.
+
+    _Hint_: Find a way to use the nested interval property.
+
+  + Show that $f(x_0)=c$.
 ]
