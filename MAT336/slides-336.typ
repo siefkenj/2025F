@@ -1108,11 +1108,75 @@
 
   #show: columns
   #defn[Intermediate Value Property][
-    A function $f: RR -> RR$ has the _intermediate value property_ if for all $a,b in RR$ and all $y$ between $f(a)$
-    and $f(b)$, there exists a $c in [a,b]$ such that $f(c) = y$.
+    A function $f: RR -> RR$ has the _intermediate value property_ if for all $a,b in RR$ and all
+    $y$ between $f(a)$ and $f(b)$, there exists a $c in [a,b]$ such that $f(c) = y$.
   ]
 
-  + Let $H(x)=cases(1 & "if" x >= 0, 0 & "otherwise")$. Does $H$ have the intermediate value property? Prove your answer.
+  + Let $H(x)=cases(1 & "if" x >= 0, 0 & "otherwise")$. Does $H$ have the intermediate value
+    property? Prove your answer.
   + Let $L(x)=2x$. Does $L$ have the intermediate value property? Prove your answer.
-  + Let $s(x)=cases(1 & "if" x=0, sin(1/x) & "otherwise")$. Does $s$ have the intermediate value property? Prove your answer.
+  + Let $s(x)=cases(1 & "if" x=0, sin(1/x) & "otherwise")$. Does $s$ have the intermediate value
+    property? Prove your answer.
+  + Does the intermediate value property match what you feel a "continuous" function should be?
+]
+
+
+#slide(title: [Continuity], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  #defn[Continuity A][
+    $f$ is _continuous_ if a small change in the input produces a small change in the output.
+  ]
+  #defn[Continuity B][
+    $f$ is _continuous_ if the change in output can be made as small as one wishes by making the
+    change in input small.
+  ]
+  #defn[Continuity C][
+    $f$ is _continuous_ at $a$ if $lim_(x-> a) f(x) =f(a)$.
+  ]
+  #colbreak()
+
+  + Formalize definitions A, B, C (using quantifiers).
+  + Are any of the definitions equivalent?
+  + (Trivia) Do you know which definition is due to Bolzano and which is Cauchy's?
+]
+
+#slide(title: [Intermediate Value Theorem], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  #thm[Intermediate Value Theorem][
+    If $f$ is continuous, then it has the intermediate value property.
+  ][]
+
+  Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$.
+
+  + If we prove that there is an $x in [a,b]$ such that $f(x)=c$, will we have proved the
+    intermediate value theorem? Does the assumption that $f(a) < f(b)$ matter?
+
+  + Try to prove the intermediate value theorem.
+
+  + Define $C^- = {x in [a,b]: f(x) < c}$ and $C^+ = {x in [a,b]: f(x) > c}$.
+
+    What can you say about $C^-$ and $C^+$? What about $C^- union C^+$?
+]
+
+#slide(title: [Intermediate Value Theorem 2], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$.
+
+  Define $C^- = {x in [a,b]: f(x) < c}$ and $C^+ = {x in [a,b]: f(x) > c}$.
+
+  Assume there is no $x in [a,b]$ such that $f(x)=c$.
+
+  + What does $C^- union C^+$ equal?
 ]
