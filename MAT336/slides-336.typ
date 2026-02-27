@@ -1062,6 +1062,7 @@
   + Use the Cauchy's definition to prove that if $f(x)=x^2$, then $f'(3) = 6$.
 ]
 
+// Started week 8, finished week 9.
 #slide(title: [Problems with Derivatives], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
@@ -1096,4 +1097,22 @@
   ][]
 
   + Read through Cauchy's proof of the Mean Value Theorem. Are you convinced?
+]
+
+// Intermediate value property, then continuity, then sups and infs?
+
+#slide(title: [Intermediate Value Property], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  #defn[Intermediate Value Property][
+    A function $f: RR -> RR$ has the _intermediate value property_ if for all $a,b in RR$ and all $y$ between $f(a)$
+    and $f(b)$, there exists a $c in [a,b]$ such that $f(c) = y$.
+  ]
+
+  + Let $H(x)=cases(1 & "if" x >= 0, 0 & "otherwise")$. Does $H$ have the intermediate value property? Prove your answer.
+  + Let $L(x)=2x$. Does $L$ have the intermediate value property? Prove your answer.
+  + Let $s(x)=cases(1 & "if" x=0, sin(1/x) & "otherwise")$. Does $s$ have the intermediate value property? Prove your answer.
 ]
