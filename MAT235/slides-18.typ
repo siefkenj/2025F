@@ -465,8 +465,9 @@
       plot((x, y) => (-y, calc.sin(y + 1) + x / 5), title: $arrow(F):RR^2 -> RR^2$)
     }
     #colbreak()
-    The rod $R$ has length $h$ and has floats on each of its ends. It is placed, oriented vertically, in a
-    pond described by $arrow(F)$ such that only its floats actually touch the water.
+    The rod $R$ has length $h$ and has floats on each of its ends. It is placed, oriented
+    vertically, in a pond described by $arrow(F)$ such that only its floats actually touch the
+    water.
 
     Its bottom end is at location $arrow(p)$.
 
@@ -500,8 +501,8 @@
     + Suppose $R$ is placed *horizontally* in the pond. How could you estimate the rotational force
       on $R$? Is the force you computed acting in the clockwise or counter-clockwise direction?
 
-    + Suppose you glue a horizontal and vertical rod together into an $L$ shape. How can you estimate the total rotational
-      force on the $L$?
+    + Suppose you glue a horizontal and vertical rod together into an $L$ shape. How can you
+      estimate the total rotational force on the $L$?
 
     + Find the _normalized_ rotational force on the $L$. That is the rotational force per unit side
       length of the $L$.
@@ -642,7 +643,7 @@
 #slide(title: [Siefken 17], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .9em)
+  #set text(size: .85em)
 
   #columns(2)[
     Let $R$ be the surface of the cone $z = sqrt(x^2 + y^2)$.
@@ -650,10 +651,20 @@
     You would like to find a function $arrow(F)$ whose graph is $R$.
     + The function $arrow(F)$ must have domain $RR^?$ and codomain $RR^(??)$. Fill in the question
       marks.
-    + Find an example of $arrow(F)$ based on the idea of taking slices along the $arrow(i)$ and
-      $arrow(j)$ directions.
-    + Find an example of $arrow(F)$ based on the idea of taking horizontal (i.e., constant $z$)
-      slices and radial slices.
+    + A point on the cone can be found by first choosing an $x$ and $y$ coordinate and then finding
+      the height at that point.
+
+      Use this idea to find a function $arrow(F)$.
+
+    + A point on the cone can be found by first choosing an angle and then choosing a distance from
+      the $z$ axis.
+
+      Use this idea to find a function $arrow(F)$.
+
+    + A point on the cone can be found by first choosing a displacement from the vertex *along the
+      surface of the cone* and then choosing an angle.
+
+      Use this idea to find a function $arrow(F)$.
 
     + If you integrated a function over the surface $R$, should it matter what $arrow(F)$ you
       choose?
