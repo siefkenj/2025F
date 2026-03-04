@@ -400,7 +400,7 @@
   ]
 ]
 
-#slide(title: [Siefken 7], autoscale: false)[
+#slide(title: [Siefken 8], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
@@ -426,3 +426,188 @@
   ]
 ]
 
+#slide(title: [Siefken 9], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $arrow(F):RR^3 -> RR^3$ be a vector field and let $S$ be a surface.
+
+    The flux of $arrow(F)$ through $S$ is often written
+    $
+      integral_S arrow(F) dot dif arrow(A)
+    $
+
+    + Explain why this notation makes sense. What does $dif arrow(A)$ represent?
+    + What is the difference between $dif arrow(A)$ and the $dif A$ we had from 2-d integrals?
+    + In practice, how do we "find" $dif arrow(A)$?
+  ]
+]
+
+#slide(title: [Siefken 10], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    The unit sphere can be parameterized by
+    $
+      arrow(p)(theta, phi) = mat(
+        cos(theta) sin(phi);
+        sin(theta) sin(phi);
+        cos(phi)
+      )
+    $
+    with $(theta, phi) in [0, 2pi] times [0, pi]$
+
+    + Find the flux of $arrow(F)(x,y,z) = (x,2y,3z)$ through the unit sphere (oriented outward).
+    + Find the flux of $arrow(F)(x,y,z) = (x,2y,3z)$ through the unit sphere (oriented inward).
+  ]
+]
+
+#slide(title: [Siefken 11], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        let ts = lq.arange(-1, 1.1, step: 0.1)
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          lq.place(0, 0, {
+            cetz.canvas({
+              import cetz.draw: *
+
+              group(name: "figure", {
+                let shift = 0.1
+
+                rect((0, 0), (3, 3), stroke: blue + 2pt, name: "rod")
+                content("rod.center", [$S$], anchor: "center", padding: .2em)
+                content("rod.south-west", [$arrow(p)$], anchor: "north", padding: .2em)
+              })
+            })
+          }),
+        )
+      }
+
+      plot(
+        (x, y) => (3, 1), //, title: [$arrow(F)(x,y)=(3,1)$]
+      )
+    }
+    #colbreak()
+
+    Let $arrow(F): RR^2 -> RR^2$ be a vector field.
+
+    Consider the square $S$ with side lengths $h$ and lower left corner at $arrow(p)$.
+
+    + What are the options for the orientation of $S$ for a *path integral*? What about for a *flux
+      integral*?
+    + Write down the coordinates of the corners of $S$ in terms of $arrow(p)$ and $h$.
+    + Write down an integral (or sum of integrals) for the total flux of $arrow(F)$ through $S$
+      (oriented outward).
+  ]
+]
+
+#slide(title: [Siefken 12], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .85em)
+
+  #columns(2)[
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        let ts = lq.arange(-1, 1.1, step: 0.1)
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          lq.place(0, 0, {
+            cetz.canvas({
+              import cetz.draw: *
+
+              group(name: "figure", {
+                let shift = 0.1
+
+                rect((0, 0), (3, 3), stroke: blue + 2pt, name: "rod")
+                content("rod.center", [$S$], anchor: "center", padding: .2em)
+                content("rod.south-west", [$arrow(p)$], anchor: "north", padding: .2em)
+              })
+            })
+          }),
+        )
+      }
+
+      plot(
+        (x, y) => (3, 1), //, title: [$arrow(F)(x,y)=(3,1)$]
+      )
+    }
+    #colbreak()
+
+    Let $arrow(F): RR^2 -> RR^2$ be a vector field.
+
+    Consider the square $S$ with side lengths $h$ and lower left corner at $arrow(p)$.
+
+    + Consider
+      $
+        arrow(F)(arrow(p)) dot arrow(p) wide
+        arrow(F)(arrow(p)) dot mat(-h; 0) wide
+        arrow(F)(arrow(p)) dot mat(0; -h)
+      $
+      Which best approximates the flux through the _left_ side of $S$? When is the approximation
+      good?
+    + Find approximations of the flux through the other sides of $S$.
+    + Find an approximation for the total flux through $S$.
+  ]
+]
+
+#slide(title: [Siefken 12], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Recall $arrow(F): RR^2 -> RR^2$ is a vector field and $S$ is a square with side lengths $h$ and
+    lower left corner at $arrow(p)$.
+
+    We know
+    $
+      "flux through" S approx \
+      arrow(F)(arrow(p)) dot mat(-h; 0) +
+      arrow(F)(arrow(p) + mat(h; 0)) dot mat(h; 0) + \
+      arrow(F)(arrow(p)) dot mat(0; -h) +
+      arrow(F)(arrow(p) + mat(0; h)) dot mat(0; h)
+    $
+
+    #colbreak()
+
+    + Find a formula for the approximate flux through $S$ *per unit area*.
+    + Approximations to $partial/(partial x) arrow(F)(arrow(p))$ and
+      $partial/(partial y) arrow(F)(arrow(p))$ appear in your formula. Where are they?
+    + The *divergence* of a vector field is the flux per unit area at a point. How can your formula
+      be used to find the divergence of $arrow(F)$ at $arrow(p)$?
+    + Why is $"div"arrow(F)(arrow(p))$ written as $nabla dot arrow(F)(arrow(p))$ by physicists?
+  ]
+]

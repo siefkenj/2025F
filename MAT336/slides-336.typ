@@ -1194,3 +1194,135 @@
 
   + Show that $f(x_0)=c$.
 ]
+
+
+#slide(title: [Sups & Infs], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  #defn[Supremum & Infimum][
+    The _supremum_ of a non-empty, bounded set $X subset.eq RR$, written $sup X$, is the smallest
+    number $s$ that is an upper bound for $X$. That is, $s = min{s in RR: forall x in X, x <= s}$.
+
+    The _infimum_ of a non-empty, bounded set $X subset.eq RR$, written $inf X$, is the largest
+    number $i$ that is a lower bound for $X$.
+  ]
+
+  + What is $sup {1,2,3}$?
+  + What is $sup [0,5]$?
+  + What is $sup [0,5)$?
+  + What is $sup {1-1/n: n in NN}$?
+  + Show that if $X$ is a set and $max X$ exists, then $max X = sup X$.
+  + Does every non-empty bounded set have a supremum? Why or why not?
+  + Does an empty set have a supremum? What about an unbounded set?
+]
+
+#slide(title: [Intermediate Value Theorem 3], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$.
+
+  Define $y= sup {x in [a,b]: f(x) <= c}$
+
+  + Does $y$ exist?
+  + What is $f(y)$? Prove your answer.
+  + What proof of the intermediate value theorem do you like better?
+]
+
+#slide(title: [Extreme Value Theorem 1], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .77em)
+
+  #show: columns
+  #thm[][
+    If $f$ is continuous on $[a,b]$, then $f$ is bounded on $[a,b]$.
+  ][]
+
+  + If we showed that a continuous function on $[a,b]$ were bounded above, would that be sufficient
+    to prove the theorem?
+
+    #colbreak()
+    Let $f$ be continuous on $[a,b]$.
+
+    Define $B= {x in [a,b]: f "is bounded above on" [a,x]}$.
+
+    Let $y= sup B$.
+
+  + Does $y$ exist?
+  + Show that $B$ is an interval (with positive width).
+  + If $y=b$, how can we complete the proof?
+  + If $y < b$, how can we complete the proof?
+  // Idea: use continuity at $y$ to extend the bound from on [a,y-delta/4] to [a,y+delta/4], contradicting the definition of $y$.
+  + Where does the proof go wrong if we try to show a continuous function on $RR$ is bounded?
+]
+
+#slide(title: [Extreme Value Theorem 2], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .77em)
+
+  #show: columns
+  #thm[Extreme Value Theorem][
+    If $f$ is continuous on $[a,b]$, then $f$ achieves its upper and lower bounds on $[a,b]$.
+  ][]
+
+  + Write down what it means for $f$ to "achieve its bounds" using quantifiers.
+  + If we showed that a continuous function on $[a,b]$ were bounded above, would that be sufficient
+    to prove the theorem?
+
+    #colbreak()
+    Let $f$ be continuous on $[a,b]$.
+
+    Define $B= {x in [a,b]: f "is bounded above on" [a,x]}$.
+
+    Let $y= sup B$.
+
+  + Does $y$ exist?
+  + Show that $B$ is an interval (with positive width).
+  + If $y=b$, how can we complete the proof?
+  + If $y < b$, how can we complete the proof?
+  + Where does the proof go wrong if we try to show a continuous function on $RR$ is achieves its
+    bounds?
+]
+
+#slide(title: [Saving Cauchy's Proof], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .77em)
+
+  #show: columns
+  #defn[Uniform Continuity][
+    If $f$ is _uniformly continuous_ on the set $X subset.eq RR$ if for all $epsilon > 0$, there
+    exists a $delta > 0$ such that for all $x in X$, if $abs(x - y) < delta$ and $y in X$, then
+    $abs(f(x) - f(y)) < epsilon$.
+  ]
+
+  + What is the difference between uniform continuity and regular continuity?
+  + Could Cauchy have used uniform continuity to save his proof of the Mean Value Theorem? If so,
+    how?
+]
+
+#slide(title: [Uniform Continuity], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .77em)
+
+  #show: columns
+  #thm[Uniform Continuity on a Closed Interval][
+    If $f$ is continuous on $[a,b]$ then $f$ is uniformly continuous on $[a,b]$.
+  ][]
+
+  Let $f$ be a continuous function on $[a,b]$.
+
+  Fix $epsilon > 0$. Let $delta_x$ be a $delta$ that "works" at the point $x$.
+
+  + Formally write out, what property does $delta_x$ satisfy?
+
+  + Show that for all $y in [a, a + delta_a / 2]$, it is possible that $delta_y = delta_a / 2$.
+]
