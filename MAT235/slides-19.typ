@@ -525,7 +525,7 @@
 #slide(title: [Siefken 12], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .85em)
+  #set text(size: .81em)
 
   #columns(2)[
     #{
@@ -583,7 +583,7 @@
   ]
 ]
 
-#slide(title: [Siefken 12], autoscale: false)[
+#slide(title: [Siefken 13], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
@@ -609,5 +609,141 @@
     + The *divergence* of a vector field is the flux per unit area at a point. How can your formula
       be used to find the divergence of $arrow(F)$ at $arrow(p)$?
     + Why is $"div"arrow(F)(arrow(p))$ written as $nabla dot arrow(F)(arrow(p))$ by physicists?
+  ]
+]
+
+#slide(title: [Siefken 14], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #columns(2)[
+    Let $arrow(F): RR^2 -> RR^2$ be defined by $arrow(F)(x,y) = mat(x^2; -y)$.
+
+    Let $arrow(F): RR^3 -> RR^3$ be defined by $arrow(F)(x,y,z) = mat(2x+z; -z^3; x+y+z)$.
+
+    + Find the divergence of $arrow(F)$.
+    + Find the divergence of $arrow(G)$.
+    + The divergence of a vector field is said to give the "outward pressure" or "expansive
+      pressure" at a point. Does this description make sense?
+    + Come up with a vector field that has _positive_ divergence at the origin.
+  ]
+]
+
+#slide(title: [Siefken 15], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .81em)
+
+  #columns(2)[
+    #{
+      let width = 9cm
+      let height = width
+      let plot(f, title: none) = {
+        let ts = lq.arange(-1, 1.1, step: 0.1)
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+          lq.place(0, 0, {
+            cetz.canvas({
+              import cetz.draw: *
+
+              group(name: "figure", {
+                rect((0, 0), (3, 3), stroke: blue + 2pt, name: "rod")
+                content("rod.center", box(fill: white)[$S_1$], anchor: "center", padding: .2em)
+                // content("rod.south-west", [$arrow(p)$], anchor: "north", padding: .2em)
+              })
+              group(name: "figure2", {
+                translate((3, 0))
+
+                rect((0, 0), (3, 3), stroke: blue + 2pt, name: "rod")
+                content("rod.center", box(fill: white)[$S_2$], anchor: "center", padding: .2em)
+                // content("rod.south-west", [$arrow(p)$], anchor: "north", padding: .2em)
+              })
+            })
+          }),
+        )
+      }
+
+      plot(
+        (x, y) => (3, 1), //, title: [$arrow(F)(x,y)=(3,1)$]
+      )
+    }
+    #colbreak()
+
+    Let $arrow(F): RR^2 -> RR^2$ be a vector field.
+
+    Consider the regions $S_1$, $S_2$, and $S_3 = S_1 union S_2$, all oriented outward.
+
+    + How does the flux through $S_1$ and $S_2$ relate to the flux through $S_3$?
+    + The *divergence theorem* states that for a region $R$ and a smooth vector field $arrow(F)$,
+      that
+      $
+        integral_R ? wide = integral_(partial R) ??
+      $
+      Fill in $?$ and $??$.
+
+      Does the theorem make sense?
+  ]
+]
+
+#slide(title: [Siefken 16], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #columns(2)[
+    Let $arrow(F): RR^2 -> RR^2$ be a vector field defined by
+    $
+      arrow(F)(x,y) = (x/(x^2+y^2), y/(x^2+y^2))
+    $
+    #{
+      set align(center)
+      let width = 6cm
+      let height = width
+      let plot(f, title: none) = {
+        let ts = lq.arange(-1, 1.1, step: 0.1)
+        lq.diagram(
+          title: title,
+          width: width,
+          height: height,
+          lq.quiver(
+            lq.arange(-2, 3, step: .5),
+            lq.arange(-2, 3, step: .5),
+            f,
+          ),
+          xaxis: none,
+          yaxis: none,
+        )
+      }
+
+      plot(
+        (x, y) => (
+          x / calc.pow(x * x + y * y + 0.1, 3 / 2),
+          y / calc.pow(x * x + y * y + 0.1, 3 / 2),
+        ), //, title: [$arrow(F)(x,y)=(3,1)$]
+      )
+    }
+    #colbreak()
+
+
+    + Find the divergence of $arrow(F)$.
+    + Should the flux of $arrow(F)$ through a circle centered at the origin be positive, negative,
+      or zero? Why?
+    + What does the divergence theorem say about the flux of $arrow(F)$ through a circle centered at
+      the origin? Is the divergence theorem wrong?
+    + Let $C_1$ and $C_2$ be circles of radius $1$ and $2$ centered at the origin.
+
+      Find the flux of $arrow(F)$ through $C_1$ and $C_2$.
+    + Can the divergence theorem be used to explain the result from the previous part? What should
+      the flux through a circle of radius $k$ be?
   ]
 ]

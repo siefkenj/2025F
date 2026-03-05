@@ -1161,7 +1161,7 @@
 
   + Try to prove the intermediate value theorem.
 
-  + Define $C^- = {x in [a,b]: f(x) <= c}$ and $C^+ = {x in [a,b]: f(x) => c}$.
+  + Define $C^- = {x in [a,b]: f(x) <= c}$ and $C^+ = {x in [a,b]: f(x) >= c}$.
 
     Could either of $C^-$ or $C^+$ be empty?
 
@@ -1171,7 +1171,7 @@
 #slide(title: [Intermediate Value Theorem 2], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .9em)
+  #set text(size: .83em)
 
   #show: columns
   Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$.
@@ -1181,12 +1181,15 @@
   // Assume there is no $x in [a,b]$ such that $f(x)=c$.
 
   + What does $C^- union C^+$ equal?
-  + Partition $[a,b]$ into $n$ sub-intervals $[x_k, x_(k+1))$, etc. of equal length.
+  + Split $[a,b]$ in half into $L_1 = [a, (a+b)/2]$ and $R_1 = [(a+b)/2, b]$.
 
-    Claim: Either there is a sub-interval that intersects both $C^-$ and $C^+$ OR there is a $k$ so
-    $[x_(k-1),x_(k) ) subset C^-$ and $[x_(k),x_(k+1) ) subset C^+$ (or the other way around).
+    Claim: At least one of $L_1$ or $R_1$ intersects both $C^-$ and $C^+$.
 
     Do you believe the claim?
+  + Let $I_1=L_1$ if $L_1$ intersects both $C^-$ and $C^+$ otherwise let $I_1=R_1$.
+
+    Split $I_1$ in half into $L_2$ and $R_2$. One of these must intersect both $C^-$ and $C^+$. Let
+    $I_2$ be that interval and continue the process.
   + Show there is a point $x_0 in [a,b]$ so that arbitrarily close to $x_0$ there are points in both
     $C^-$ and $C^+$.
 
@@ -1204,10 +1207,11 @@
   #show: columns
   #defn[Supremum & Infimum][
     The _supremum_ of a non-empty, bounded set $X subset.eq RR$, written $sup X$, is the smallest
-    number $s$ that is an upper bound for $X$. That is, $s = min{s in RR: forall x in X, x <= s}$.
+    number $s in RR$ that is an upper bound for $X$. That is,
+    $s = min{s in RR: forall x in X, x <= s}$.
 
     The _infimum_ of a non-empty, bounded set $X subset.eq RR$, written $inf X$, is the largest
-    number $i$ that is a lower bound for $X$.
+    number $i in RR$ that is a lower bound for $X$.
   ]
 
   + What is $sup {1,2,3}$?
@@ -1227,9 +1231,10 @@
   #show: columns
   Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$.
 
-  Define $y= sup {x in [a,b]: f(x) <= c}$
+  Define $y= sup {x in [a,b]:forall t in [a,x], f(t) <= c}$
 
   + Does $y$ exist?
+  + How would you explain $y$ in words?
   + What is $f(y)$? Prove your answer.
   + What proof of the intermediate value theorem do you like better?
 ]
@@ -1311,7 +1316,7 @@
 #slide(title: [Uniform Continuity], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .77em)
+  #set text(size: 1em)
 
   #show: columns
   #thm[Uniform Continuity on a Closed Interval][
@@ -1320,9 +1325,10 @@
 
   Let $f$ be a continuous function on $[a,b]$.
 
-  Fix $epsilon > 0$. Let $delta_x$ be a $delta$ that "works" at the point $x$.
+  Fix $epsilon > 0$. Let $delta_(epsilon,x)$ be a $delta$ that "works" at the point $x$ for the error bound $epsilon$.
 
-  + Formally write out, what property does $delta_x$ satisfy?
+  + Formally write out, what property does $delta_(epsilon,x)$ satisfy?
 
-  + Show that for all $y in [a, a + delta_a / 2]$, it is possible that $delta_y = delta_a / 2$.
+  + Show that for all $y in [a, a + delta_(epsilon/2,a) / 2]$, it is sufficient to let $delta_(epsilon,y) = delta_(epsilon/2,a) / 2$.
+  + 
 ]
