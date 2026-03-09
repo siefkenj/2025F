@@ -1168,7 +1168,7 @@
     What can you say about $C^- union C^+$?
 ]
 
-#slide(title: [Intermediate Value Theorem 2], autoscale: false)[
+#slide(title: [Intermediate Value Theorem 2 (Cauchy's Proof)], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .83em)
@@ -1223,7 +1223,7 @@
   + Does an empty set have a supremum? What about an unbounded set?
 ]
 
-#slide(title: [Intermediate Value Theorem 3], autoscale: false)[
+#slide(title: [Intermediate Value Theorem 3 (Bolzano's Proof)], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
   #set text(size: .9em)
@@ -1278,22 +1278,18 @@
   ][]
 
   + Write down what it means for $f$ to "achieve its bounds" using quantifiers.
-  + If we showed that a continuous function on $[a,b]$ were bounded above, would that be sufficient
-    to prove the theorem?
+  + If we showed that a continuous function on $[a,b]$ achieves its maximum, would that be
+    sufficient?
 
     #colbreak()
-    Let $f$ be continuous on $[a,b]$.
+    Let $f$ be continuous on $[a,b]$. Let $M=sup{f(x):x in [a,b]}$.
 
-    Define $B= {x in [a,b]: f "is bounded above on" [a,x]}$.
+    Define $B= {x in [a,b]: forall t in [a,x], space f(t) < M}$.
 
     Let $y= sup B$.
 
   + Does $y$ exist?
-  + Show that $B$ is an interval (with positive width).
-  + If $y=b$, how can we complete the proof?
-  + If $y < b$, how can we complete the proof?
-  + Where does the proof go wrong if we try to show a continuous function on $RR$ is achieves its
-    bounds?
+  + Show that $f(y)=M$.
 ]
 
 #slide(title: [Saving Cauchy's Proof], autoscale: false)[
@@ -1325,10 +1321,12 @@
 
   Let $f$ be a continuous function on $[a,b]$.
 
-  Fix $epsilon > 0$. Let $delta_(epsilon,x)$ be a $delta$ that "works" at the point $x$ for the error bound $epsilon$.
+  Fix $epsilon > 0$. Let $delta_(epsilon,x)$ be a $delta$ that "works" at the point $x$ for the
+  error bound $epsilon$.
 
   + Formally write out, what property does $delta_(epsilon,x)$ satisfy?
 
-  + Show that for all $y in [a, a + delta_(epsilon/2,a) / 2]$, it is sufficient to let $delta_(epsilon,y) = delta_(epsilon/2,a) / 2$.
-  + 
+  + Show that for all $y in [a, a + delta_(epsilon/2,a) / 2]$, it is sufficient to let
+    $delta_(epsilon,y) = delta_(epsilon/2,a) / 2$.
+  +
 ]
