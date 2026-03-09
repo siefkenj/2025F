@@ -1290,6 +1290,7 @@
 
   + Does $y$ exist?
   + Show that $f(y)=M$.
+  + Is the proof finished?
 ]
 
 #slide(title: [Saving Cauchy's Proof], autoscale: false)[
