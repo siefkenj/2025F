@@ -1293,6 +1293,52 @@
   + Is the proof finished?
 ]
 
+#slide(title: [Correct Mean Value Theorem Proof], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .77em)
+
+  #show: columns
+  #thm[Rolle's Theorem][
+    If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$ and $f(a)=f(b)$, then there exists
+    a $c in (a,b)$ such that $f'(c)=0$.
+  ][]
+
+  Assume $f$ satisfies the hypothesis of Rolle's theorem.
+
+  Let $M=sup{f(x) : x in [a,b]}$ and $m=inf{f(x): x in [a,b]}$.
+
+  Let $c in [a,b]$ be the smallest number in $[a,b]$ such that $f(c)=M$.
+
+  + What is the smallest $M$ could be? What is the largest $m$ could be?
+  + Must $c$ exist?
+  + Complete the proof if $M=m$.
+  + Suppose we showed that if $M > f(a)$ then $c in (a,b)$ and $f'(c)=0$. How could we use this
+    result to prove Rolle's theorem?
+  + Suppose $M > f(a)$. Show $c in (a,b)$.
+  + Suppose $M > f(a)$. Show $(f(c+h)-f(c))/h <= 0$ for all small enough $h$.
+  + Suppose $M > f(a)$. Show $(f(c+h)-f(c))/h > 0$ for infinitely many small $h$.
+  + Show $f'(c)=0$.
+  + Prove Rolle's theorem.
+]
+
+#slide(title: [Correct Mean Value Theorem Proof], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .77em)
+
+  #show: columns
+  #thm[Mean Value Theorem][
+    If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists
+    a $c in (a,b)$ such that $f'(c)=(f(b)-f(a))/(b-a)$.
+  ][]
+
+  Let $f$ satisfy the hypothesis of the theorem.
+
+  + Can you apply Rolle's theorem? Could you apply Rolle's theorem to a modified version of $f$?
+  + Prove the Mean Value Theorem.
+]
+
 #slide(title: [Saving Cauchy's Proof], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
