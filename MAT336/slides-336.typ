@@ -1174,9 +1174,10 @@
   #set text(size: .83em)
 
   #show: columns
-  Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$.
+  Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$ and assume
+  $f(a) < c < f(b)$.
 
-  Define $C^- = {x in [a,b]: f(x) <= c}$ and $C^+ = {x in [a,b]: f(x) => c}$.
+  Define $C^- = {x in [a,b]: f(x) <= c}$ and $C^+ = {x in [a,b]: f(x) >= c}$.
 
   // Assume there is no $x in [a,b]$ such that $f(x)=c$.
 
@@ -1329,8 +1330,8 @@
 
   #show: columns
   #thm[Mean Value Theorem][
-    If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists
-    a $c in (a,b)$ such that $f'(c)=(f(b)-f(a))/(b-a)$.
+    If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists a $c in (a,b)$
+    such that $f'(c)=(f(b)-f(a))/(b-a)$.
   ][]
 
   Let $f$ satisfy the hypothesis of the theorem.
