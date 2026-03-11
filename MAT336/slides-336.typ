@@ -1174,8 +1174,7 @@
   #set text(size: .83em)
 
   #show: columns
-  Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$ and assume
-  $f(a) < c < f(b)$.
+  Let $f$ be continuous. Fix $a<b$ and assume $f(a) < f(b)$. Let $c in [f(a), f(b)]$.
 
   Define $C^- = {x in [a,b]: f(x) <= c}$ and $C^+ = {x in [a,b]: f(x) >= c}$.
 
