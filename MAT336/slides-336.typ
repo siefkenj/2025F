@@ -1313,11 +1313,12 @@
   + What is the smallest $M$ could be? What is the largest $m$ could be?
   + Must $c$ exist?
   + Complete the proof if $M=m$.
-  + Suppose we showed that if $M > f(a)$ then $c in (a,b)$ and $f'(c)=0$. How could we use this
-    result to prove Rolle's theorem?
-  + Suppose $M > f(a)$. Show $c in (a,b)$.
-  + Suppose $M > f(a)$. Show $(f(c+h)-f(c))/h <= 0$ for all small enough $h$.
-  + Suppose $M > f(a)$. Show $(f(c+h)-f(c))/h > 0$ for infinitely many small $h$.
+  + Without loss of generality, we may assume $f(a) < M$. Why?
+  + Suppose $f(a) < M$. Show $c in (a,b)$.
+  + Suppose $f(a) < M$. Show $(f(c+h)-f(c))/h <= 0$ for all $h>0$. _Hint_: use the fact that
+    $f(c)=M$.
+  + Suppose $f(a) < M$. Show $(f(c+h)-f(c))/h > 0$ for infinitely many small $h<0$. _Hint_: use the
+    definition of $c$.
   + Show $f'(c)=0$.
   + Prove Rolle's theorem.
 ]
@@ -1325,7 +1326,7 @@
 #slide(title: [Correct Mean Value Theorem Proof], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .77em)
+  #set text(size: .9em)
 
   #show: columns
   #thm[Mean Value Theorem][
@@ -1338,6 +1339,52 @@
   + Can you apply Rolle's theorem? Could you apply Rolle's theorem to a modified version of $f$?
   + Prove the Mean Value Theorem.
 ]
+
+
+#slide(title: [The Cauchy Criterion], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Let $S_m^n = sum_(i=m)^n a_i$ for a sequence $(a_n)_(n in NN)$.
+
+
+  If $S_0^oo = sum_(i=0)^oo a_i$ is an infinite series, the *tail sums* of $S$ are the
+  $S_N^oo = sum_(i=N)^oo a_i$ where $N in NN$.
+
+  + Show that if a series converges, then so do all its tail sums.
+  + Show that if a tail sum of a series converges, then so does the original series.
+  + Show that a series converges if and only if its tail sums can be made arbitrarily small by
+    taking $N$ sufficiently large.
+
+    #colbreak()
+    Cauchy found a clever way of talking about tail sums. Let $S_0^n = sum_(i=0)^n a_i$. We say
+    $S_0^n$ satisfies the *Cauchy Criterion* if for all $epsilon > 0$, there exists an $N$ such that
+    for all $n,m > N$, we have
+    $ abs(S_n - S_m) < epsilon. $
+  + Show that being able to make tail sums arbitrarily small is equivalent to satisfying the Cauchy
+    criterion.
+]
+
+#slide(title: [Absolute Convergence], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Let $S_m^n = sum_(i=m)^n a_i$. Define $overline(S)_m^n = sum_(i=m)^n abs(a_i)$.
+
+  We say $S_0^oo$ is *absolutely convergent* if $overline(S)_0^oo$ converges.
+
+  + Write down what it would mean for the sequence $overline(S)_0^n$ to be Cauchy.
+  + What is the relationship between $abs(S_m^n)$ and $overline(S)_m^n$? How do you know?
+  + Show that if $overline(S)_0^n$ is Cauchy, then $S_0^n$ is Cauchy.
+  + If $overline(S)_0^oo$ converges, must $S_0^oo$ converge?
+  + If $S_0^oo$ converges, must $overline(S)_0^oo$ converge?
+
+]
+
 
 #slide(title: [Saving Cauchy's Proof], autoscale: false)[
   #show: place.with(dy: 1.3cm)
