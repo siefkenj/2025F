@@ -620,13 +620,13 @@
   #columns(2)[
     Let $arrow(F): RR^2 -> RR^2$ be defined by $arrow(F)(x,y) = mat(x^2; -y)$.
 
-    Let $arrow(F): RR^3 -> RR^3$ be defined by $arrow(F)(x,y,z) = mat(2x+z; -z^3; x+y+z)$.
+    Let $arrow(G): RR^3 -> RR^3$ be defined by $arrow(G)(x,y,z) = mat(-2x+z; -z^3; x+y+z)$.
 
     + Find the divergence of $arrow(F)$.
     + Find the divergence of $arrow(G)$.
     + The divergence of a vector field is said to give the "outward pressure" or "expansive
       pressure" at a point. Does this description make sense?
-    + Come up with a vector field that has _positive_ divergence at the origin.
+    + Draw a vector field that has _positive_ divergence at the origin.
   ]
 ]
 
