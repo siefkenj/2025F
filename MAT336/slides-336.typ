@@ -1282,15 +1282,16 @@
     sufficient?
 
     #colbreak()
-    Let $f$ be continuous on $[a,b]$. Let $M=sup{f(x):x in [a,b]}$.
+    Let $f$ be continuous on $[a,b]$. Let $g(x)=sup{f(t):t in [a,x]}$.
 
-    Define $B= {x in [a,b]: forall t in [a,x], space f(t) < M}$.
+    Define $B= {x in [a,b]: g(x) = M}$.
 
-    Let $y= sup B$.
+    Let $y= inf B$.
 
   + Does $y$ exist?
-  + Show that $f(y)=M$.
-  + Is the proof finished?
+  + Show that if $y < b$, then $f(y)=M$.
+  + Show that if $x < y$, then $g(x) < g(y)$.
+  + Show if $y=b$, then $f(y)=M$.
 ]
 
 #slide(title: [Correct Mean Value Theorem Proof], autoscale: false)[
@@ -1350,8 +1351,8 @@
   Let $S_m^n = sum_(i=m)^n a_i$ for a sequence $(a_n)_(n in NN)$.
 
 
-  If $S_0^oo = sum_(i=0)^oo a_i$ is an infinite series, the *tail sums* of $S$ are the
-  $S_N^oo = sum_(i=N)^oo a_i$ where $N in NN$.
+  If $S_0^oo = sum_(i=0)^oo a_i$ is an infinite series, the *tail sums* of $S$ are
+  $S_M^oo = sum_(i=M)^oo a_i$ where $M in NN$.
 
   + Show that if a series converges, then so do all its tail sums.
   + Show that if a tail sum of a series converges, then so does the original series.
@@ -1385,6 +1386,49 @@
 
 ]
 
+#slide(title: [Rearrangements], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Consider the series $A$ given by $a_0+a_1+dots.c$ and $B$ given by $b_0 + b_1 + dots.c$ where
+  $
+    b_0 & = (a_0 + dots.c + a_(k_0)) \
+    b_1 & = (a_(k_0+1) + dots.c + a_(k_1)) \
+    b_2 & = ...
+  $
+  is formed by adding parenthesis to $A$.
+
+  + Is $k_i >= i$ for all $i$? Why or why not?
+  + Show if $A$ converges, then $B$ converges to the same value.
+
+  // XXX: fill in exercise about rearrangements.
+]
+
+#slide(title: [Absolute Convergence of Power Series], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .9em)
+
+  #show: columns
+  Let $P(x)=sum_(i=0)^oo a_i x^i$ be a power series.
+
+  Suppose $P$ converges at $x$.
+
+  + What can you say about the limit of $a_i x^i$? What about $abs(a_i x^i)$?
+
+    We want to show that $P(x/2)$ converges _absolutely_.
+
+  + What would it mean for $P(x/2)$ to converge absolutely according to the Cauchy criterion?
+  + Fix $N_1$ large enough so that $i> N_1$ implies $abs(a_i x^i) < 1$. Use this to give an upper
+    bound on on your sums from the previous part.
+  + Show that $P(x/2)$ converges absolutely.
+  + Show that $P(alpha x)$ converges absolutely for all $alpha in (-1,1)$.
+  + Prove the a power series always converges on an _interval_ and that a power series converges
+    absolutely on the interior of that interval.
+
+]
 
 #slide(title: [Saving Cauchy's Proof], autoscale: false)[
   #show: place.with(dy: 1.3cm)
