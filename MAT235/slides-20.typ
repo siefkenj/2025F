@@ -105,10 +105,10 @@
       plot((x, y) => (-y, calc.sin(y + 1) + x / 5), title: $arrow(F):RR^2 -> RR^2$)
     }
     #colbreak()
-    The orthogonal frame $R$, with side lengths $h$, is being pushed at its ends by a field
+    The orthogonal frame, $R$, with side lengths $h$, is being pushed at its ends by a field
     $arrow(F)$.
 
-    Its bottom end is at location $arrow(p)$.
+    Its bottom-left corner is located at $arrow(p)$.
 
     + The rotational force on $R$ is given by
       $
@@ -180,15 +180,15 @@
 
     + Use what you know about rotational forces to write down an approximation for the circulation
       per unit area around $S$.
-    + Find an approximation for the circulation around $S$ (not normalized).
     + Find the circulation density at $arrow(p)$.
+    + Find an approximation for the circulation around $S$ (not normalized).
   ]
 ]
 
 #slide(title: [Siefken 3], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .85em)
+  #set text(size: .8em)
 
   #columns(2)[
 
@@ -204,6 +204,8 @@
     + Use your diagram to find the circulation density at $arrow(p)$ around the axis $arrow(v)$.
 
       _Hint:_ thinking about normalized rotational forces might make it easier.
+
+      #colbreak()
 
     + Find the circulation density at $arrow(p)$ around the axis $arrow(v)=(0,1,0)$.
     + Find the circulation density at $arrow(p)$ around the axis $arrow(v)=(1,0,0)$.
