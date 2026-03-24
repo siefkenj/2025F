@@ -1348,7 +1348,7 @@
   #set text(size: .9em)
 
   #show: columns
-  Let $S_m^n = sum_(i=m)^n a_i$ for a sequence $(a_n)_(n in NN)$.
+  For a sequence $(a_i)_(i in NN)$, define $S_m^n = sum_(i=m)^n a_i$.
 
 
   If $S_0^oo = sum_(i=0)^oo a_i$ is an infinite series, the *tail sums* of $S$ are
@@ -1363,7 +1363,7 @@
     Cauchy found a clever way of talking about tail sums. Let $S_0^n = sum_(i=0)^n a_i$. We say
     $S_0^n$ satisfies the *Cauchy Criterion* if for all $epsilon > 0$, there exists an $N$ such that
     for all $n,m > N$, we have
-    $ abs(S_n - S_m) < epsilon. $
+    $ abs(S_0^n - S_0^m) < epsilon. $
   + Show that being able to make tail sums arbitrarily small is equivalent to satisfying the Cauchy
     criterion.
 ]
@@ -1386,10 +1386,10 @@
 
 ]
 
-#slide(title: [Rearrangements], autoscale: false)[
+#slide(title: [Parenthesis & Rearrangements I], autoscale: false)[
   #show: place.with(dy: 1.3cm)
   #show: block.with(height: 10cm, breakable: false)
-  #set text(size: .9em)
+  #set text(size: .75em)
 
   #show: columns
   Consider the series $A$ given by $a_0+a_1+dots.c$ and $B$ given by $b_0 + b_1 + dots.c$ where
@@ -1402,8 +1402,47 @@
 
   + Is $k_i >= i$ for all $i$? Why or why not?
   + Show if $A$ converges, then $B$ converges to the same value.
+  + Is the converse true? If $B$ converges, does $A$ converge to the same value?
 
-  // XXX: fill in exercise about rearrangements.
+    #colbreak()
+
+  + Suppose $a_i >= 0$ for all $i$ and that $A_0^n$ is bounded above. Does $A$ converge?
+
+    _Hint_: think about $limsup A_0^n$.
+
+  + Show if $overline(A)_0^n$ (the partial sums of $abs(a_i)$) is bounded above, then $A$ converges.
+
+  + What is a _rearrangement_ of the series $A$? Write down a rigorous definition.
+]
+
+#slide(title: [Parenthesis & Rearrangements II], autoscale: false)[
+  #show: place.with(dy: 1.3cm)
+  #show: block.with(height: 10cm, breakable: false)
+  #set text(size: .8em)
+
+  #show: columns
+  Let $A$ given by $a_0+a_1+dots.c$ be _absolutely convergent_. Let $k_n : NN -> NN$ be a bijection
+  and let $B$ given by $a_(k_0) + a_(k_1) + dots.c$ be a rearrangement of $A$.
+
+  Fix $epsilon> 0$ and fix $N$ such that $abs(overline(A)_N^oo) < epsilon$.
+
+  + Does $N$ exist?
+
+  + Let $N'$ be such that ${1,2,...,N} subset.eq {k_0, k_1, ..., k_(N')}$.
+
+    Does $N'$ exist? Why or why not? What is its relationship to $N$?
+  + Let $M = max{k_0, k_1, ..., k_(N')}$.
+
+    What is the relationship between $N$ and $M$?
+  + Fix $n > M$. Show that
+    $
+      B_0^n <= A_0^N + overline(A)_(N+1)^oo < A_0^N + epsilon.
+    $
+  + Find a suitable lower bound for $B_0^n$
+  + Show that $B$ converges to the same value that $A$ converges to.
+  + If the "absolutely convergent" assumption were dropped, would the result still hold?
+
+
 ]
 
 #slide(title: [Absolute Convergence of Power Series], autoscale: false)[
