@@ -206,7 +206,53 @@
       _Hint:_ thinking about normalized rotational forces might make it easier.
 
       #colbreak()
+    + Annotate the squares below with arrows indicating how a *counter clockwise* circulation would
+      flow around the (positive) $arrow(z)$-axis.
+      #set align(center)
+      #stack(
+        dir: ltr,
+        spacing: 1em,
+        cetz.canvas({
+          import cetz.draw: *
 
+          // content((0, 1.6, 0), anchor: "south", text(size: 14pt, [()]))
+
+
+          line((0, 0), (x: 2), mark: (end: ">"), name: "x")
+          line((0, 0), (y: -2), mark: (end: ">"), name: "y")
+          line((0, 0), (z: 2), mark: (end: ">"), name: "z")
+
+
+          line((0, 0), (y: -1), stroke: 2pt + blue)
+          line((1, 0), (y: -1, x: 1), stroke: 2pt + blue)
+          line((0, 0), (x: 1), stroke: 2pt + blue)
+          line((0, -1), (x: 1, y: -1), stroke: 2pt + blue)
+
+          content("x.end", anchor: "west", $y$)
+          content("y.end", anchor: "north", $x$)
+          content("z.end", anchor: "north", $z$)
+        }),
+        cetz.canvas({
+          import cetz.draw: *
+
+          // content((0, 1.6, 0), anchor: "south", text(size: 14pt, [()]))
+
+
+          line((0, 0), (x: 2), mark: (end: ">"), name: "x")
+          line((0, 0), (y: -2), mark: (end: ">"), name: "y")
+          line((0, 0), (z: -2), mark: (end: ">"), name: "z")
+
+
+          line((0, 0), (y: -1), stroke: 2pt + blue)
+          line((1, 0), (y: -1, x: 1), stroke: 2pt + blue)
+          line((0, 0), (x: 1), stroke: 2pt + blue)
+          line((0, -1), (x: 1, y: -1), stroke: 2pt + blue)
+
+          content("x.end", anchor: "west", $x$)
+          content("y.end", anchor: "north", $y$)
+          content("z.end", anchor: "west", $z$)
+        }),
+      )
     + Find the circulation density at $arrow(p)$ around the axis $arrow(v)=(0,1,0)$.
     + Find the circulation density at $arrow(p)$ around the axis $arrow(v)=(1,0,0)$.
   ]
