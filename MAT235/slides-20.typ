@@ -222,7 +222,7 @@
     Suppose $arrow(F):RR^3 -> RR^3$.
 
     Let $arrow(p)$ be a point. Let $arrow(v)$ be the axis around which the circulation density of
-    $arrow(F)$ is greatest.
+    $arrow(F)$ is *greatest*.
 
     The *curl of $arrow(F)$ at $arrow(p)$* is a vector in the direction of $arrow(v)$ whose length
     is equal to the circulation density around $arrow(v)$.
