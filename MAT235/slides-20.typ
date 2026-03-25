@@ -239,8 +239,8 @@
       *Theorem 2*: Curl is additive. I.e., the curl of $arrow(F) + arrow(G)$ equals the curl of
       $arrow(F)$ plus the curl of $arrow(G)$.
 
-    + Find the curl of $arrow(F)^x$, $arrow(F)^y$, and $arrow(F)^z$ at $arrow(p)$.
-    + Find the curl of $arrow(F)$ at $arrow(p)$.
+    + Find formulas for the curl of $arrow(F)^x$, $arrow(F)^y$, and $arrow(F)^z$ at $arrow(p)$.
+    + Find formulas for the curl of $arrow(F)$ at $arrow(p)$.
     + Why is curl of $arrow(F)$ written as $nabla times arrow(F)$ by physicists?
   ]
 ]
